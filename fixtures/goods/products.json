@@ -1,0 +1,1136 @@
+[
+{
+    "model": "goods.products",
+    "pk": 1,
+    "fields": {
+        "name": "Kitchen table",
+        "slug": "kitchen-table",
+        "description": "The simplest kitchen table that will easily fit into any interior.  There are different colors, it is better to check availability by phone or write to the company. Sold individually and in bulk, the price for wholesale is lower.",
+        "image": "goods_images/chair-643246_1920.jpg",
+        "price": "750.00",
+        "discount": "10.00",
+        "quantity": 35,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 2,
+    "fields": {
+        "name": "Mini table for living room or bedroom",
+        "slug": "chajnyj-stolik-i-dva-stula",
+        "description": "The table comes in three sizes. Large, medium and small, and also made from different wood at your discretion: oak, ash, pine, beech, acacia.",
+        "image": "goods_images/living-room-table-4037281_1920.jpg",
+        "price": "900.00",
+        "discount": "0.00",
+        "quantity": 10,
+        "category": 5
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 3,
+    "fields": {
+        "name": "Double bed",
+        "slug": "dvuhspalnaya-krovat",
+        "description": "A double bed is a perfect blend of comfort and style, offering ample space for one or two people. It enhances any bedroom with its elegant design, whether minimalist, upholstered, or modern. Ideal for restful sleep, it provides support and relaxation after a long day. Versatile for singles, couples, or guests, it fits various needs effortlessly. With customizable materials and storage options, it becomes a cozy retreat for ultimate comfort.",
+        "image": "goods_images/bedroom-8323949_1920.jpg",
+        "price": "12500.00",
+        "discount": "25.00",
+        "quantity": 7,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 4,
+    "fields": {
+        "name": "Kitchen table with chairs",
+        "slug": "kitchen-table-with-chairs",
+        "description": "A kitchen table with chairs is the heart of every home, bringing people together for meals, conversations, and memories. Whether rustic, modern, or minimalist, it enhances the space with both function and style. Designed for comfort, the chairs provide the perfect seating for long gatherings. Ideal for family dinners or casual breakfasts, it suits any occasion. With various materials and sizes, it seamlessly fits into any kitchen, creating a warm and inviting atmosphere. 2-4 chairs to choose from.",
+        "image": "goods_images/chairs-7166790_1920.jpg",
+        "price": "4500.00",
+        "discount": "0.00",
+        "quantity": 3,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 5,
+    "fields": {
+        "name": "Kitchen table with sink",
+        "slug": "kuhonnyj-stol-s-vstrojkoj",
+        "description": "A kitchen table with a sink combines functionality and convenience, making food prep and cleanup effortless. Perfect for small kitchens, outdoor spaces, or multi-purpose areas, it maximizes efficiency. With built-in plumbing, it provides a seamless workspace for washing, cutting, and cooking. Available in various materials like stainless steel or wood, it suits different styles. Ideal for chefs, bakers, or home cooks, it transforms any kitchen into a practical and stylish hub.",
+        "image": "goods_images/kitchen-6893082_1920.jpg",
+        "price": "8800.00",
+        "discount": "20.00",
+        "quantity": 9,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 7,
+    "fields": {
+        "name": "Bedside table",
+        "slug": "prikrovatnyj-stolik",
+        "description": "A bedside table is a stylish and practical addition to any bedroom, offering storage and convenience within armтАЩs reach. Perfect for holding lamps, books, or essentials, it enhances both comfort and decor. Available in various designs, from sleek modern to classic wooden styles, it complements any space. Some feature drawers or shelves for extra organization. A bedside table adds functionality while creating a cozy, well-designed bedroom.",
+        "image": "goods_images/nightstand-1521958_1920.jpg",
+        "price": "1800.00",
+        "discount": "15.00",
+        "quantity": 8,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 8,
+    "fields": {
+        "name": "Corner sofa small",
+        "slug": "divan-small",
+        "description": "An ordinary sofa is a timeless and versatile piece of furniture, offering comfort and style for any living space. Perfect for relaxing, socializing, or even napping, it fits seamlessly into various interiors. Available in different materials, colors, and sizes, it can be customized to suit any decor. Some models include storage or convertible options for added functionality. A sofa is more than just seatingтАФitтАЩs the heart of a cozy and inviting home.",
+        "image": "goods_images/sofa-8539130_1920.jpg",
+        "price": "3800.00",
+        "discount": "0.00",
+        "quantity": 14,
+        "category": 5
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 9,
+    "fields": {
+        "name": "Office chair",
+        "slug": "stul-ofisnyj",
+        "description": "An office chair is an indispensable element of the workspace, providing comfort, back support and correct posture during prolonged sitting.\r\nKey Features:\r\nErgonomic design - backrest with lumbar support reduces stress on the spine.\r\nHeight adjustment тАУ тАЛтАЛgas lift allows you to adjust the chair to your height and workplace.\r\nRocking mechanism тАУ provides freedom of movement and comfort during long periods of sitting.\r\nArmrests тАУ for a comfortable position of the arms, reducing tension in the shoulders.\r\nBreathable upholstery - mesh or fabric surface prevents overheating.\r\nDurable wheels and base - smooth movement on any surface without scratches.\r\nThis chair is ideal for both the office and home office, providing comfort and support even during long work days.",
+        "image": "goods_images/88880.jpg",
+        "price": "2500.00",
+        "discount": "0.00",
+        "quantity": 14,
+        "category": 6
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 10,
+    "fields": {
+        "name": "Plant",
+        "slug": "plant",
+        "description": "A plant for decor brings life, freshness, and a touch of nature to any space. Whether a small potted succulent or a tall leafy tree, it enhances aesthetics and creates a calming atmosphere. Plants improve air quality while adding color and texture to interiors. Perfect for homes, offices, or cafes, they suit any style from modern to bohemian. A well-placed plant transforms a room into a cozy and inviting space.",
+        "image": "goods_images/plant-7634186_1920.jpg",
+        "price": "100.00",
+        "discount": "10.00",
+        "quantity": 30,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 11,
+    "fields": {
+        "name": "Stylized flower",
+        "slug": "cvetok-stilizirovannyj",
+        "description": "A stylized flower is a decorative element that adds elegance and artistic charm to any space. With unique shapes, bold colors, or intricate designs, it enhances interiors with a modern or vintage touch. Whether in paintings, sculptures, or textiles, it brings beauty and sophistication. Perfect for home decor, fashion, or graphic design, a stylized flower creates a striking visual statement.",
+        "image": "goods_images/cactus-2801322_1920.jpg",
+        "price": "300.00",
+        "discount": "0.00",
+        "quantity": 22,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 12,
+    "fields": {
+        "name": "Small table with drawers",
+        "slug": "prosto-stolik",
+        "description": "A small table is a compact and versatile piece of furniture, perfect for any space. It serves as a coffee table, nightstand, or side table, adding both function and style. Available in various designs, from modern to classic, it complements any decor. Some models include storage options for extra convenience. A small table is an elegant and practical addition to any home.",
+        "image": "goods_images/table-2587598_1920.jpg",
+        "price": "2700.00",
+        "discount": "30.00",
+        "quantity": 7,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 13,
+    "fields": {
+        "name": "Classic antique chair",
+        "slug": "classic-antique-chair",
+        "description": "The chair is perfect for any place in the house. It is made of high quality fabric and red oak. Suitable for people with refined taste and sense of style. There are different variations of fabrics and wood, please check further.",
+        "image": "goods_images/chair-647296_1280.jpg",
+        "price": "2100.00",
+        "discount": "15.00",
+        "quantity": 16,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 14,
+    "fields": {
+        "name": "Decorated kitchen chair",
+        "slug": "decorated-kitchen-chair",
+        "description": "A decorated kitchen chair adds charm and personality to any dining space. With stylish upholstery, carved details, or painted finishes, it enhances the overall kitchen decor. Available in various materials like wood, metal, or plastic, it suits different interior styles, from rustic to modern. Cushioned seats or patterned fabrics provide extra comfort and elegance. Some designs also feature decorative backs or intricate leg details for a unique touch.",
+        "image": "goods_images/image_2025-02-16_21-09-52.png",
+        "price": "2200.00",
+        "discount": "10.00",
+        "quantity": 18,
+        "category": 6
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 15,
+    "fields": {
+        "name": "Old classic",
+        "slug": "old-classic",
+        "description": "A chair for a living room or other room. An old classic for true connoisseurs. Made from wood at your personal discretion: oak, ash, maple or pine. The fabric is also available in different versions.",
+        "image": "goods_images/chair-55957_1280.jpg",
+        "price": "1500.00",
+        "discount": "10.00",
+        "quantity": 12,
+        "category": 5
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 16,
+    "fields": {
+        "name": "Large corner sofa",
+        "slug": "large-corner-sofa",
+        "description": "A large corner sofa is a perfect addition to any spacious living room. It provides plenty of seating for family and guests, making it ideal for gatherings. With its cozy design and soft cushions, it offers both comfort and style. Available in various materials and colors, it can complement any interior d├йcor. Some models even include storage or a pull-out bed for extra functionality.",
+        "image": "goods_images/real-estate-9142435_1920.jpg",
+        "price": "15000.00",
+        "discount": "20.00",
+        "quantity": 9,
+        "category": 5
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 17,
+    "fields": {
+        "name": "Corner sofa midi",
+        "slug": "corner-sofa-midi",
+        "description": "A corner sofa midi is a great choice for medium-sized living spaces. It offers a balance between comfort and practicality, providing enough seating without overwhelming the room. With its stylish design and cozy cushions, it enhances any interior. Available in different colors and materials, it can match various d├йcor styles. Some models also feature storage or a pull-out bed for added convenience.",
+        "image": "goods_images/indoors-5680429_1920_en0rzMR.jpg",
+        "price": "10000.00",
+        "discount": "10.00",
+        "quantity": 4,
+        "category": 5
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 18,
+    "fields": {
+        "name": "Midi table",
+        "slug": "midi-table",
+        "description": "A midi table is a versatile piece of furniture, perfect for medium-sized spaces. It offers a balanced surface area for dining, working, or decorative purposes without taking up too much room. Available in various materials like wood, glass, or metal, it suits different interior styles. Its practical size makes it ideal for apartments, offices, or cozy dining areas. Some models even include storage options or extendable features for added functionality.",
+        "image": "goods_images/table-6877999_1920.jpg",
+        "price": "4000.00",
+        "discount": "15.00",
+        "quantity": 8,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 19,
+    "fields": {
+        "name": "Laurel leaves decor",
+        "slug": "laurel-leaves-decor",
+        "description": "Laurel leaves decor adds a touch of elegance and classical charm to any space. Traditionally symbolizing victory and honor, laurel motifs are often used in wall art, wreaths, and table decorations. Their rich green color and timeless design make them perfect for both modern and vintage interiors. Whether in metal, wood, or natural foliage, laurel leaf decor brings a sophisticated and refined aesthetic to homes and events.",
+        "image": "goods_images/living-room-8244791_1920.jpg",
+        "price": "150.00",
+        "discount": "0.00",
+        "quantity": 25,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 20,
+    "fields": {
+        "name": "Small classic sofa",
+        "slug": "small-classic-sofa",
+        "description": "A small classic sofa is a perfect blend of elegance and comfort for compact spaces. With its timeless design, tufted details, and graceful curves, it adds a touch of sophistication to any interior. Ideal for apartments, offices, or cozy living rooms, it provides comfortable seating without overwhelming the space. Available in various fabrics and colors, it can complement both traditional and modern d├йcor. Some models even feature storage or convertible options for added practicality.",
+        "image": "goods_images/real-estate-6893060_1920.jpg",
+        "price": "4500.00",
+        "discount": "0.00",
+        "quantity": 12,
+        "category": 6
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 21,
+    "fields": {
+        "name": "Small bedside table",
+        "slug": "small-bedside-table",
+        "description": "A small bedside table is a practical and stylish addition to any bedroom. It provides a convenient surface for essentials like a lamp, books, or a glass of water. With compact dimensions, it fits perfectly in smaller spaces without cluttering the room. Available in various materials like wood, metal, or glass, it can match different interior styles. Some models also include drawers or shelves for extra storage.",
+        "image": "goods_images/interior-design-9283471_1920.jpg",
+        "price": "1200.00",
+        "discount": "10.00",
+        "quantity": 6,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 22,
+    "fields": {
+        "name": "Bonsai for decoration",
+        "slug": "bonsai-for-decoration",
+        "description": "A bonsai tree is a beautiful and elegant choice for home or office decoration. Its miniature size and artistic shape bring a sense of tranquility and nature indoors. Available in various species, such as ficus, juniper, or pine, each bonsai adds a unique charm to the space. With proper care, it can last for years, becoming a living piece of art. Placed on a table, shelf, or windowsill, a bonsai enhances any interior with its natural beauty.",
+        "image": "goods_images/bonsai-1171548_1920.jpg",
+        "price": "1500.00",
+        "discount": "10.00",
+        "quantity": 11,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 23,
+    "fields": {
+        "name": "Living room desk",
+        "slug": "living-room-desk",
+        "description": "A living room desk is a functional and stylish addition to any space. It provides a convenient workspace for reading, writing, or using a laptop while blending seamlessly with the roomтАЩs decor. Available in various styles, from modern minimalist to classic wooden designs, it can complement different interiors. Compact models with storage options like drawers or shelves help keep essentials organized. Whether for work, study, or decoration, a living room desk enhances both practicality and aesthetics.",
+        "image": "goods_images/real-estate-9265386_1920.jpg",
+        "price": "1800.00",
+        "discount": "0.00",
+        "quantity": 5,
+        "category": 5
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 24,
+    "fields": {
+        "name": "Unusual office chair",
+        "slug": "unusual-office-chair",
+        "description": "An unusual office chair can add a fun, creative touch to your workspace while offering comfort and support. From ergonomic designs with bold, unconventional shapes to chairs with vibrant colors or unique materials like mesh, wood, or acrylic, these chairs break away from traditional office furniture. Some models feature swivel designs, adjustable heights, or even artistic elements like sculptural backs. Not only do they provide functionality, but they also inject personality and style into the office environment.",
+        "image": "goods_images/chair-3735168_1920.jpg",
+        "price": "1200.00",
+        "discount": "0.00",
+        "quantity": 42,
+        "category": 6
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 25,
+    "fields": {
+        "name": "Children's bed",
+        "slug": "childrens-bed",
+        "description": "A children's bed is designed to be both fun and functional, ensuring comfort and safety for little ones. Available in various themes, such as princess, car, or animal designs, these beds can spark a child's imagination. Many models include built-in storage, such as drawers or shelves, to help keep the room organized. Made from durable materials like wood or sturdy plastics, children's beds come in various sizes to accommodate growing kids. Some beds even feature features like safety rails or convertible designs to grow with the child.",
+        "image": "goods_images/kids-200515_1920.jpg",
+        "price": "8000.00",
+        "discount": "10.00",
+        "quantity": 14,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 26,
+    "fields": {
+        "name": "Office desk with 2 chairs",
+        "slug": "office-desk-with-2-chairs",
+        "description": "An office desk with 2 chairs is perfect for shared workspaces or collaborative environments. The desk provides a central surface for tasks, whether for two people working side by side or a client and an employee in a professional setting. Typically designed with ample workspace and storage options, it can be both practical and stylish. The two chairs are often ergonomic, ensuring comfort during long hours of work. This setup is ideal for home offices, small businesses, or meetings that require a compact yet efficient workspace.",
+        "image": "goods_images/wall-2604260_1920.jpg",
+        "price": "4600.00",
+        "discount": "25.00",
+        "quantity": 21,
+        "category": 6
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 27,
+    "fields": {
+        "name": "Kitchen table medium",
+        "slug": "kitchen-table-medium",
+        "description": "A medium-sized kitchen table is a versatile piece of furniture that fits perfectly in most kitchens or dining areas. It provides ample space for family meals or casual gatherings without overwhelming the room. Often designed with simple, clean lines, it can be made from materials like wood, metal, or glass, complementing various kitchen styles. Some medium-sized tables include expandable features, allowing for additional seating when needed. Its practical size makes it ideal for smaller or open-plan spaces while maintaining functionality and style. Chairs come separately for 700 each.",
+        "image": "goods_images/interior-design-6893070_1920.jpg",
+        "price": "3400.00",
+        "discount": "15.00",
+        "quantity": 8,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 28,
+    "fields": {
+        "name": "Candles with candlestick",
+        "slug": "candles-with-candlestick",
+        "description": "Candles with candlesticks create a warm, inviting atmosphere in any room. The candlesticks, often made from materials like brass, wood, or glass, not only support the candles but also add a decorative touch. Whether used for dinner parties, ambient lighting, or as a centerpiece, this combination brings elegance and sophistication to the space. Candles come in various shapes, sizes, and scents, allowing you to customize the ambiance. The candlestick itself can range from simple and modern to ornate and vintage, matching your interior style perfectly.",
+        "image": "goods_images/living-room-8539135_1920.jpg",
+        "price": "500.00",
+        "discount": "0.00",
+        "quantity": 9,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 29,
+    "fields": {
+        "name": "Antique chair in English style",
+        "slug": "antique-chair-in-english-style",
+        "description": "An antique chair in English style adds timeless elegance to any room. Known for its refined craftsmanship, these chairs often feature intricate woodwork, such as carved legs and arms, and luxurious upholstery, like velvet or leather. Designs like Queen Anne, Georgian, or Victorian are popular, each with distinctive details such as floral patterns, cabriole legs, and high backs. This classic furniture piece evokes a sense of tradition and sophistication, making it a perfect addition to both formal and cozy spaces, enhancing the overall aesthetic with a touch of vintage charm.",
+        "image": "goods_images/old-7978388_1920.jpg",
+        "price": "3000.00",
+        "discount": "10.00",
+        "quantity": 16,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 30,
+    "fields": {
+        "name": "King bed",
+        "slug": "king-bed",
+        "description": "A king bed is the ultimate in luxury and comfort, offering plenty of space for a restful night's sleep. With its spacious dimensions, it provides ample room for couples or individuals who enjoy extra space to stretch out. Often featuring sturdy frames and high-quality mattresses, a king bed enhances the overall aesthetic of a bedroom with its grand presence. Available in various styles, from traditional wooden frames to modern upholstered designs, it can complement any interior decor. It's the perfect centerpiece for those looking for both comfort and style.",
+        "image": "goods_images/image_2025-02-16_21-13-03.png",
+        "price": "20000.00",
+        "discount": "30.00",
+        "quantity": 4,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 31,
+    "fields": {
+        "name": "Retro lamp",
+        "slug": "retro-lamp",
+        "description": "A retro lamp adds a nostalgic and stylish touch to any space, combining vintage charm with modern functionality. Often inspired by mid-century design, these lamps feature bold shapes, colorful accents, and materials like metal, glass, or ceramic. They can range from sleek, minimalist styles to more intricate, decorative designs, making them a perfect fit for living rooms, bedrooms, or office spaces. A retro lamp can serve as both a functional light source and a statement piece, bringing character and warmth to your decor.",
+        "image": "goods_images/retro-lampshade-1662061_1920.jpg",
+        "price": "1200.00",
+        "discount": "0.00",
+        "quantity": 8,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 32,
+    "fields": {
+        "name": "Candlestick",
+        "slug": "candlestick",
+        "description": "A candlestick is a timeless and elegant piece of decor that holds candles securely while enhancing the ambiance of a room. Available in various styles and materials, such as metal, wood, glass, or ceramic, candlesticks can suit different interior designs, from classic to contemporary. They can be simple, with clean lines, or more ornate, featuring intricate details and decorative accents. Candlesticks add a cozy and sophisticated touch, whether placed on a dining table, mantel, or as part of a centerpiece. They are perfect for creating soft, atmospheric lighting.",
+        "image": "goods_images/chandelier-448681_1920.jpg",
+        "price": "1100.00",
+        "discount": "10.00",
+        "quantity": 7,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 33,
+    "fields": {
+        "name": "Ceiling lamp",
+        "slug": "ceiling-lamp",
+        "description": "A ceiling lamp is a key element in illuminating and enhancing the overall atmosphere of a room. Available in various designsтАФfrom sleek, modern chandeliers to simple, minimalist fixturesтАФit provides both functional lighting and aesthetic appeal. Ceiling lamps come in different materials like glass, metal, or fabric, and can feature adjustable lighting to suit different moods or tasks. Whether for the living room, kitchen, or bedroom, a well-chosen ceiling lamp serves as a stylish focal point while providing ample light for daily activities.",
+        "image": "goods_images/lamp-6155712_1920.jpg",
+        "price": "2000.00",
+        "discount": "40.00",
+        "quantity": 6,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 34,
+    "fields": {
+        "name": "Royal lamp",
+        "slug": "royal-lamp",
+        "description": "A royal lamp exudes opulence and grandeur, often characterized by intricate details, luxurious materials, and elaborate designs. These lamps typically feature ornate metalwork, crystal embellishments, or rich fabrics like velvet or silk. They can include elegant touches such as gilded finishes, decorative bases, or even chandeliers with multiple arms, offering both illumination and a regal aesthetic. A royal lamp makes a bold statement in formal living rooms, dining rooms, or luxurious bedrooms, adding an air of sophistication and luxury to any space.",
+        "image": "goods_images/ceiling-315996_1920.jpg",
+        "price": "2500.00",
+        "discount": "0.00",
+        "quantity": 9,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 35,
+    "fields": {
+        "name": "Table with chair for the room",
+        "slug": "table-with-chair-for-the-room",
+        "description": "A table with a chair for the room is a versatile and functional addition to any space, whether it's for a bedroom, living room, or office. The table provides a surface for work, dining, or display, while the chair offers comfort and support. This set can come in various styles, from modern and minimalist to classic or rustic, allowing it to blend seamlessly with different room aesthetics. Whether it's a small writing desk, a cozy corner for reading, or a dining nook, a table with a chair creates a practical and inviting atmosphere.",
+        "image": "goods_images/interior-design-6012873_1920.jpg",
+        "price": "5100.00",
+        "discount": "0.00",
+        "quantity": 5,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 36,
+    "fields": {
+        "name": "Antique style nightstand",
+        "slug": "antique-style-nightstand",
+        "description": "An antique-style nightstand brings classic elegance and vintage charm to any bedroom. Typically crafted from rich wood like oak, walnut, or cherry, these nightstands often feature intricate carvings, delicate hardware, and a timeless design. With a mix of functionality and decorative appeal, they offer storage through drawers or shelves while adding character to the space. Whether it's adorned with brass handles or a distressed finish, an antique-style nightstand pairs beautifully with traditional or vintage-inspired interiors, enhancing the roomтАЩs overall aesthetic.",
+        "image": "goods_images/beautiful-4358347_1920.jpg",
+        "price": "2700.00",
+        "discount": "0.00",
+        "quantity": 7,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 37,
+    "fields": {
+        "name": "Large curved floor lamp",
+        "slug": "large-curved-floor-lamp",
+        "description": "A large curved floor lamp is a striking and functional addition to any space. With its elegant arc design, it provides overhead lighting while maintaining a soft, ambient glow that enhances the room's atmosphere. Often featuring sleek metal or modern materials like marble for the base, this type of lamp can complement contemporary, industrial, or minimalist interiors. The large, curved shape allows it to extend over furniture, such as sofas or reading areas, making it perfect for creating a cozy, well-lit corner. It's both a statement piece and a practical light source.",
+        "image": "goods_images/plant-4243898_1920.jpg",
+        "price": "3400.00",
+        "discount": "0.00",
+        "quantity": 12,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 38,
+    "fields": {
+        "name": "Large bed for one",
+        "slug": "large-bed-for-one",
+        "description": "A large bed for one is an ideal choice for those who enjoy extra space and comfort while sleeping. Often referred to as a single or twin-sized bed, it offers ample room for a single person to stretch out and relax. With a larger mattress than a standard single bed, it ensures a restful sleep experience without feeling cramped. Available in various designs, from minimalist to luxurious, it can be paired with stylish bed frames, headboards, and quality linens, making it both a functional and inviting centerpiece for any bedroom.",
+        "image": "goods_images/bed-8951405_1920.jpg",
+        "price": "9500.00",
+        "discount": "10.00",
+        "quantity": 15,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 39,
+    "fields": {
+        "name": "Round candlestick",
+        "slug": "round-candlestick",
+        "description": "A round candlestick adds a charming and elegant touch to any room with its soft, circular design. Often made from materials like metal, glass, or wood, the round shape can create a more harmonious and balanced look compared to traditional straight candlesticks. Whether it's a small, simple piece or an ornate, decorative design, a round candlestick enhances the ambiance of a dining table, mantle, or side table. It can hold single candles or multiple smaller ones, creating a warm and inviting atmosphere with its timeless appeal.",
+        "image": "goods_images/living-room-5979693_1920.jpg",
+        "price": "800.00",
+        "discount": "35.00",
+        "quantity": 8,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 40,
+    "fields": {
+        "name": "Vase with flowers",
+        "slug": "vase-with-flowers",
+        "description": "A vase with flowers is a beautiful and vibrant way to enhance any space. The vase itself can vary in style, from elegant glass or ceramic to modern metallic or rustic wooden designs, providing the perfect backdrop for the flowers. Fresh blooms like roses, tulips, or lilies bring natural color and fragrance, while artificial flowers can offer long-lasting beauty without the upkeep. Whether displayed on a dining table, mantel, or sideboard, a vase with flowers adds a touch of nature and sophistication to your home decor.",
+        "image": "goods_images/real-estate-8244786_1920.jpg",
+        "price": "400.00",
+        "discount": "10.00",
+        "quantity": 18,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 41,
+    "fields": {
+        "name": "Vase with peonies",
+        "slug": "vase-with-peonies",
+        "description": "A vase with peonies creates an elegant and romantic atmosphere, bringing softness and vibrant color to any space. Peonies, with their full, lush petals and variety of shades, such as soft pinks, whites, and deep reds, make a stunning centerpiece in any vase. The contrast of the delicate flowers with the texture of the vaseтАФwhether it's glass, ceramic, or metalтАФadds depth and beauty to the decor. Perfect for dining tables, living rooms, or as a thoughtful gift, a vase filled with peonies brings timeless beauty and grace to any room.",
+        "image": "goods_images/interior-3996246_1920.jpg",
+        "price": "650.00",
+        "discount": "0.00",
+        "quantity": 14,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 42,
+    "fields": {
+        "name": "Kitchen set with sink",
+        "slug": "kitchen-set-with-sink",
+        "description": "A kitchen set with a sink is a practical and stylish solution for any kitchen space. It typically includes cabinets, countertops, and a built-in sink, creating a seamless and functional workspace for cooking and cleaning. Available in various styles, from modern minimalist to classic wooden designs, it can complement different interior aesthetics. Many sets also feature additional storage options like drawers and shelves, keeping kitchen essentials organized. With durable materials like stainless steel sinks and quartz or laminate countertops, a well-designed kitchen set enhances both efficiency and aesthetics in the home.",
+        "image": "goods_images/kitchen-8244821_1280.jpg",
+        "price": "25000.00",
+        "discount": "30.00",
+        "quantity": 5,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 43,
+    "fields": {
+        "name": "Bathroom mirror",
+        "slug": "bathroom-mirror",
+        "description": "A bathroom mirror is an essential and stylish fixture that enhances both functionality and decor. Available in various shapes and sizes, from classic rectangular designs to elegant round or frameless options, it suits different bathroom styles. Some mirrors come with built-in LED lighting, anti-fog features, or storage options for added convenience. Whether mounted above a sink or as a statement piece, a well-chosen bathroom mirror brightens the space and creates a sense of openness, making the room feel larger and more inviting.",
+        "image": "goods_images/bathroom-9011240_1920.jpg",
+        "price": "1400.00",
+        "discount": "10.00",
+        "quantity": 8,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 44,
+    "fields": {
+        "name": "Nightstand with sink and mirror shelf set",
+        "slug": "nightstand-with-sink-and-mirror-shelf-set",
+        "description": "A nightstand with a sink and mirror shelf set is a unique and multifunctional furniture piece, combining convenience with style. This set is perfect for compact spaces, offering a bedside storage unit with an integrated sink for added functionality. The mirror shelf enhances practicality by providing a spot for grooming essentials while also adding depth and light to the space. Available in various designs, from modern minimalist to vintage-inspired, this set is ideal for bedrooms, small apartments, or guest rooms, blending elegance with everyday convenience.",
+        "image": "goods_images/bathroom-6893077_1920.jpg",
+        "price": "6900.00",
+        "discount": "0.00",
+        "quantity": 7,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 45,
+    "fields": {
+        "name": "3-piece bathroom set",
+        "slug": "3-piece-bathroom-set",
+        "description": "A 3-piece bathroom set typically includes essential fixtures that enhance both functionality and style in a bathroom. Common sets consist of a sink vanity, a mirror or medicine cabinet, and a storage unit such as a shelf or cabinet. Designed to create a cohesive look, these sets are available in various styles, from modern and minimalist to classic and rustic. They often feature durable materials like wood, metal, or ceramic, ensuring long-lasting use. A well-chosen 3-piece bathroom set helps maximize space while keeping the area organized and visually appealing.",
+        "image": "goods_images/bathroom-8244824_1920.jpg",
+        "price": "9500.00",
+        "discount": "5.00",
+        "quantity": 8,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 46,
+    "fields": {
+        "name": "Kitchen furniture set in black",
+        "slug": "kitchen-furniture-set-in-black",
+        "description": "A black kitchen furniture set adds a sleek and modern touch to any kitchen space. The set typically includes cabinets, a dining table with chairs, and countertops, all designed to create a stylish and cohesive look. Black finishes, whether matte or glossy, offer a sophisticated and contemporary aesthetic while being easy to pair with various decor styles. Many sets feature durable materials like wood, metal, or stone, ensuring longevity and practicality. A black kitchen furniture set brings elegance, contrast, and a touch of luxury to the heart of the home.",
+        "image": "goods_images/kitchen-8900760_1920.jpg",
+        "price": "12000.00",
+        "discount": "0.00",
+        "quantity": 15,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 47,
+    "fields": {
+        "name": "Sink",
+        "slug": "sink",
+        "description": "A sink is an essential fixture in kitchens and bathrooms, providing a functional space for washing hands, dishes, or other tasks. Available in various materials such as stainless steel, ceramic, granite, or porcelain, sinks come in different styles, including undermount, drop-in, farmhouse, and pedestal designs. Some modern sinks feature smart technology, integrated draining boards, or dual basins for added convenience. Whether for a kitchen, bathroom, or utility room, a well-chosen sink enhances both practicality and aesthetics in the space.",
+        "image": "goods_images/sink-6893079_1920.jpg",
+        "price": "3600.00",
+        "discount": "10.00",
+        "quantity": 7,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 48,
+    "fields": {
+        "name": "Sink with drawers and wall shelves",
+        "slug": "sink-with-drawers-and-wall-shelves",
+        "description": "A sink with drawers and wall shelves is a stylish and practical addition to any bathroom or kitchen. The drawers provide convenient storage for essentials like toiletries, cleaning supplies, or kitchen tools, helping to keep the space organized. Wall shelves add extra storage and display space for decorative items, towels, or frequently used products. Available in various designs, from modern minimalist to classic wooden styles, this combination enhances both functionality and aesthetics. With durable materials like wood, metal, and ceramic, it creates a cohesive and efficient workspace.",
+        "image": "goods_images/bathroom-9011238_1920.jpg",
+        "price": "7200.00",
+        "discount": "0.00",
+        "quantity": 8,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 49,
+    "fields": {
+        "name": "Classic toilet",
+        "slug": "classic-toilet",
+        "description": "A classic toilet features a timeless and functional design, making it a perfect fit for traditional and modern bathrooms alike. Typically crafted from durable ceramic or porcelain, it comes in a standard two-piece or one-piece design with a rounded or elongated bowl for comfort. Classic toilets often include a gravity-flush or siphon system for efficient water use. Their elegant yet simple aesthetic, often with subtle curves and neutral colors, ensures they blend seamlessly with various bathroom styles while providing reliable performance and long-lasting durability.",
+        "image": "goods_images/toilets-265278_1920.jpg",
+        "price": "3500.00",
+        "discount": "0.00",
+        "quantity": 10,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 50,
+    "fields": {
+        "name": "Men's toilet",
+        "slug": "mens-toilet",
+        "description": "A men's toilet is typically designed for functionality and efficiency in both public and private restrooms. It often includes standard toilets along with urinals for convenience and space-saving benefits. Common features include durable ceramic or porcelain construction, water-saving flush mechanisms, and ergonomic designs for hygiene and comfort. In commercial settings, men's restrooms may also include dividers for privacy, automatic flush systems, and touchless faucets for improved sanitation. Whether in a home or public facility, a well-designed menтАЩs toilet ensures practicality, cleanliness, and ease of use.",
+        "image": "goods_images/wc-2364071_1920.jpg",
+        "price": "4000.00",
+        "discount": "25.00",
+        "quantity": 17,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 51,
+    "fields": {
+        "name": "Bath mat",
+        "slug": "bath-mat",
+        "description": "A bath mat is a practical and stylish accessory designed to enhance bathroom safety and comfort. Typically made from absorbent materials like cotton, microfiber, or memory foam, it helps prevent slips by soaking up excess water after a shower or bath. Available in various colors, textures, and designs, bath mats can complement any bathroom decor. Some models feature non-slip backing for added stability, while others offer quick-dry or antibacterial properties for hygiene. A well-chosen bath mat adds both functionality and a cozy touch to the bathroom space.",
+        "image": "goods_images/bathroom-6893117_1920.jpg",
+        "price": "450.00",
+        "discount": "20.00",
+        "quantity": 22,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 52,
+    "fields": {
+        "name": "Wood table with chairs",
+        "slug": "wood-table-with-chairs",
+        "description": "A wood table with chairs is a classic and timeless piece of furniture that adds warmth and elegance to any dining room or kitchen. The sturdy wooden table provides ample space for family meals or gatherings, while the chairs offer comfort and style. Available in various wood types like oak, walnut, or pine, this set can range from rustic farmhouse styles to sleek, modern designs. Many sets include matching finishes or unique details such as carved legs or cushioned seats, creating a cohesive and inviting look that complements different decor styles.",
+        "image": "goods_images/real-estate-6893085_1920.jpg",
+        "price": "8900.00",
+        "discount": "10.00",
+        "quantity": 19,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 53,
+    "fields": {
+        "name": "Table with chair for workplace",
+        "slug": "table-with-chair-for-workplace",
+        "description": "A table with a chair for the workplace is designed to provide comfort and functionality for productivity. The table typically offers enough surface space for a computer, paperwork, and office essentials, while the chair is ergonomically designed to support long hours of sitting, often with adjustable height and lumbar support. Made from materials like wood, metal, or glass, these sets come in various styles, from modern minimalist to traditional office designs. A well-chosen table and chair set helps create a comfortable and organized environment, boosting focus and efficiency in the workplace.",
+        "image": "goods_images/real-estate-6893080_1920.jpg",
+        "price": "2800.00",
+        "discount": "0.00",
+        "quantity": 6,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 54,
+    "fields": {
+        "name": "Mirror set for the bathroom",
+        "slug": "mirror-set-for-the-bathroom",
+        "description": "A mirror set for the bathroom typically includes a main mirror and additional smaller mirrors or storage solutions to create a functional and cohesive look. The main mirror is often large enough to provide a clear reflection for grooming, while smaller mirrors may be designed for magnification or decorative purposes. Some sets include integrated shelves or medicine cabinets, offering storage for toiletries and personal items. Available in various shapes and styles, from frameless to ornate framed designs, a bathroom mirror set enhances both the aesthetics and practicality of your bathroom space.",
+        "image": "goods_images/real-estate-6893118_1920.jpg",
+        "price": "7200.00",
+        "discount": "0.00",
+        "quantity": 24,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 55,
+    "fields": {
+        "name": "Mirror in the room",
+        "slug": "mirror-in-the-room",
+        "description": "A mirror in the room is a versatile decor piece that can enhance both the functionality and aesthetic of any space. It reflects light, making the room feel brighter and more spacious, and can act as a focal point or complement the overall design. Mirrors come in various shapes, sizes, and framesтАФranging from minimalist to ornate designsтАФallowing them to blend with any room style. Whether placed above a sofa, as a statement piece in a hallway, or as part of a vanity set, a well-placed mirror can elevate the room's atmosphere.",
+        "image": "goods_images/real-estate-6893086_1920.jpg",
+        "price": "2200.00",
+        "discount": "20.00",
+        "quantity": 15,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 56,
+    "fields": {
+        "name": "Low-slung toilet",
+        "slug": "low-slung-toilet",
+        "description": "A low-slung toilet features a shorter profile than traditional toilets, providing a more contemporary and sleek appearance. Its design typically involves a lower seat height, which may be more comfortable for individuals who prefer a more compact, modern look in their bathroom. Often constructed from durable materials like ceramic or porcelain, low-slung toilets combine functionality with style, offering efficient flushing systems and space-saving benefits. This type of toilet works well in minimalist or modern bathroom designs, helping to create a streamlined and stylish atmosphere.",
+        "image": "goods_images/toilet-663707_1920.jpg",
+        "price": "3100.00",
+        "discount": "10.00",
+        "quantity": 9,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 57,
+    "fields": {
+        "name": "The painting has different options and sizes",
+        "slug": "the-painting-has-different-options-and-sizes",
+        "description": "The painting comes in various options and sizes, allowing you to choose the perfect piece for your space. Whether you're looking for a small, intimate artwork for a cozy corner or a large statement piece for a living room or hallway, the variety of sizes caters to different room dimensions and aesthetic needs. You can select from different styles, such as abstract, landscape, portrait, or classic art, to match your decor. The painting's color palette and design can bring out different moods, whether you're going for vibrant energy or a calming, neutral vibe.",
+        "image": "goods_images/real-estate-6893059_1920.jpg",
+        "price": "350.00",
+        "discount": "5.00",
+        "quantity": 45,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 58,
+    "fields": {
+        "name": "Decorative pillows",
+        "slug": "decorative-pillows",
+        "description": "Decorative pillows are a simple yet effective way to add color, texture, and personality to any room. Available in various shapes, sizes, and designs, they can complement your furniture and enhance the overall decor. Whether made from luxurious fabrics like velvet, linen, or cotton, decorative pillows come in an array of patterns, from bold geometric prints to delicate florals or solids. They are perfect for sofas, chairs, or beds, providing both comfort and a pop of visual interest to your living space.",
+        "image": "goods_images/real-estate-6893107_1920.jpg",
+        "price": "150.00",
+        "discount": "0.00",
+        "quantity": 52,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 59,
+    "fields": {
+        "name": "Kitchen set white (without chairs)",
+        "slug": "kitchen-set-white-without-chairs",
+        "description": "A white kitchen set (without chairs) offers a clean, sleek, and modern aesthetic to any kitchen. Typically including cabinets, countertops, and storage solutions, a white kitchen set enhances the space with its timeless elegance. The bright, neutral color creates an airy and open feel, making it ideal for both small and large kitchens. Made from durable materials like wood or laminate, these sets often feature minimalist designs that complement various kitchen styles. A white kitchen set offers ample storage and functionality, while seamlessly fitting into contemporary or classic interiors.",
+        "image": "goods_images/real-estate-6893105_1920.jpg",
+        "price": "18000.00",
+        "discount": "0.00",
+        "quantity": 13,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 60,
+    "fields": {
+        "name": "Bathroom cubicle",
+        "slug": "bathroom-cubicle",
+        "description": "A bathroom cubicle is a compact, enclosed space designed for showering or other bathroom activities, offering privacy and efficient use of space. These cubicles are typically made from materials like glass, acrylic, or plastic, and are often equipped with sliding or hinged doors to maximize space. Bathroom cubicles come in various styles, including corner units, walk-in designs, or even wet room setups, and can include features such as built-in shelves, adjustable showerheads, and waterproof panels. They are perfect for small bathrooms, helping to keep the space organized while providing a functional, private area for daily use.",
+        "image": "goods_images/real-estate-7132377_1920.jpg",
+        "price": "6600.00",
+        "discount": "0.00",
+        "quantity": 7,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 61,
+    "fields": {
+        "name": "Gray kitchen with hood",
+        "slug": "gray-kitchen-with-hood",
+        "description": "A gray kitchen with a hood creates a sleek, modern, and sophisticated atmosphere. The neutral gray tones of the cabinetry and countertops provide a stylish, contemporary base, while the hood above the stove serves both functional and aesthetic purposes. A well-designed hood, often in stainless steel or a matching gray finish, effectively ventilates the kitchen while adding a clean, polished look. This color scheme pairs well with both light and dark accents, making it easy to customize with bold backsplash tiles, lighting, or accessories for a balanced, inviting kitchen space.",
+        "image": "goods_images/real-estate-6893121_1920.jpg",
+        "price": "28000.00",
+        "discount": "25.00",
+        "quantity": 8,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 62,
+    "fields": {
+        "name": "Toilet with sink",
+        "slug": "toilet-with-sink",
+        "description": "A toilet with a sink is a practical and space-saving solution, often designed for small bathrooms or powder rooms. This combination fixture integrates the toilet and sink into one unit, allowing for efficient use of space while maintaining functionality. Typically, the sink is located above the toilet tank or attached to the side, making it easy to wash hands immediately after using the toilet. Available in various styles, from modern sleek designs to more traditional looks, a toilet with a sink is perfect for maximizing small spaces without compromising on convenience.",
+        "image": "goods_images/bathroom-8484123_1920.jpg",
+        "price": "6900.00",
+        "discount": "10.00",
+        "quantity": 26,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 63,
+    "fields": {
+        "name": "Light bathroom set",
+        "slug": "light-bathroom-set",
+        "description": "A light bathroom set creates a fresh, airy, and inviting atmosphere in your bathroom. Typically featuring soft, neutral colors like whites, creams, or light pastels, this set can include a variety of fixtures such as towels, a shower curtain, bath mat, and storage solutions. The gentle tones of a light bathroom set can make the space feel larger and more serene, perfect for creating a calming retreat. Light bathroom sets work well in modern, minimalist, or coastal-themed bathrooms, offering both functionality and a clean, peaceful aesthetic.",
+        "image": "goods_images/toilet-6862959_1920.jpg",
+        "price": "7800.00",
+        "discount": "0.00",
+        "quantity": 7,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 64,
+    "fields": {
+        "name": "Ivy for bathroom decor",
+        "slug": "ivy-for-bathroom-decor",
+        "description": "Ivy for bathroom decor adds a touch of greenery and natural beauty to the space, creating a refreshing and calming atmosphere. Ivy plants, with their trailing vines and lush leaves, are perfect for hanging planters, bathroom shelves, or along the edges of windowsills. The plants thrive in the humidity of bathrooms, making them an ideal choice for this environment. Ivy can complement various bathroom styles, from modern to rustic, and brings life to the space, enhancing the decor with its vibrant, low-maintenance charm.",
+        "image": "goods_images/toilet-8403054_1920.jpg",
+        "price": "700.00",
+        "discount": "0.00",
+        "quantity": 11,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 65,
+    "fields": {
+        "name": "Cabin with toilet",
+        "slug": "cabin-with-toilet",
+        "description": "A cabin with a toilet is a functional and comfortable space, ideal for cabins, cottages, or small homes. The addition of a toilet enhances the convenience of the cabin, offering modern amenities in a rustic or off-grid setting. These cabins are typically designed to be compact yet efficient, with essential features such as a toilet, sink, and sometimes a shower or small bathroom area. Whether located in a remote area or a cozy backyard retreat, a cabin with a toilet ensures practicality and comfort, combining rustic charm with essential comforts.",
+        "image": "goods_images/bathroom-8347409_1920.jpg",
+        "price": "9400.00",
+        "discount": "15.00",
+        "quantity": 15,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 66,
+    "fields": {
+        "name": "Royal bathroom mirror",
+        "slug": "royal-bathroom-mirror",
+        "description": "A royal bathroom mirror exudes luxury and sophistication, adding a regal touch to your bathroom. Often featuring ornate frames with intricate detailing, such as gold leaf, carvings, or antique finishes, these mirrors are designed to be both functional and decorative. They can come in various shapes, from traditional rectangular or oval designs to more elaborate, statement-making forms. A royal bathroom mirror complements luxurious bathroom settings, especially when paired with elegant fixtures, chandeliers, or vintage-inspired decor, creating a lavish and timeless atmosphere in your space.",
+        "image": "goods_images/real-estate-6893112_1920.jpg",
+        "price": "2300.00",
+        "discount": "0.00",
+        "quantity": 5,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 67,
+    "fields": {
+        "name": "Ficus for the room",
+        "slug": "ficus-for-the-room",
+        "description": "A ficus for the room is a great choice for adding greenery and life to your space. Known for its glossy, attractive leaves, the ficus plant is available in various varieties, such as the popular fiddle leaf fig or the classic rubber plant. It thrives in indirect light and is relatively low-maintenance, making it an excellent option for both beginners and seasoned plant owners. Placing a ficus in your room can help purify the air, create a calming atmosphere, and complement a range of interior styles, from modern to traditional.",
+        "image": "goods_images/real-estate-6893099_1920.jpg",
+        "price": "900.00",
+        "discount": "30.00",
+        "quantity": 8,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 68,
+    "fields": {
+        "name": "Transparent bathroom stall",
+        "slug": "transparent-bathroom-stall",
+        "description": "A transparent bathroom stall offers a modern and open design, often made from frosted or clear glass. This type of stall provides a sleek and minimalist aesthetic, making it popular in contemporary or upscale bathrooms. Transparent bathroom stalls can create a sense of openness, although they may require privacy-enhancing features, such as frosted glass or tinted materials. These stalls are commonly seen in public restrooms, luxury hotels, or spa-like environments, where a more open and visually striking bathroom layout is desired while still maintaining functionality and comfort.",
+        "image": "goods_images/bathroom-8484128_1920.jpg",
+        "price": "7000.00",
+        "discount": "10.00",
+        "quantity": 6,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 69,
+    "fields": {
+        "name": "Shelf in the room",
+        "slug": "shelf-in-the-room",
+        "description": "A shelf in the bathroom is a practical and stylish storage solution, helping to organize toiletries, towels, or decorative items. Shelves come in various materials, such as wood, glass, or metal, and can be mounted on the wall or placed in open spaces like above the toilet or beside the sink. A bathroom shelf can be used for both functional and aesthetic purposesтАФkeeping essentials within reach while also showcasing plants, candles, or decorative jars. ItтАЩs a great way to maximize space and keep the bathroom tidy and visually appealing.",
+        "image": "goods_images/home-8212124_1920.jpg",
+        "price": "3050.00",
+        "discount": "0.00",
+        "quantity": 18,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 70,
+    "fields": {
+        "name": "Containers for cosmetics",
+        "slug": "containers-for-cosmetics",
+        "description": "Containers for cosmetics are essential for organizing and storing beauty products, keeping them neat and easily accessible. These containers come in various styles, from simple jars and trays to more elaborate organizers with compartments for different items like skincare bottles, makeup brushes, and lipsticks. Materials can range from acrylic and plastic to glass or bamboo, each offering a sleek, durable, and easy-to-clean option. Cosmetic containers help keep products tidy, prevent clutter, and make it easy to find what you need, enhancing both your vanity area and your daily beauty routine.",
+        "image": "goods_images/bathroom-6822245_1920.jpg",
+        "price": "500.00",
+        "discount": "0.00",
+        "quantity": 48,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 71,
+    "fields": {
+        "name": "Bathroom is small",
+        "slug": "bathroom-is-small",
+        "description": "If your bathroom is small, there are several ways to maximize the space while maintaining functionality and style. Consider using space-saving fixtures like a compact toilet, pedestal sink, or a corner shower to free up room. Wall-mounted shelves or cabinets can provide extra storage without taking up floor space. Light colors, mirrors, and good lighting can make the space feel bigger and more open. Choosing sleek, minimalist designs for accessories and furniture helps avoid visual clutter, while adding plants or decorative touches can bring warmth and personality to the space.",
+        "image": "goods_images/bathtub-890561_1920.jpg",
+        "price": "5650.00",
+        "discount": "10.00",
+        "quantity": 7,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 72,
+    "fields": {
+        "name": "Large bathroom with mirror",
+        "slug": "large-bathroom-with-mirror",
+        "description": "A large bathroom with a mirror creates a luxurious and spacious atmosphere. A large mirror can reflect light, making the room feel even bigger, and can serve as a stunning focal point. Whether it's an elegant framed mirror or a sleek frameless design, it complements the size and design of a larger bathroom. You can place it above a double sink vanity, or opt for a wall-to-wall mirror for a bold statement. With plenty of space, you can also incorporate additional features like a freestanding tub, walk-in shower, or decorative elements to enhance the overall aesthetic of the room.",
+        "image": "goods_images/bathroom-7899557_1920.jpg",
+        "price": "12500.00",
+        "discount": "10.00",
+        "quantity": 9,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 73,
+    "fields": {
+        "name": "Set of 2 (without mirror)",
+        "slug": "set-of-2-without-mirror",
+        "description": "A set of 2 (without mirror) typically refers to two matching or complementary items, often designed for functional use or decor. In a bathroom context, this could be a set of 2 storage units, such as a pair of towels or a set of bathroom accessories (e.g., soap dispensers, storage jars, or baskets) that coordinate in design and style. The absence of a mirror allows for flexibility in the design, giving you the opportunity to pair the set with different mirror styles or focus more on other functional or decorative pieces in the space. This set can help create a cohesive and organized look.",
+        "image": "goods_images/bathroom-8501838_1920.jpg",
+        "price": "5800.00",
+        "discount": "0.00",
+        "quantity": 12,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 74,
+    "fields": {
+        "name": "Medium bathtub with legs",
+        "slug": "medium-bathtub-with-legs",
+        "description": "A medium bathtub with legs offers a classic and elegant touch to any bathroom, blending style and functionality. Typically made from durable materials like acrylic or cast iron, the bathtub rests on decorative legs that can range from simple to ornate, depending on the overall aesthetic you prefer. The medium size makes it ideal for bathrooms with limited space, providing a comfortable bath experience without overwhelming the room. The raised design of the legs adds a vintage or retro flair, while the smooth surface of the tub creates a luxurious, relaxing atmosphere.",
+        "image": "goods_images/bathroom-4805846_1920.jpg",
+        "price": "8000.00",
+        "discount": "0.00",
+        "quantity": 4,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 75,
+    "fields": {
+        "name": "Bathroom cubicle in black",
+        "slug": "bathroom-cubicle-in-black",
+        "description": "A black bathroom cubicle offers a sleek, modern, and sophisticated look for your bathroom. The bold, dark color adds a touch of luxury and contrast, making it a standout feature in the space. Typically made from materials like black-framed glass or black acrylic, the cubicle creates a minimalist yet stylish shower area. It works well in contemporary bathrooms, especially when paired with light-colored walls and fixtures, helping to create a chic, high-end atmosphere. A black bathroom cubicle is not only visually striking but also practical, offering privacy and functionality in your bathroom design.",
+        "image": "goods_images/bathroom-8539138_1920.jpg",
+        "price": "6800.00",
+        "discount": "0.00",
+        "quantity": 16,
+        "category": 9
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 76,
+    "fields": {
+        "name": "Natural style bed",
+        "slug": "natural-style-bed",
+        "description": "A natural style bed embraces earthy, organic materials and simple designs, bringing a serene and calming atmosphere to the bedroom. Made from materials like wood, bamboo, or rattan, these beds often feature minimalist frames that highlight the beauty of the natural textures and grains. The natural style often incorporates neutral tones, such as soft browns, creams, and greens, creating a tranquil environment. This type of bed pairs well with light, breathable linens and natural elements like plants or stone decor, creating a warm, cozy, and grounded space.",
+        "image": "goods_images/shabby-chic-2929723_1920.jpg",
+        "price": "14500.00",
+        "discount": "20.00",
+        "quantity": 9,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 77,
+    "fields": {
+        "name": "Horse figurine",
+        "slug": "horse-figurine",
+        "description": "A horse figurine is a timeless decorative piece that symbolizes strength, freedom, and elegance. Available in various materials such as porcelain, wood, bronze, or crystal, these figurines can complement different interior styles, from classic to modern. Whether displayed on a shelf, desk, or mantelpiece, a horse figurine adds a touch of sophistication and artistry to any space. Some designs feature intricate detailing, capturing the grace and movement of the horse, while others embrace a minimalist or abstract style for a contemporary look.",
+        "image": "goods_images/rocking-horse-7557888_1920.jpg",
+        "price": "400.00",
+        "discount": "0.00",
+        "quantity": 30,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 78,
+    "fields": {
+        "name": "Wooden figurine of a family",
+        "slug": "wooden-figurine-of-a-family",
+        "description": "A wooden figurine of a family is a beautiful and meaningful decorative piece that symbolizes love, unity, and togetherness. Crafted from natural wood, these figurines often feature simple, handcrafted designs that highlight warmth and emotional connection. They can depict parents with children, embracing figures, or abstract shapes that represent family bonds. Perfect for display on shelves, mantels, or desks, a wooden family figurine adds a rustic and heartfelt touch to any home decor.",
+        "image": "goods_images/nativity-8470445_1920.jpg",
+        "price": "600.00",
+        "discount": "10.00",
+        "quantity": 21,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 79,
+    "fields": {
+        "name": "Christmas candles",
+        "slug": "christmas-candles",
+        "description": "Christmas candles add a warm and festive touch to holiday decor, creating a cozy and inviting atmosphere. Available in various designs, they often feature traditional holiday colors like red, green, gold, and white, as well as festive scents like cinnamon, pine, and vanilla. Some Christmas candles come in decorative holders, shaped like stars, trees, or snowflakes, while others are elegantly simple for a classic holiday look. Whether used as a centerpiece, placed on a mantel, or arranged around the home, Christmas candles bring a sense of warmth and celebration to the season.",
+        "image": "goods_images/christmas-3751408_1920.jpg",
+        "price": "250.00",
+        "discount": "20.00",
+        "quantity": 15,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 80,
+    "fields": {
+        "name": "Clocks for decoration",
+        "slug": "clocks-for-decoration",
+        "description": "Decorative clocks are both functional and stylish, adding character to any space. Available in various designs, from vintage and antique styles to sleek modern or minimalist looks, they can complement different interior themes. Wall clocks make a statement in living rooms or kitchens, while tabletop or mantel clocks add charm to desks and shelves. Materials range from wood and metal to glass and ceramic, offering versatility in decor. Whether oversized for a bold focal point or small and intricate for subtle elegance, decorative clocks enhance a room's aesthetic while keeping time in style.",
+        "image": "goods_images/alarm-8931249_1920.jpg",
+        "price": "350.00",
+        "discount": "20.00",
+        "quantity": 8,
+        "category": 8
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 81,
+    "fields": {
+        "name": "Vases to choose from",
+        "slug": "vases-to-choose-from",
+        "description": "There are many types of vases to choose from, each offering a unique style to complement your decor. Some popular options include:\r\n\r\nGlass vases тАУ Elegant and versatile, perfect for showcasing fresh flowers.\r\nCeramic vases тАУ Available in various colors and textures, ideal for classic or modern interiors.\r\nMetal vases тАУ Sleek and industrial, great for contemporary spaces.\r\nWooden vases тАУ Natural and rustic, adding warmth to the decor.\r\nMinimalist vases тАУ Simple geometric designs that fit modern aesthetics.\r\nAntique or vintage vases тАУ Intricately detailed, perfect for a timeless look.\r\nDepending on your style, you can choose a vase that complements your space and enhances your floral arrangements or decorative displays.",
+        "image": "goods_images/bottles-7097764_1920.jpg",
+        "price": "200.00",
+        "discount": "0.00",
+        "quantity": 65,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 82,
+    "fields": {
+        "name": "Kitchen lamps",
+        "slug": "kitchen-lamps",
+        "description": "Kitchen lamps provide both style and functionality, enhancing the space with proper lighting. Pendant lights are great for islands, while under-cabinet lights improve visibility. Chandeliers add elegance, and recessed or track lighting offers a modern touch. The right kitchen lamps create a warm and inviting atmosphere.",
+        "image": "goods_images/kitchen-8403194_1920.jpg",
+        "price": "900.00",
+        "discount": "0.00",
+        "quantity": 8,
+        "category": 7
+    }
+}
+]

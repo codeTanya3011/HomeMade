@@ -1,10 +1,18 @@
 #python stuff
 venv/
 __pycache__/
+cache/
+**__init__.py/
 
 #ide stuff
 .vscode
+.idea/
+.env
 
 #django stuff
 db.sqlite3
 media/
+
+# Migrations
+**/migrations/*.py
+!**/migrations/__init__.py

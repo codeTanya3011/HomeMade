@@ -1,0 +1,125 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #986e6e;
+  padding: 10px 10px;
+}
+
+.bg-custom {
+  height: 40px; /* Висота футера */
+  width: 100%;   /* Ширина на всю сторінку */
+  background-color: #2a1e1e; /* Колір фона */
+  color: #c3b2b2; /* Колір тексту */
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 101 !important;
+}
+
+.general-footer{
+  display: flex; /* Управління розташуванням */
+  justify-content: space-between;  /* Рівномірно на сторінці з отступами */
+}
+
+.icon_footer {
+  width: 22px;
+  height: 22px;
+  object-fit: contain; /* Зберігає пропорції */
+  transition: transform 0.5s ease; /* Плавний перехід */
+}
+
+.copy-right {
+  display: flex; 
+  justify-content: center; /* Центруєм по горизонталі */
+  align-items: center; /* Центруєм по вертикалі */
+  color: #c3b2b2; 
+  font-size: 10px;
+  margin: 0; /* Зовнішні відступи */
+  padding: 0; /* Внутрішні відступи */
+  text-align: center;
+  height: 100%;
+}
+
+.privacy_terms a {
+  text-decoration: none; /* Мінус підкреслення */
+  color: #c3b2b2;
+  transition: color 0.5s ease;
+  font-size: 12px; /* Розмір шрифта */
+}
+
+.privacy_terms a:hover {
+  color: #85d8a7; /* Зміна кольору тексту при наведенні */
+  transform: scale(1.2); /* Збільшення при наведенні */
+}
+
+.icon_footer:hover {
+  transform: scale(1.6);
+}
+
+.social-links,
+.privacy_terms {
+  display: flex;
+  justify-content: center;
+}
+
+.information-pages {
+  justify-content: center;
+  align-items: center;
+  background-color: #e2c9c9; /* Фон */
+  padding: 20px 20px; 
+  border-radius: 15px; /* Заокруглення углів */
+}
+
+.information-pages h1 {
+  color: #1e1010;
+  font-size: 2em; /* big текст */
+  border-bottom: 3px solid #986e6e; /* Підкреслювання */
+  padding-bottom: 5px; /* Відступ */
+}
+
+.information-pages h2 {
+  color: #2a1e1e;
+  font-size: 1.6em;
+  padding-bottom: 5px;
+}
+
+.information-pages p,
+.information-pages ul {
+  font-size: 1.2em; 
+  color: #402b2b;
+  list-style-type: disc; /* Маркери — крапки */
+}
+
+.information-pages ul li {
+  margin-bottom: 10px; /* Відстань між пунктами */
+}
+
+.information-pages a {
+  text-decoration: none;
+  color: #2a1e1e;
+  font-size: 1em;
+  padding-bottom: 5px;
+}
+
+.contact-info ul li {
+  color: #402b2b;
+  list-style-type: none;
+  font-size: 1em;
+}
+
+.contact-info a {
+  display: inline-block;
+  color: #402b2b;
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.contact-info a:hover {
+  color: #096740;
+  transform: scale(1.0);
+}
+
+.form-check {
+  color: #986e6e;
+  background-color: #402b2b;
+}
+

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="text-center ms-5">
+    <div class="information-pages ms-5">
+        <h1>Delivery and Payment</h1>
+        <h2>🚛 Delivery</h2>
+        <ul>
+            <li><strong>Delivery within the city</strong>:  
+                Cost: from 500 UAH (exact cost depends on the delivery address).  
+                Timing: 1–3 business days.</li>
+            <li><strong>Delivery within the region</strong>:  
+                Cost: calculated individually based on the distance.  
+                Timing: 3–7 business days.</li>
+            <li><strong>Delivery across Ukraine</strong>:  
+                We cooperate with transport companies such as Ukrposhta, Novaposhta, and Meest express.  
+                Cost: based on the rates of the transport company.  
+                Timing: 5–14 days.</li>
+            <li><strong>Self-pickup</strong>:  
+                You can pick up your order yourself from our store or warehouse.  
+                Store address: Kharkov city, Sobornaya street 5.</li>
+        </ul>
+        <h2>Delivery Terms</h2>
+        <ul>
+            <li>Lifting items to upper floors is available for an additional fee if the building does not have an elevator.</li>
+            <li>Our manager will contact you to confirm your order and arrange the delivery time.</li>
+        </ul>
+        <h2>💸 Payment</h2>
+        <ul>
+            <li><strong>Cash Payment</strong>: Pay in cash upon delivery or in-store.</li>
+            <li><strong>Bank Transfer</strong>: Payment to a corporate account for legal entities (an invoice will be issued).</li>
+            <li><strong>Payment by Credit/Debit Card</strong>: Pay online on our website or via a terminal in-store.</li>
+            <li><strong>Installment Payment</strong>:  
+                We partner with leading banks offering installment plans.  
+                Please check installment terms with our manager.</li>
+        </ul>
+        <h2>Returns and Exchanges</h2>
+        <ul>
+            <li>You can return or exchange your purchase within 14 days of purchase, provided the item is in its original condition and packaging.</li>
+            <li>Refunds are processed within 10 business days after the request is reviewed.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+    <div class="general-footer">
+        {% include "includes/footer.html" %}
+    </div>
+{% endblock %}

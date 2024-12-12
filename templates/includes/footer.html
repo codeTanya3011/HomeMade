@@ -1,0 +1,31 @@
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+{% endblock %}
+
+<footer class="bg-custom">
+<div class="general-footer">
+    <div class="social-links">
+        <a href="https://t.me/sweet_girl_669" class="mx-4" target="_blank">
+            <img src="{% static "deps/icons/png-footer/telegram-logo.png" %}" alt="Telegram Icon Footer" class="icon_footer">
+        </a>
+        <a href="https://instagram.com/_greenlife_623" class="mx-4" target="_blank">
+            <img src="{% static "deps/icons/png-footer/instagram-logo.png" %}" alt="Instagram Icon Footer" class="icon_footer">
+        </a>
+        <a href="viber://chat?number=+380936170935&draft=$hello" class="mx-4" target="_blank">
+            <img src="{% static "deps/icons/png-footer/viber-logo.png" %}" alt="Viber Icon Footer" class="icon_footer">
+        </a>
+        <a href="mailto:t2950198@gmail.com" class="mx-4" target="_blank">
+            <img src="{% static "deps/icons/png-footer/gmail-logo.png" %}" alt="Gmail Icon Footer" class="icon_footer">
+        </a>
+    </div>
+    <div class="copy-right">
+        <p class="text-center"><em>Copyright &copy;HomeMade<br>2025 codeTanya3011</em></p>
+    </div>
+    <div class="privacy_terms">
+        <a href="{% url 'main:privacy-policy' %}" class="mx-4"><em>Privacy Policy</em></a>
+        <a href="{% url 'main:terms-and-conditions' %}" class="mx-4"><em>Terms and Conditions</em></a>
+    </div>
+</div>
+</footer>

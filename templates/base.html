@@ -1,0 +1,144 @@
+{% load static %}
+{% load cache %}
+{% load goods_tags %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "deps/css/my_css.css" %}">
+    <link rel="stylesheet" href="{% static "deps/css/notifications.css" %}">
+
+    {% block css %}
+    {% endblock %}
+
+    <link rel="furniture-store-icon" sizes="256x256" href="{% static "deps/favicon/furniture-store-256x256.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "deps/favicon/furniture-store-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "deps/favicon/furniture-store-16x16.png" %}">
+    <link rel="manifest" href="{% static "deps/favicon/site.webmanifest" %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header>
+        <div id="cart-alert" class="alert alert-success position-fixed text-center translate-middle-x z-3" 
+             style="display: none; background-color: #A8E6CF; color: #2E7D32; border-color: #66BB6A;">
+            <span id="cart-alert-message"></span>
+        </div>
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-lg-0 fs-5 ms-5">
+                        <a href="{% url 'main:index' %}">
+                            <img class="catalog_item mx-1" src="{% static 'deps/icons/shop.svg' %}" 
+                                 alt="Catalog Icon" width="42" height="42">
+                        </a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link fs-5 ms-3" href="{% url "main:index" %}"><strong>HomeMade</strong></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link fs-5 ms-5" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <strong>Information</strong>
+                            </a>
+                            <ul class="dropdown-menu fs-5 mx-3 me-3">
+                                <li><a class="dropdown-item" href="{% url "main:delivery_and_payment" %}">Delivery and payment</a></li>
+                                <li><a class="dropdown-item" href="{% url "main:contact_informations" %}">Contact information</a></li>
+                                <li><a class="dropdown-item" href="{% url "main:about" %}">About us</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 ms-5" href="{% url "user:users_cart" %}"><strong>Cart</strong></a>                            
+                        </li>
+                        {% if not user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 ms-5" href="{% url "user:login" %}"><strong>Login</strong></a>
+                        </li>
+                        {% else %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link fs-5 ms-5" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <strong>My profile</strong>
+                                </a>
+                                <ul class="dropdown-menu fs-5">
+                                    <li><a class="dropdown-item" href={% url "user:profile" %}>Personal account</a>
+                                    </li>
+                                    {% if user.is_admin or user.is_staff %}
+                                        <li><a class="dropdown-item" href="{% url "admin:index" %}">Admin panel</a></li>
+                                    {% endif %}
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="{% url "user:logout" %}">Log out</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    <form id="search-form" class="d-flex align-items-center mt-3 mx-3"
+                        style="text-align: center; display: inline-flex; justify-content: center; align-items: center;" 
+                        role="search" action="{% url 'catalog:search' %}" method="get">
+    
+                        <input id="search-input" class="form-control w-100 fs-5" type="search" name="q" 
+                            aria-label="Search" placeholder="Enter your request" value="{{ request.GET.q }}">
+    
+                        <button id="search-button" class="form-control w-25 fs-5 ms-5 me-5" style="color: #096740;" type="submit">
+                            <strong>Search</strong>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="container row">
+            <div class="container position-fixed z-3 ms-2">
+                <div class="dropdown justify-content-start mt-5 mb-2 ms-5">
+                    <button class="btn dropdown-toggle fs-5" 
+                            type="button" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false"
+                            style="width: 130px; height: 50px;">
+                            Catalog
+                            <img class="catalog_item mx-1" src="{% static "deps/icons/menu-catalog.svg" %}"
+                                alt="Catalog Icon" width="28" height="28">
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% cache 60 catalog_categories %}
+                        {% tag_categories as categories %}
+                        {% for category in categories %} 
+                            <li><a class="dropdown-item" href="{% url "catalog:index" category.slug %}">{{category.name}}</a></li>
+                        {% endfor %}
+                        {% endcache %}
+                    </ul>
+                </div>
+
+                {% block modal_cart %}{% endblock modal_cart %}
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-1">
+                <div class="col-lg-12">
+
+                    {% include "includes/notifications.html" %}
+                    {% block content %}{% endblock %}
+                    
+                </div>
+        </div>
+    </section>
+
+    {% block footer %}{% endblock %}
+      
+    <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
+    <script src="{% static "deps/js/jquery-ajax.js" %}"></script>
+    <script src="{% static "deps/js/bootstrap/bootstrap.bundle.min.js" %}"></script>
+    <div id="jq-notification" class="alert alert-success custom-shadow"></div>
+    
+</body>
+</html>

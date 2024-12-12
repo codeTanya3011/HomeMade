@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="text-center ms-5">
+<div class="information-pages ms-5 mb-3">
+    <h1>Terms and Conditions</h1>
+    <p>This is the Terms and Conditions page for HomeMade</p>
+    <h2>1. Introduction</h2>
+    <p>Welcome to HomeMade! These Terms and Conditions govern your use of our website <strong><a href="{% url 'main:index' %}" style="color: #327d50;">HomeMade</a></strong> and the purchase of our products. By accessing or using our website, you agree to these Terms in full. If you do not agree to these Terms, you must not use our website.</p>
+    <h2>2. Eligibility</h2>
+    <p>To use this website and place orders, you must be at least 18 years old or have the consent of a parent or legal guardian. You must provide accurate and up-to-date information during registration or checkout.</p>
+    <h2>3. Ordering and Payment</h2>
+    <p><strong>Placing an Order:</strong> Browse our product catalog and add items to your cart. Confirm your order and provide the necessary billing and shipping details.</p>
+    <p><strong>Payment:</strong> We accept payments through credit cards, PayPal. All prices are listed in currency and include applicable taxes unless otherwise stated.</p>
+    <p><strong>Order Confirmation:</strong> After placing an order, you will receive an email confirmation with your order details. We reserve the right to cancel orders due to errors in pricing, availability, or fraud detection.</p>
+    <h2>4. Shipping and Delivery</h2>
+    <p><strong>Shipping Costs:</strong> Shipping fees vary depending on the delivery location and product weight. Final shipping costs will be calculated at checkout.</p>
+    <p><strong>Delivery Timeframes:</strong> Standard delivery times are 3–7 business days. Delivery times may vary depending on your location and product availability.</p>
+    <p><strong>Shipping Delays:</strong> We are not responsible for delays caused by external factors, such as weather, carrier issues, or customs.</p>
+    <h2>5. Returns and Refunds</h2>
+    <p><strong>Eligibility for Returns:</strong> You can request a return within 14 days of receiving your order. The item must be unused, in its original packaging, and in the same condition as when you received it.</p>
+    <p><strong>Non-Returnable Items:</strong> Customized or made-to-order furniture is non-returnable unless defective.</p>
+    <p><strong>Refund Process:</strong> Approved refunds will be processed within 3-5 business days. Shipping fees are non-refundable unless the return is due to a defect or error on our part.</p>
+    <p><strong>Return Shipping:</strong> Return shipping costs are the responsibility of the customer, unless the return is due to a defect or our error.</p>
+    <h2>6. Contact Us</h2>
+    <p>If you have any questions or concerns about these Terms, please contact us at:</p>
+        <div class="contact-info mb-5">
+                {% include "includes/contact_info.html" %}
+        </div>
+</div>
+</div>
+{% endblock %}
+
