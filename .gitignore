@@ -1,6 +1,7 @@
 #python stuff
 venv/
 __pycache__/
+cache/
 
 #ide stuff
 .vscode
