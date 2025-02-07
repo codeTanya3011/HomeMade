@@ -37,13 +37,15 @@
         </div>
         <!-- Описание товара -->
         <div class="card-body">
-            <p class="card-text">Цена: <strong>{{ product.sell_price }}</strong></p>
+            <p class="card-text">Price: <strong>{{ product.sell_price }}</strong></p>
             <h5 class="card-title">{{ product.name }}</h5>
             <p class="card-text">{{ product.description }}</p>
-            <a href="{% url "cart:cart_add" %}" class="btn btn-dark add-to-cart"
+            <a href="{% url "cart:cart_add" %}" class="btn dropdown-toggle btn-dark add-to-cart"
             data-product-id="{{ product.id }}">
             {% csrf_token %}
-            Добавить в корзину</a>
+            Add to cart 
+            <img class="mx-1" src="{% static "deps/icons/cart-main.svg" %}" alt="Catalog Icon"
+            width="28" height="28"></a>
         </div>
     </div>
 </div>

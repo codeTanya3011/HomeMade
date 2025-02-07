@@ -10,19 +10,32 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home - Главная'
-        context['content'] = "Магазин мебели HomeMade"
+        context['title'] = 'Home'
+        context['content'] = "✨ Furniture store HomeMade"
         return context
 
+class DeliveryAndPaymentView(TemplateView):
+    template_name = 'main/delivery_and_payment.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['site_name'] = "HomeMade"
+        return context
+
+class ContactInformationsView(TemplateView):
+    template_name = 'main/contact_informations.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['site_name'] = "HomeMade"
+        return context
 
 class AboutView(TemplateView):
     template_name = 'main/about.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home - Про нас'
-        context['content'] = "Про нас"
-        context['text_on_page'] = "Наш мебельный магазин — это сочетание стиля, комфорта и качества. Мы предлагаем мебель, созданную для вашего уюта: от изысканных диванов до функциональных обеденных столов. Каждое изделие выполнено из качественных материалов и продумано до мелочей, чтобы радовать вас долгие годы. У нас вы найдёте стильные решения для любого интерьера, а опытные консультанты помогут выбрать то, что идеально подойдёт для вашего дома. Мы делаем ваш уют доступным!"
+        context['site_name'] = "HomeMade"
         return context
 
 

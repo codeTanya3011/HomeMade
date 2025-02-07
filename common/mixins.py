@@ -10,3 +10,5 @@ class CacheMixin:
             cache.set(cache_name, data, cache_time)
 
         return data
+
+

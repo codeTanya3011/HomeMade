@@ -4,10 +4,14 @@
 {% user_carts request as carts %}
 
 <div>
-    <button type="button" class="btn btn-dark btn-secondary d-flex" id="modalButton"
+    <button id="modalButton"
+        aria-expanded="false"
+        class="btn dropdown-toggle fs-5" 
+        type="button" 
+        data-bs-toggle="dropdown" 
         aria-expanded="false">
-        <img class="mx-1" src="{% static "deps/icons/basket2-fill.svg" %}" alt="Catalog Icon" width="24"
-            height="24">
+        <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon" width="32"
+            height="32">
         <span id="goods-in-cart-count">{{ carts.total_quantity }}</span>
     </button>
 </div>
@@ -21,7 +25,7 @@
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h3 class="text-center mb-4">Корзина</h3>
+                <h3 class="text-center mb-4">Cart 🧺</h3>
                 <div class="container" id="cart-items-container">
                     <!-- Разметка корзины -->
                    {% include "carts/includes/included_cart.html" %}

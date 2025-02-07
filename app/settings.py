@@ -164,3 +164,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = '/user/login/'
 LOGIN_REDIRECT_URL = '/'
+
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Храним сессии в БД
+SESSION_COOKIE_AGE = 1209600  # 2 недели (14 дней)
+SESSION_SAVE_EVERY_REQUEST = True  # Продлеваем срок действия сессии при каждом запросе
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Сессия не пропадает при закрытии браузера

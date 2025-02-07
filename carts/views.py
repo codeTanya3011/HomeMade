@@ -15,16 +15,25 @@ class CartAddView(CartMixin, View):
         product_id = request.POST.get("product_id")
         product = Products.objects.get(id=product_id)
 
+        # Принудительно создаем session_key, если его нет
+        if not request.session.session_key:
+            request.session.create()
+
+        session_key = request.session.session_key  # Берем session_key после создания
+
         cart = self.get_cart(request, product=product)
 
         if cart:
             cart.quantity += 1
             cart.save()
         else:
-            Cart.objects.create(user=request.user if request.user.is_authenticated else None,
-                                session_key=request.session.session_key if not request.user.is_authenticated else None,
-                                product=product, quantity=1)
-        
+            Cart.objects.create(
+                user=request.user if request.user.is_authenticated else None,
+                session_key=session_key if not request.user.is_authenticated else None,
+                product=product, 
+                quantity=1
+            )
+
         response_data = {
             "message": "Товар добавлен в корзину",
             'cart_items_html': self.render_cart(request)
@@ -36,17 +45,16 @@ class CartAddView(CartMixin, View):
 class CartChangeView(CartMixin, View):
     def post(self, request):
         cart_id = request.POST.get("cart_id")
-        
         cart = self.get_cart(request, cart_id=cart_id)
 
-        cart.quantity = request.POST.get("quantity")
+        # Приводим количество к целому числу
+        new_quantity = int(request.POST.get("quantity", 1))
+        cart.quantity = max(1, new_quantity)  # Не даем установить 0 или отрицательное число
         cart.save()
-
-        quantity = cart.quantity
 
         response_data = {
             "message": "Количество изменено",
-            "quantity": quantity,
+            "quantity": cart.quantity,
             'cart_items_html': self.render_cart(request)
         }
 
@@ -56,8 +64,8 @@ class CartChangeView(CartMixin, View):
 class CartRemoveView(CartMixin, View):
     def post(self, request):
         cart_id = request.POST.get("cart_id")
-        
         cart = self.get_cart(request, cart_id=cart_id)
+
         quantity = cart.quantity
         cart.delete()
 

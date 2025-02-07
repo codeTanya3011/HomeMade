@@ -5,22 +5,18 @@
     <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
 {% endblock %}
 
-{% block modal_cart %}
-{% include "includes/cart_button.html" %}
-{% endblock modal_cart %}
-
-{% block content %}
-    <div  class="m-2 custom-shadow rounded">
-        <h2 class="m-4 text-center" style="padding-right: 120px;"><strong>{{ content }}</strong></h2>
-        <p class="m-2" style="padding-right: 120px;">{{ text_on_page }}</p>
-    </div> 
+{% block content %} 
+<div class="information-pages">
+    <h1>About us HomeMade</h1>
+    <h2>Our furniture store is a combination of style, comfort, and quality.</h2>
+    <h2>We offer furniture designed for your comfort: from exquisite sofas to functional dining tables.</h2>    
+    <h2>Here you will find stylish solutions for any interior, and experienced consultants will help you choose what is ideal for your home.</h2>
+    <h2>We make comfort accessible, so on our website you will find what you need, welcome!</h2>       
+</div>
 {% endblock %}
 
 {% block footer %}
-<footer class="py-4 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; HomeMade 2025 codeTanya3011</p>
-        
+    <div class="general-footer">
+        {% include "includes/footer.html" %}
     </div>
-</footer>
 {% endblock %}

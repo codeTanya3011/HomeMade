@@ -1,7 +1,126 @@
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #343a40;
-    padding: 10px 0;
-  }
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #986e6e;
+  padding: 10px 10px;
+}
+
+.bg-custom {
+  height: 40px; /* Высота футера */
+  width: 100%;   /* Ширина на всю страницу */
+  background-color: #2a1e1e; /* Цвет фона (если нужно уточнить bg-dark) */
+  color: #c3b2b2; /* Цвет текста */
+  text-align: center; /* Выравнивание текста по центру */
+  box-sizing: border-box; /* Учитываем отступы в общей ширине/высоте */
+}
+
+.general-footer{
+  display: flex; /* Flexbox для управления расположением */
+  justify-content: space-between;
+}
+
+.icon_footer {
+  width: 22px; /* Ширина иконки */
+  height: 22px; /* Высота иконки */
+  object-fit: contain; /* Сохраняет пропорции содержимого */
+  transition: transform 0.5s ease; /* Плавный переход */
+}
+
+.copy-right {
+  display: flex; /* Включаем Flexbox */
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали */
+  color: #c3b2b2; /* Белый текст */
+  font-size: 10px;
+  margin: 0; /* Убираем внешние отступы */
+  padding: 0; /* Убираем внутренние отступы */
+  text-align: center; /* Выравниваем текст по центру */
+  height: 100%; /* Убедитесь, что у контейнера есть высота */
+}
+
+.privacy_terms a {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: #c3b2b2; /* Белый текст */
+  transition: color 0.5s ease; /* Плавное изменение цвета */
+  font-size: 14px;
+}
+
+.privacy_terms a:hover {
+  color: #85d8a7; /* Изменение цвета текста при наведении */
+  transform: scale(1.2); /* Увеличение при наведении */
+}
+
+.icon_footer:hover {
+  transform: scale(1.6); /* Увеличение при наведении */
+}
+
+.social-links,
+.privacy_terms {
+  display: flex; /* Включаем Flexbox */
+  justify-content: center; /* Центрируем по горизонтали */
+}
+
+/* Секция "Важное" */
+.information-pages {
+  background-color: #c3b2b2; /* Светло-розовый фон */
+  padding: 20px; /* Внутренние отступы */
+  border-radius: 20px; /* Закруглённые углы */
+}
+
+.information-pages h1 {
+  color: #181313; /* Темно-серый текст */
+  font-size: 2em; /* big текст */
+  border-bottom: 3px solid #986e6e; /* Подчёркивание */
+  padding-bottom: 5px; /* Отступ для текста */
+}
+
+.information-pages h2 {
+  color: #2a1e1e; /* Темно-серый текст */
+  font-size: 1.6em; /* Средний текст */
+  padding-bottom: 5px; /* Отступ для текста */
+}
+
+.information-pages p,
+.information-pages ul {
+  font-size: 1.2em; /* Увеличенный размер шрифта */
+  color: #402b2b; /* Средне-серый текст */
+  list-style-type: disc; /* Маркеры — точки */
+  margin-left: 20px; /* Отступ для списка */
+}
+
+.information-pages ul li {
+  margin-bottom: 10px; /* Расстояние между пунктами */
+}
+
+.information-pages a {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: #2a1e1e; /* Черный текст */
+  font-size: 1em; /* Средний текст */
+  padding-bottom: 5px; /* Отступ для текста */
+}
+
+.contact-info ul li {
+  color: #402b2b; /* Средне-серый текст */
+  list-style-type: none; /* Убираем маркеры */
+  font-size: 1em; /* Размер текста */
+  margin-bottom: 10px; /* Отступ между пунктами */
+}
+
+.contact-info a {
+  display: inline-block; /* Теперь `transform` будет работать */
+  color: #2a1e1e; /* Темно-серый текст */
+  transition: transform 0.5s ease, color 0.5s ease; /* Плавный эффект */
+}
+
+.contact-info a:hover {
+  color: #327d50; /* Меняем цвет текста */
+  transform: scale(1.0); /* Увеличение при наведении */
+}
+
+.form-check {
+  color: #986e6e;
+  background-color: #2a1e1e;
+}
+  
+  

@@ -6,12 +6,12 @@
 {% endblock %}
 
 {% block content %}
-<div class="important">
+<div class="information-pages">
     <h1>Privacy Policy</h1>
-    <p>This is the Privacy Policy page for <strong><a href="{% url 'main:index' %}" style="color: #333333;">HomeMade</a></strong></p>
+    <p>This is the Privacy Policy page for <strong><a href="{% url 'main:index' %}" style="color: #327d50;">HomeMade</a></strong></p>
 
     <h2>1. Introduction</h2>
-    <p>Welcome to <strong>HomeMade!</strong> We value your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information in accordance with applicable data protection laws.</p>
+    <p>Welcome to HomeMade! We value your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information in accordance with applicable data protection laws.</p>
 
     <h2>2. Information We Collect</h2>
     <ul>
@@ -55,17 +55,19 @@
 
     <p>To exercise your rights, please contact us using the details provided below.</p>
 
-    <h2>8. Contact Information</h2>
-    <p>If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us:</p>
-    <div class="contact-info">
-        <ul>
-            <li>Company Name: HomeMade</li>
-            <li>Gmail: t2950198@gmail.com</li>
-            <li>Phone: +380936170935</li>
-            <li>Address: Kharkiv town, Soborna street 5</li>
-        </ul>
-    </div>
-    <h2>9. Changes to This Privacy Policy</h2>
+    <h2>8. Changes to This Privacy Policy</h2>
     <p>We reserve the right to update this Privacy Policy at any time. Changes will be posted on this page, and we encourage you to review it regularly.</p>
+
+    <h2>9. Contact Information</h2>
+    <p>If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us:</p>
+        <div class="contact-info mb-5">
+                {% include "includes/contact_info.html" %}
+        </div>
 </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="general-footer">
+        {% include "includes/footer.html" %}
+    </div>
 {% endblock %}

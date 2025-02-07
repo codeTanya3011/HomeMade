@@ -15,11 +15,10 @@ from orders.models import Order, OrderItem
 from users.forms import ProfileForm, UserLoginForm, UserRegistrationForm
 
 
-
 class UserLoginView(LoginView):
     template_name = 'users/login.html'
     form_class = UserLoginForm
-    success_url = reverse_lazy('main:index')
+    # success_url = reverse_lazy('main:index')
 
     def get_success_url(self):
         redirect_page = self.request.POST.get('next', None)
@@ -77,7 +76,7 @@ class UserRegistrationView(CreateView):
         return context
 
 
-class UserProfileView(LoginRequiredMixin, CacheMixin, UpdateView):
+class UserProfileView(LoginRequiredMixin, CacheMixin , UpdateView):
     template_name = 'users/profile.html'
     form_class = ProfileForm
     success_url = reverse_lazy('users:profile')

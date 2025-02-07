@@ -1,10 +1,11 @@
-body {
+html, body {
   background-image: url("../images/home5.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   height: 100%;
+  margin: 0;
 }
 
 .dropdown-toggle::after {
@@ -12,111 +13,255 @@ body {
 }
 
 .product_id {
-  color: gray;
+  color: #986e6e;
   font-size: 15px;
 }
 
-.badge.bg-warning.text-dark {
+.badge.bg-warning {
   position: absolute;
-  top: 10px;
-  right: 5px;
+  top: 50%; /* Центрируем по вертикали */
+  left: 50%; /* Центрируем по горизонтали */
+  transform: translate(-50%, -50%); /* Смещаем на 50% ширины и высоты */
   z-index: 1;
-  padding: 5px 10px;
-  border-radius: 3px;
-  font-size: 1rem;
-  box-shadow: 2px 2px 15px 9px #000000;
+  font-size: 1.2rem;
 }
 
 .badge-banner {
   top: 80%;
-  border-radius: 15px;
-  font-size: 0.7rem;
+  border-radius: 5px;
+  font-size: 2rem;
+  background-color: #2a1e1e;
 }
 
-.bg-dark {
-  height: 40px; /* Высота футера */
+.navbar {
+  height: 50px; /* Высота верхней панели */
   width: 100%;   /* Ширина на всю страницу */
-  background-color: #333; /* Цвет фона (если нужно уточнить bg-dark) */
-  color: #fff; /* Цвет текста */
-  text-align: center; /* Выравнивание текста по центру */
-  padding: 10px; /* Внутренние отступы */
-  box-sizing: border-box; /* Учитываем отступы в общей ширине/высоте */
-}
-
-.general-footer{
-  display: flex; /* Flexbox для управления расположением */
-  justify-content: space-between;
-}
-
-.icon_footer {
-
-  width: 18px; /* Ширина иконки */
-  height: 18px; /* Высота иконки */
-  object-fit: contain; /* Сохраняет пропорции содержимого */
-  transform: scale(1.1); /* Увеличение при наведении */
-  transition: transform 0.3s ease; /* Плавный переход */
-}
-
-.copy-right {
-  display: flex; /* Включаем Flexbox */
   justify-content: center; /* Центрируем по горизонтали */
   align-items: center; /* Центрируем по вертикали */
-  font-size: 12px;
-  margin: 0; /* Убираем внешние отступы */
-  padding: 0; /* Убираем внутренние отступы */
-  text-align: center; /* Выравниваем текст по центру */
-  height: 100%; /* Убедитесь, что у контейнера есть высота */
+  background-color: #2a1e1e;
+  z-index: 10; 
 }
 
-.privacy_terms a {
-  text-decoration: none; /* Убираем подчеркивание */
-  color: white; /* Белый текст */
-  transition: color 0.3s ease; /* Плавное изменение цвета */
-  font-size: 12px;
+.nav-item,
+.nav-link {
+  color: #986e6e; /* Белый текст */
 }
 
-.privacy_terms a:hover {
-  color: #21c964; /* Изменение цвета текста при наведении */
+.navbar-brand {
+  color: #c3b2b2; /* Наследовать цвет */
 }
 
-.social-links,
-.privacy_terms {
-  display: flex; /* Включаем Flexbox */
-  justify-content: center; /* Центрируем по горизонтали */
-  height: 100px; /* Высота контейнера */
+.navbar-brand:hover {
+  color: #85d8a7 !important; /* Изменение цвета текста при наведении */
 }
 
-/* Секция "Важное" */
-.important {
-  background-color: #f2e5e5; /* Светло-розовый фон */
-  padding: 20px; /* Внутренние отступы */
-  border-radius: 20px; /* Закруглённые углы */
+.nav-item a:hover {
+  color: #85d8a7; /* Изменение цвета текста при наведении */
 }
 
-.important h1,
-.important h2 {
-  color: #333; /* Темно-серый текст */
-  font-size: 1.2em; /* Средний текст */
-  border-bottom: 2px solid #c3b2b2; /* Подчёркивание */
-  padding-bottom: 5px; /* Отступ для текста */
+.nav-link a:hover {
+  color: #85d8a7; /* Изменение цвета текста при наведении */
+}
+
+.d-flex {
+  gap: 15px; 
+}
+
+.form-control {
+  height: 35px;
+  outline: none; /* Убираем стандартную синюю рамку */
+  border: 2px solid #986e6e !important; /* Обводка нужного цвета */
+  box-shadow: none !important; /* Убирает черную тень */
+  border-radius: 5px;
+  background-color: #85d8a7; /* Цвет фона */
+  color: #986e6e; /* Цвет текста */
+  
+  text-align: center; /* Выравнивание текста по центру */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control:hover {
+  background-color: #986e6e; /* Изменение цвета текста при наведении */
+  border: 2px solid #c3b2b2 !important; /* Обводка нужного цвета */
+  color: #85d8a7;
+}
+
+.form-control::placeholder {
+  color: #986e6e; /* Цвет текста плейсхолдера */
+  opacity: 1; /* Делаем его полностью видимым */
+}
+
+/* Изменяем цвет крестика (очистки) */
+.form-control::-webkit-search-cancel-button {
+  filter: invert(75%) sepia(24%) saturate(313%) hue-rotate(90deg) brightness(95%) contrast(90%);
+}
+
+.navbar-toggler {
+  left: auto;
+  right: 10px;
+  position: absolute;
+  position: fixed; /* Фиксируем поверх всего */
+  background-color: #2a1e1e;
+  border: 2px solid #986e6e !important; /* Обводка нужного цвета */
+  border-radius: 5px; /* Закругленные углы */
+  padding: 0; /* Отступы внутри */
+  box-shadow: none !important; /* Убирает черную тень */
+  width: 30px; /* Размер кнопки */
+  height: 30px;
+  margin: 0; /* Отступы сверху и снизу */
+}
+
+.navbar-toggler-icon {
+  background-color: #986e6e !important; /* Мятный цвет */
+  border-radius: 5px; /* Закругление углов, если нужно */
+  width: 16px;
+  height: 16px;
+}
+
+.navbar-toggler:hover {
+  border-color: #85d8a7 !important; /* Цвет обводки при нажатии */
+  box-shadow: none !important; /* Убирает эффект тени */
+}
+
+.navbar-toggler-icon:hover {
+  background-color: #85d8a7 !important; /* Цвет обводки при нажатии */
 }
 
 
-.important p,
-.important ul {
-  font-size: 1em; /* Увеличенный размер шрифта */
-  color: #555; /* Средне-серый текст */
-  list-style-type: disc; /* Маркеры — точки */
+/* Бургер-кнопка */
+.navbar-toggler {
+  position: fixed; /* Фиксируем кнопку */
+  top: 10px;
+  right: 10px;
+  background-color: #2a1e1e;
+  border: 2px solid #986e6e !important;
+  border-radius: 5px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  z-index: 2001; /* Поверх всего */
 }
 
-.important ul li {
-  margin-bottom: 10px; /* Расстояние между пунктами */
-  font-weight: bold; /* Полужирный текст */
-  font-style: italic; /* Курсив */
+/* Иконка бургера внутри кнопки */
+.navbar-toggler-icon {
+  width: 100%;
+  height: 100%;
+  background-color: white; /* Цвет полосок */
 }
 
-.contact-info ul li {
-  list-style-type: none; /* Убираем маркеры */
-  font-size: 1em; /* Размер текста */
-  margin-bottom: 10px; /* Отступ между пунктами */
+/* Контейнер меню (по умолчанию скрыто) */
+.navbar-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(42, 30, 30, 0.95); /* Затемнение */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 1000; /* Под кнопкой */
+}
+
+/* Активное меню */
+.navbar-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Стили ссылок внутри меню */
+.navbar-menu a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+
+
+.dropdown-toggle {
+  border-radius: 5px; /* Закругленные углы */
+  background-color: #986e6e; 
+  border: 2px solid #2a1e1e !important; /* Обводка нужного цвета */
+  color: #2a1e1e;
+}
+
+.dropdown-toggle:hover {
+  background-color: #986e6e; 
+  color: #85d8a7; /* Цвет текста */
+}
+
+.cart-icon {
+  color: #85d8a7;
+}
+
+.dropdown-menu {
+  background-color: #2a1e1e; 
+  border: 2px solid #986e6e !important; /* Обводка нужного цвета */
+}
+
+.dropdown-item {
+  color: #986e6e;
+}
+
+.dropdown-item:hover {
+  color: #85d8a7;
+  background-color: #986e6e;
+}
+
+.input-group-btn {
+  display: inline-flex; /* Включаем Flexbox */
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px; /* Закругленные углы */
+  background-color: #2a1e1e; 
+  border: 2px solid #986e6e !important; /* Обводка нужного цвета */
+  color: #c3b2b2;
+  text-align: center;   
+  width: 42%;
+  margin: 2% 2%;
+}
+
+.input-group-btn:hover {
+  background-color: #986e6e; 
+  border: 2px solid #2a1e1e !important; /* Обводка нужного цвета */
+  color: #98FB98;
+}
+
+.col {
+  display: flex;
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали (если нужно) */
+}
+
+.form-check-input {
+  border: 2px solid #986e6e !important; /* Обводка нужного цвета */
+  background-color: #c3b2b2;  
+  outline: none; /* Убираем стандартную синюю обводку */
+  box-shadow: none !important; /* Убираем свечение */
+}
+
+/* Меняем цвет при наведении */
+.form-check-input:hover {
+  background-color: #98FB98; /* Мятный цвет */
+  border-color: #98FB98;
+}
+
+/* Меняем цвет при выборе (активном состоянии) */
+.form-check-input:checked {
+  background-color: #98FB98 !important; /* Мятный цвет */
+  border-color: #98FB98 !important;
+  box-shadow: 0 0 5px #98FB98; /* Добавляем легкое свечение мятного цвета */
+}
+
+/* Убираем стандартное синее свечение при фокусе */
+.form-check-input:focus {
+  box-shadow: none !important;
+  outline: none !important;
 }

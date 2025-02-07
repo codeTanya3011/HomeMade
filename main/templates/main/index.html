@@ -10,33 +10,11 @@
 {% endblock modal_cart %}
 
 {% block content %}
-    <h1 class="mt-5 pt-5 text-center fst-italic"><strong>{{ content }}</strong></h1>
+    <h1 class="mt-5 pt-5 text-center fst-italic" style="color: #986e6e;"><strong>{{ content }}</strong></h1>
 {% endblock %}
 
 {% block footer %}
-<footer class="bg-dark">
-<div class="general-footer">
-    <div class="social-links">
-        <a href="https://t.me/sweet_girl_669" class="mx-4" target="_blank">
-            <img src="{% static "deps/icons/png-footer/telegram-logo.png" %}" alt="Telegram Icon Footer" class="icon_footer">
-        </a>
-        <a href="https://instagram.com/_greenlife_623" class="mx-4" target="_blank">
-            <img src="{% static "deps/icons/png-footer/instagram-logo.png" %}" alt="Instagram Icon Footer" class="icon_footer">
-        </a>
-        <a href="viber://chat?number=+380936170935&draft=$hello" class="mx-4" target="_blank">
-            <img src="{% static "deps/icons/png-footer/viber-logo.png" %}" alt="Viber Icon Footer" class="icon_footer">
-        </a>
-        <a href="mailto:t2950198@gmail.com" class="mx-4" target="_blank">
-            <img src="{% static "deps/icons/png-footer/gmail-logo.png" %}" alt="Gmail Icon Footer" class="icon_footer">
-        </a>
+    <div class="general-footer">
+        {% include "includes/footer.html" %}
     </div>
-    <div class="copy-right">
-        <p class="text-center text-white"><em>Copyright &copy;HomeMade 2025 codeTanya3011</em></p>
-    </div>
-    <div class="privacy_terms">
-        <a href="{% url 'main:privacy-policy' %}" class="mx-4"><em>Privacy Policy</em></a>
-        <a href="{% url 'main:terms-and-conditions' %}" class="mx-4"><em>Terms and Conditions</em></a>
-    </div>
-</div>
-    </footer>
 {% endblock %}
