@@ -11,7 +11,7 @@
     <!-- Форма фильтров -->
     <div class="dropdown mb-2 d-flex justify-content-end">
         <button 
-            class="btn btn-lg dropdown-toggle ms-auto"  
+            class="btn btn-lg dropdown-toggle ms-auto mx-1"  
             type="button" 
             data-bs-toggle="dropdown" 
             aria-expanded="false">
@@ -65,36 +65,36 @@
 {% for product in goods %}
     <!-- Карта товара -->
     <div class="col-lg-4 col-md-6 p-4">
-        <div class="card border-primary rounded custom-shadow">
+        <div class="card border-4 border-success rounded custom-shadow">
             {% if product.image %}
                 <img src={{ product.image.url }} class="card-img-top" alt="{{ product.name }}">
             {% else %}
                 <img src={% static "deps/images/Not found image.png" %} class="card-img-top" alt="...">
             {% endif %}
             <div class="card-body">
-                <a href="{% url "catalog:product" product.slug %}">
+                <a href="{% url "catalog:product" product.slug %}" style="color: #85d8a7;">
                     <p class="card-title">
                         {% autoescape off %}
                             {% if product.headline %}{{product.headline}}{% else %}{{ product.name }}{% endif %}
                         {% endautoescape %}</p>
                 </a>
-                <p class="card-text">
+                <p class="card-text" style="color: #402b2b;">
                     {% autoescape off %}
                         {% if product.bodyline %}{{product.bodyline|truncatechars:100}}{% else %}{{ product.description|truncatechars:50 }}{% endif %}
                     {% endautoescape %}</p>
                     
                 <p class="product_id">id: {{ product.display_id }}</p>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between" style="color: #402b2b;">
 
                     {% if product.discount %}
                         <p><s>{{ product.price }}</s> UAH</p>
-                        <p><strong>{{ product.sell_price }}</strong></p>
-                        <span class="badge bg-warning text-dark">Discount {{ product.discount }} %</span>
+                        <p><strong>{{ product.sell_price }}</strong> UAH</p>
+                        <span class="badge bg-success">Discount {{ product.discount }} %</span>
                     {% else %}
-                        <p><strong>{{ product.price }}</strong></p>
+                        <p><strong>{{ product.price }} UAH</strong></p>
                     {% endif %}
 
-                    <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
+                    <a href="{% url "cart:cart_add" %}" class="btn add-to-cart" style="color: #402b2b;"
                     data-product-id="{{ product.id }}">
                         {% csrf_token %}
                         <img class="mx-1" src="{% static "deps/icons/cart-main.svg" %}" alt="Catalog Icon"
@@ -114,7 +114,7 @@
         <div class="custom-shadow d-flex">
 
             <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
-              <a class="page-link" href="{% if page_obj.has_previous %}?{% change_params page=page_obj.previous_page_number %}{% else %}#{% endif %}">Назад</a>
+              <a class="page-link" href="{% if page_obj.has_previous %}?{% change_params page=page_obj.previous_page_number %}{% else %}#{% endif %}">Back</a>
             </li>
 
             {% for page in page_obj.paginator.page_range %}
@@ -126,7 +126,7 @@
             {% endfor %}
 
             <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
-                <a class="page-link" href="{% if page_obj.has_next %}?{% change_params page=page_obj.next_page_number %}{% else %}#{% endif %}">Следующая</a>
+                <a class="page-link" href="{% if page_obj.has_next %}?{% change_params page=page_obj.next_page_number %}{% else %}#{% endif %}">Next</a>
               </li>
         </div>
     </ul>

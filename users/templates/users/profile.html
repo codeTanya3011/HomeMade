@@ -11,7 +11,7 @@
             <!-- Профиль с данными пользователя -->
             <div class="col-md-5">
                 <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                    <h3 class="text-center mb-4">User profile</h3>
+                    <h3 class="text-center mb-4" style="color: #402b2b;">User profile</h3>
                     <form action="{% url "users:profile" %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
@@ -21,9 +21,12 @@
                                         alt="Avatar" class="img-fluid rounded-circle"
                                         style="max-width: 200px;">
                                 {% else %}
-                                    <img src="{% static "deps/images/avatar-icon.png" %}"
-                                        alt="Avatar user" class="img-fluid rounded-circle"
-                                        style="max-width: 200px;">
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <img class="catalog_item ms-1" src="{% static "deps/icons/profile-female.svg" %}" alt="Catalog Icon"
+                                         style="max-width: 50%; max-height: 50%; width: auto; height: auto;">
+                                    <img class="catalog_item me-1" src="{% static "deps/icons/profile-male.svg" %}" alt="Catalog Icon"
+                                         style="max-width: 50%; max-height: 50%; width: auto; height: auto;">
+                                </div>
                                 {% endif %}
                                 <input type="file" class="form-control mt-3" id="id_image"
                                     name='image'
@@ -77,13 +80,13 @@
                                     {% endif %}
                             </div>
                         </div>
-                        <div class="text-center mb-4 fs-4">
-                            <button class="btn dropdown-toggle" 
+                        <div class="text-center mb-4">
+                            <button class="btn dropdown-toggle fs-5 w-100 mt-5"
+                                style="width: 100%;"
                                 type="submit" 
-                                data-bs-toggle="dropdown" 
                                 aria-expanded="false">
                                 Save 
-                                <img class="catalog_item" src="{% static "deps/icons/save.svg" %}" alt="Catalog Icon" width="28"
+                                <img class="catalog_item" src="{% static "deps/icons/register-save.svg" %}" alt="Catalog Icon" width="28"
                                                     height="28">
                             </button>
                         </div>
@@ -94,7 +97,7 @@
             {% user_carts request as carts %}
             <div class="col-md-7">
                 <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                    <h3 class="text-center mb-4">Cart 🧺</h3>
+                    <h3 class="text-center mb-4" style="color: #402b2b;">Cart 🧺</h3>
                     <div class="container" id="cart-items-container">
                         <!-- Разметка корзины -->
                         {% include "carts/includes/included_cart.html" %}
@@ -107,23 +110,29 @@
              {% comment %} {% cache 60 user_orders user.id %} {% endcomment %}
             <div class="col-md-12">
                 <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                    <h3 class="text-center mb-4">My orders</h3>
+                    <h3 class="text-center mb-4" style="color: #402b2b;">My orders</h3>
                     <!-- Разметка заказов -->
                     <div class="container">
                         <div class="accordion" id="accordionExample">
                             {% for order in orders %}
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading{{ order.id }}">
-                                    <button class="accordion-button {% if order != orders.0 %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ order.id }}" aria-expanded="false" aria-controls="collapse{{ order.id }}">
-                                        Order № {{ order.id }} - {{ order.created_timestamp }} | Status: <strong class="mx-2">{{order.status}}</strong>
-                                    </button>
+                                    <button class="my-accordion-btn ps-3 {% if order != orders.0 %}collapsed{% endif %}" 
+                                    type="button" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapse{{ order.id }}" 
+                                    aria-expanded="{% if order == orders.0 %}true{% else %}false{% endif %}" 
+                                    aria-controls="collapse{{ order.id }}">
+                                Order № {{ order.id }} - {{ order.created_timestamp }} | 
+                                Status: <strong class="order-status ps-3">{{ order.status }}</strong>
+                            </button>
                                 </h2>
                                 <div id="collapse{{ order.id }}" class="accordion-collapse collapse {% if order == orders.0 %}show{% endif %}" aria-labelledby="heading{{ order.id }}" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <table class="table table-dark table-hover">
+                                    <div class="order-details">
+                                        <table class="custom-table">
                                             <thead>
                                                 <tr>
-                                                    <th>Product</th>
+                                                    <th class="ps-3">Product</th>
                                                     <th>Quantity</th>
                                                     <th>Price</th>
                                                     <th>Total cost</th>
@@ -132,7 +141,7 @@
                                             <tbody>
                                                 {% for item in order.orderitem_set.all %}
                                                 <tr>
-                                                    <td><a class="text-white" href="{% url 'goods:product' item.product.slug %}">{{ item.product.name }}</a></td>
+                                                    <td><a class="custom-link ps-3" href="{% url 'goods:product' item.product.slug %}">{{ item.product.name }}</a></td>
                                                     <td>{{ item.quantity }}</td>
                                                     <td>{{ item.price }}</td>
                                                     <td>{{ item.products_price }}</td>                                                   

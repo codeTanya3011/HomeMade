@@ -4,14 +4,9 @@
 {% user_carts request as carts %}
 
 <div>
-    <button id="modalButton"
-        aria-expanded="false"
-        class="btn dropdown-toggle fs-5" 
-        type="button" 
-        data-bs-toggle="dropdown" 
+    <button type="button" class="btn dropdown-toggle d-flex fs-5 mx-1" id="modalButton"
         aria-expanded="false">
-        <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon" width="32"
-            height="32">
+        <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon" width="32" height="32">
         <span id="goods-in-cart-count">{{ carts.total_quantity }}</span>
     </button>
 </div>

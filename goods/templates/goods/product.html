@@ -9,44 +9,40 @@
 <div class="container mt-5">
     <div class="card mb-4 custom-shadow">
         <div class="row">
-            <!-- Миниатюры -->
-            <div class="col-md-4">
-                <img src="{{ product.image.url }}"
-                    class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
+            <!-- Изображение слева -->
+            <div class="col-md-4 d-flex justify-content-center align-items-center">
+                <img src="{{ product.image.url }}" 
+                    class="img-fluid img-thumbnail" 
+                    data-bs-toggle="modal" data-bs-target="#imageModal1" 
+                    style="max-width: 100%; height: auto;">
             </div>
-            <div class="col-md-4 ">
-                <p class="product_id mt-3">id: {{ product.display_id }}</p>
-            </div>
-            <!-- Увеличить изображение в модальном окне -->
-            <div class="modal fade" id="imageModal1" tabindex="-1"
-                aria-labelledby="imageModal1Label" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="imageModal1Label">{{ product.name }}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Закрыть"></button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="{{ product.image.url }}"
-                                class="img-fluid" alt="Изображение 1">
-                        </div>
+
+            <!-- Описание товара справа -->
+            <div class="col-md-8">
+                <div class="card-body text-center" style="color: #402b2b;">
+                    <p class="card-text">Price: <strong>{{ product.sell_price }}</strong></p>
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+
+                    <!-- ID товара -->
+                    <p class="product_id mt-3">id: {{ product.display_id }}</p>
+
+                    <!-- Кнопка "Add to cart" -->
+                    <div class="d-flex justify-content-center">
+                        <a href="{% url 'cart:cart_add' %}" 
+                            class="btn dropdown-toggle add-to-cart d-flex justify-content-center align-items-center"
+                            data-product-id="{{ product.id }}" 
+                            style="width: 150px; height: 50px;">
+                            {% csrf_token %}
+                            Add to cart
+                            <img class="mx-1" src="{% static 'deps/icons/cart-main.svg' %}" 
+                                alt="Catalog Icon" width="28" height="28">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Описание товара -->
-        <div class="card-body">
-            <p class="card-text">Price: <strong>{{ product.sell_price }}</strong></p>
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">{{ product.description }}</p>
-            <a href="{% url "cart:cart_add" %}" class="btn dropdown-toggle btn-dark add-to-cart"
-            data-product-id="{{ product.id }}">
-            {% csrf_token %}
-            Add to cart 
-            <img class="mx-1" src="{% static "deps/icons/cart-main.svg" %}" alt="Catalog Icon"
-            width="28" height="28"></a>
-        </div>
     </div>
 </div>
+
 {% endblock content %}

@@ -9,15 +9,15 @@ footer {
 .bg-custom {
   height: 40px; /* Высота футера */
   width: 100%;   /* Ширина на всю страницу */
-  background-color: #2a1e1e; /* Цвет фона (если нужно уточнить bg-dark) */
+  background-color: #2a1e1e; /* Цвет фона */
   color: #c3b2b2; /* Цвет текста */
-  text-align: center; /* Выравнивание текста по центру */
-  box-sizing: border-box; /* Учитываем отступы в общей ширине/высоте */
+  text-align: center; /* Текст по центру */
+  box-sizing: border-box;
 }
 
 .general-footer{
-  display: flex; /* Flexbox для управления расположением */
-  justify-content: space-between;
+  display: flex; /* Управления расположением */
+  justify-content: space-between;  /* Равномерно распределяет элементы */
 }
 
 .icon_footer {
@@ -28,22 +28,22 @@ footer {
 }
 
 .copy-right {
-  display: flex; /* Включаем Flexbox */
+  display: flex; 
   justify-content: center; /* Центрируем по горизонтали */
   align-items: center; /* Центрируем по вертикали */
-  color: #c3b2b2; /* Белый текст */
+  color: #c3b2b2; /* Цвет текста */
   font-size: 10px;
-  margin: 0; /* Убираем внешние отступы */
-  padding: 0; /* Убираем внутренние отступы */
-  text-align: center; /* Выравниваем текст по центру */
-  height: 100%; /* Убедитесь, что у контейнера есть высота */
+  margin: 0; /* Внешние отступы */
+  padding: 0; /* Внутренние отступы */
+  text-align: center;
+  height: 100%;
 }
 
 .privacy_terms a {
-  text-decoration: none; /* Убираем подчеркивание */
-  color: #c3b2b2; /* Белый текст */
-  transition: color 0.5s ease; /* Плавное изменение цвета */
-  font-size: 14px;
+  text-decoration: none; /* Минус подчеркивание */
+  color: #c3b2b2;
+  transition: color 0.5s ease;
+  font-size: 12px;
 }
 
 .privacy_terms a:hover {
@@ -52,39 +52,38 @@ footer {
 }
 
 .icon_footer:hover {
-  transform: scale(1.6); /* Увеличение при наведении */
+  transform: scale(1.6);
 }
 
 .social-links,
 .privacy_terms {
-  display: flex; /* Включаем Flexbox */
-  justify-content: center; /* Центрируем по горизонтали */
+  display: flex;
+  justify-content: center;
 }
 
-/* Секция "Важное" */
 .information-pages {
-  background-color: #c3b2b2; /* Светло-розовый фон */
+  background-color: #e2c9c9; /* Фон */
   padding: 20px; /* Внутренние отступы */
   border-radius: 20px; /* Закруглённые углы */
 }
 
 .information-pages h1 {
-  color: #181313; /* Темно-серый текст */
+  color: #1e1010;
   font-size: 2em; /* big текст */
   border-bottom: 3px solid #986e6e; /* Подчёркивание */
   padding-bottom: 5px; /* Отступ для текста */
 }
 
 .information-pages h2 {
-  color: #2a1e1e; /* Темно-серый текст */
-  font-size: 1.6em; /* Средний текст */
-  padding-bottom: 5px; /* Отступ для текста */
+  color: #2a1e1e;
+  font-size: 1.6em;
+  padding-bottom: 5px;
 }
 
 .information-pages p,
 .information-pages ul {
   font-size: 1.2em; /* Увеличенный размер шрифта */
-  color: #402b2b; /* Средне-серый текст */
+  color: #402b2b;
   list-style-type: disc; /* Маркеры — точки */
   margin-left: 20px; /* Отступ для списка */
 }
@@ -94,23 +93,23 @@ footer {
 }
 
 .information-pages a {
-  text-decoration: none; /* Убираем подчеркивание */
-  color: #2a1e1e; /* Черный текст */
+  text-decoration: none;
+  color: #2a1e1e;
   font-size: 1em; /* Средний текст */
   padding-bottom: 5px; /* Отступ для текста */
 }
 
 .contact-info ul li {
-  color: #402b2b; /* Средне-серый текст */
-  list-style-type: none; /* Убираем маркеры */
-  font-size: 1em; /* Размер текста */
-  margin-bottom: 10px; /* Отступ между пунктами */
+  color: #402b2b;
+  list-style-type: none;
+  font-size: 1em;
+  margin-bottom: 10px;
 }
 
 .contact-info a {
-  display: inline-block; /* Теперь `transform` будет работать */
-  color: #2a1e1e; /* Темно-серый текст */
-  transition: transform 0.5s ease, color 0.5s ease; /* Плавный эффект */
+  display: inline-block;
+  color: #402b2b;
+  transition: transform 0.5s ease, color 0.5s ease; /* Плавный переход */
 }
 
 .contact-info a:hover {
@@ -120,7 +119,7 @@ footer {
 
 .form-check {
   color: #986e6e;
-  background-color: #2a1e1e;
+  background-color: #402b2b;
 }
   
   

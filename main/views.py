@@ -11,7 +11,7 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Home'
-        context['content'] = "✨ Furniture store HomeMade"
+        context['content'] = " Furniture store HomeMade"
         return context
 
 class DeliveryAndPaymentView(TemplateView):
