@@ -45,6 +45,24 @@ class CatalogView(ListView):
         return context
 
 
+class ProductView(DetailView):
+    template_name = "goods/product.html"
+    slug_url_kwarg = "product_slug"
+    context_object_name = "product"
+
+    def get_object(self, queryset=None):
+        slug = self.kwargs.get(self.slug_url_kwarg)
+        if not slug:  
+            raise Http404("Страница не найдена")  # 👈 Если `slug` пустой, возвращаем 404
+
+        try:
+            product = Products.objects.get(slug=slug)
+            return product
+        except Products.DoesNotExist:
+            raise Http404("Товар не найден")  # 👈 Если товара нет в БД, возвращаем 404
+
+
+
 
 
 # def catalog(request, category_slug=None):
@@ -78,25 +96,6 @@ class CatalogView(ListView):
 #         "slug_url": category_slug
 #     }
 #     return render(request, "goods/catalog.html", context)
-
-
-class ProductView(DetailView):
-
-    # model = Products
-    # slug_field = "slug"
-    template_name = "goods/product.html"
-    slug_url_kwarg = "product_slug"
-    context_object_name = "product"
-
-    def get_object(self, queryset=None):
-        product = Products.objects.get(slug=self.kwargs.get(self.slug_url_kwarg))
-        return product
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["title"] = self.object.name
-        return context
-
 
 
 # def product(request, product_slug):

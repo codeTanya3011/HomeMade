@@ -50,3 +50,4 @@ class CartMixin:
 #             return Cart.objects.filter(session_key=session_key, id=cart_id).first()
         
 #         return Cart.objects.filter(session_key=session_key, product=product).first()
+

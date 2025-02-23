@@ -17,14 +17,17 @@ html, body {
   font-size: 16px;
 }
 
-.badge.bg-success {
+.badge.bg-custom {
   position: absolute;
   top: 50%; /* Центрируем по вертикали */
   left: 50%; /* Центрируем по горизонтали */
   transform: translate(-50%, -50%); /* Смещаем на 50% ширины и высоты */
   z-index: 1;
   font-size: 1.2rem;
+  background-color: #31c783;
   color: #402b2b;
+  height: 35;
+  width: 200;
 }
 
 .badge-banner {
@@ -53,15 +56,15 @@ html, body {
 }
 
 .navbar-brand:hover {
-  color: #85d8a7 !important;
+  color: #15c469 !important;
 }
 
 .nav-item a:hover {
-  color: #85d8a7; /* Изменение цвета текста при наведении */
+  color: #15c469; /* Изменение цвета текста при наведении */
 }
 
 .nav-link a:hover {
-  color: #85d8a7;
+  color: #15c469;
 }
 
 .d-flex {
@@ -109,12 +112,12 @@ html, body {
 }
 
 .navbar-toggler:hover {
-  border-color: #85d8a7 !important;
+  border-color: #15c469 !important;
   box-shadow: none !important;
 }
 
 .navbar-toggler-icon:hover {
-  background-color: #85d8a7 !important;
+  background-color: #15c469 !important;
 }
 
 .dropdown-toggle {
@@ -127,14 +130,12 @@ html, body {
 }
 
 .dropdown-toggle:hover {
-  align-items: center;
-  justify-content: center;
   background-color: #986e6e; 
-  color: #85d8a7;
+  color: #15c469;
 }
 
 .cart-icon {
-  color: #85d8a7;
+  color: #15c469;
 }
 
 .dropdown-menu {
@@ -167,7 +168,7 @@ html, body {
 .input-group-btn:hover {
   background-color: #986e6e; 
   border: 2px solid #402b2b !important;
-  color: #98FB98;
+  color: #15c469;
 }
 
 .col {
@@ -184,13 +185,13 @@ html, body {
 }
 
 .form-check-input:hover {
-  background-color: #98FB98;
-  border-color: #98FB98;
+  background-color: #15c469;
+  border-color: #15c469;
 }
 
 .form-check-input:checked {
-  background-color: #98FB98 !important;
-  border-color: #98FB98 !important;
+  background-color: #15c469 !important;
+  border-color: #15c469 !important;
 }
 
 .form-check-input:focus {
@@ -214,7 +215,7 @@ html, body {
 
 .my-accordion-btn:hover {
   background-color: #c3b2b2;
-  border: 2px solid #85d8a7 !important;
+  border: 2px solid #15c469 !important;
   color: #402b2b;  
 }
 
@@ -231,12 +232,12 @@ html, body {
 
 .custom-table:hover {
   background-color: #c3b2b2;
-  border: 2px solid #85d8a7 !important;
+  border: 2px solid #15c469 !important;
   color: #402b2b;  
 }
 
 .custom-link {
-  color: #85d8a7;
+  color: #15c469;
 }
 
 .custom-link:hover {
@@ -262,6 +263,36 @@ html, body {
 }
 
 .custom-badge {
-  background-color: #327d50;
+  background-color: #096740;
   color: #402b2b;
 }
+
+.page-link,
+.page-item {
+  background-color: #096740;
+  color: #c3b2b2;
+  outline: none; /* Убираем стандартную синюю рамку */
+  border: 1px solid #402b2b !important; /* Обводка нужного цвета */
+  box-shadow: none !important; /* Убирает черную тень */
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #986e6e; /* Цвет фона активной страницы */
+  border-color: #096740; /* Цвет границы */
+  color: #2a1e1e; /* Цвет текста активной ссылки */
+}
+
+/* Убираем синий цвет на hover или фокус */
+.pagination .page-link:focus, .pagination .page-link:hover {
+  color: #2a1e1e;
+  background-color: transparent;
+  border-color: #986e6e;
+}
+
+.mint-bg {
+  background-color: #31c783;
+  color: #096740;
+}
+

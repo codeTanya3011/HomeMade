@@ -7,8 +7,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
     <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "deps/css/my_css.css" %}">
+    <link rel="stylesheet" href="{% static "deps/css/notifications.css" %}">
     <!-- Стиль footer-a для главной страницы -->
     {% block css %}
     {% endblock %}
@@ -18,10 +20,56 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static "deps/favicon/furniture-store-16x16.png" %}">
     <link rel="manifest" href="{% static "deps/favicon/site.webmanifest" %}">
     <title>{{ title }}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            $(".add-to-cart").click(function (e) {
+                e.preventDefault();  
+                let productId = $(this).data("product-id");
+    
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'carts:cart_add' %}",
+                    data: {
+                        product_id: productId,
+                        csrfmiddlewaretoken: "{{ csrf_token }}"
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.success) {
+                            $("#cart-container").html(response.cart_items_html);  // Обновляем корзину
+                            $("#goods-in-cart-count").text(response.total_quantity);  // Обновляем количество товаров
+                            showSuccessNotification(response.message);  // Показываем уведомление
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Ошибка AJAX:", error);
+                    }
+                });
+            });
+        });
+    
+        // Функция для показа уведомлений
+        function showSuccessNotification(message) {
+            let notification = $("#jq-notification");
+    
+            notification.html(message).fadeIn(400);
+            setTimeout(function () {
+                notification.fadeOut(400);
+            }, 4000);
+        }
+    </script>
+    
+        
 </head>
-
 <body>
+
     <header>
+        <div id="cart-alert" class="alert alert-success position-fixed start-50 translate-middle-x z-3" 
+             style="display: none; background-color: #A8E6CF; color: #2E7D32; border-color: #66BB6A;">
+            <span id="cart-alert-message"></span>
+        </div>
         <nav class="navbar navbar-expand-lg">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -86,11 +134,12 @@
             <!-- Каталог и корзина с фиксированным расположением на странице -->
             <div class="row mt-1 position-fixed z-3">
                 <!-- Каталог -->
-                <div class="dropdown mt-2 mb-4">
+                <div class="dropdown mt-4 mb-4">
                     <button class="btn dropdown-toggle fs-5" 
                             type="button" 
                             data-bs-toggle="dropdown" 
-                            aria-expanded="false">
+                            aria-expanded="false"
+                            style="width: 150px; height: 50px;">
                             Catalog <img class="catalog_item mx-1" src="{% static "deps/icons/menu-catalog.svg" %}"
                             alt="Catalog Icon" width="28" height="28">
                     </button>
@@ -111,9 +160,6 @@
         <!-- Контент -->
         <div class="container">
             <div class="row mt-1">
-                <div class="col-lg-2">
-                    <!-- Пустой блок на Ваше усмотрение -->
-                </div>
                 <div class="col-lg-10">
                     <!-- Контент на странице -->
                      {% include "includes/notifications.html" %}
@@ -129,6 +175,9 @@
     <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
     <script src="{% static "deps/js/jquery-ajax.js" %}"></script>
     <script src="{% static "deps/js/bootstrap/bootstrap.bundle.min.js" %}"></script>
+    <div id="jq-notification" class="alert alert-success custom-shadow"></div>
+
+    
 </body>
 
 </html>

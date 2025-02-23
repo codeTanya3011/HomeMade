@@ -48,20 +48,19 @@
     
 </div>
 <div class="card mb-3 shadow-lg">
-    <div class="card-footer text-center mb-4">
+    <div class="card-footer text-center mb-4" style="color: #402b2b;">
         <p class="float-left">Total <strong>{{ carts.total_quantity }}</strong> Item(s) worth</p>
         <h4 class="float-left"><strong>{{ carts.total_price }} UAH</strong></h4>
     </div>
 </div>
-{% if carts and not order%}
+
 <div class="text-center mb-4">
     <a class="btn dropdown-toggle fs-5" 
         type="button" 
-        aria-expanded="false" 
         href="{% url "orders:create_order" %}">
         Place an order 
-        <img class="catalog_item" src="{% static "deps/icons/check-mark.svg" %}" alt="Catalog Icon" width="28"
-                            height="28">
+        <img class="catalog_item" src="{% static "deps/icons/check-mark.svg" %}" alt="Catalog Icon"
+        width="28" height="28">
     </a>
 </div>
-{% endif %}
+

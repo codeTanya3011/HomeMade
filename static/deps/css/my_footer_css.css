@@ -13,6 +13,7 @@ footer {
   color: #c3b2b2; /* Цвет текста */
   text-align: center; /* Текст по центру */
   box-sizing: border-box;
+  z-index: 101 !important;
 }
 
 .general-footer{
@@ -113,7 +114,7 @@ footer {
 }
 
 .contact-info a:hover {
-  color: #327d50; /* Меняем цвет текста */
+  color: #096740; /* Меняем цвет текста */
   transform: scale(1.0); /* Увеличение при наведении */
 }
 
@@ -121,5 +122,4 @@ footer {
   color: #986e6e;
   background-color: #402b2b;
 }
-  
-  
+

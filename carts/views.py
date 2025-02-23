@@ -9,17 +9,27 @@ from carts.models import Cart
 from carts.utils import get_user_carts
 from goods.models import Products
 
+from django.http import JsonResponse
+from django.template.loader import render_to_string
+from django.views import View
+from .models import Cart, Products
+
+
+
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 class CartAddView(CartMixin, View):
     def post(self, request):
         product_id = request.POST.get("product_id")
-        product = Products.objects.get(id=product_id)
 
-        # Принудительно создаем session_key, если его нет
+        try:
+            product = Products.objects.get(id=product_id)
+        except Products.DoesNotExist:
+            return JsonResponse({"success": False, "message": "Товар не найден"}, status=404)
+
         if not request.session.session_key:
             request.session.create()
-
-        session_key = request.session.session_key  # Берем session_key после создания
 
         cart = self.get_cart(request, product=product)
 
@@ -29,14 +39,24 @@ class CartAddView(CartMixin, View):
         else:
             Cart.objects.create(
                 user=request.user if request.user.is_authenticated else None,
-                session_key=session_key if not request.user.is_authenticated else None,
-                product=product, 
-                quantity=1
+                session_key=request.session.session_key if not request.user.is_authenticated else None,
+                product=product, quantity=1
             )
 
+        # Получаем общее количество товаров в корзине
+        total_quantity = sum(cart.quantity for cart in self.get_cart(request))
+
+        cart_items_html = render_to_string(
+            "carts/includes/included_cart.html", 
+            {"cart": self.get_cart(request)}, 
+            request=request
+        )
+
         response_data = {
-            "message": "Товар добавлен в корзину",
-            'cart_items_html': self.render_cart(request)
+            "success": True,
+            "message": "Товар добавлен в корзину!",
+            "total_quantity": total_quantity,  # Теперь отправляем общее количество товаров
+            "cart_items_html": cart_items_html
         }
 
         return JsonResponse(response_data)

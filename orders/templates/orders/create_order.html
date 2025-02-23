@@ -19,7 +19,7 @@
         <h3 class="text-center">Order details</h3>
         <div class="card mb-3">
             <div class="card-body">
-                <form action="{% url "orders:create_order" %}"method="post" id="create_order_form">
+                <form action="{% url "orders:create_order" %}" method="post" id="create_order_form">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -94,18 +94,16 @@
                             </div>
                         </div>
                     </div>
-                    {% if carts and not order%}
                     <div class="text-center mb-4">
-                        <a class="btn dropdown-toggle fs-5" 
-                            type="button" 
+                        <button class="btn dropdown-toggle fs-5" 
+                            type="submit" 
                             aria-expanded="false" 
                             href="{% url "orders:create_order" %}">
                             Place an order 
-                            <img class="catalog_item" src="{% static "deps/icons/check-mark.svg" %}" alt="Catalog Icon" width="28"
-                                                height="28">
-                        </a>
+                            <img class="catalog_item" src="{% static "deps/icons/check-mark.svg" %}" alt="Catalog Icon"
+                            width="28" height="28">
+                        </button>
                     </div>
-                    {% endif %}
                 </form>
             </div>
         </div>

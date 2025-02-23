@@ -6,8 +6,9 @@
 {% endblock modal_cart %}
 
 {% block content %}
+
 <div class="container mt-5">
-    <div class="card mb-4 custom-shadow">
+    <div class="card mb-4 custom-shadow" style="border: 3px solid #096740 !important;">
         <div class="row">
             <!-- Изображение слева -->
             <div class="col-md-4 d-flex justify-content-center align-items-center">
@@ -20,7 +21,7 @@
             <!-- Описание товара справа -->
             <div class="col-md-8">
                 <div class="card-body text-center" style="color: #402b2b;">
-                    <p class="card-text">Price: <strong>{{ product.sell_price }}</strong></p>
+                    <p class="card-text mt-3">Price: <strong>{{ product.sell_price }} UAH</strong></p>
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text">{{ product.description }}</p>
 
@@ -28,17 +29,16 @@
                     <p class="product_id mt-3">id: {{ product.display_id }}</p>
 
                     <!-- Кнопка "Add to cart" -->
-                    <div class="d-flex justify-content-center">
-                        <a href="{% url 'cart:cart_add' %}" 
-                            class="btn dropdown-toggle add-to-cart d-flex justify-content-center align-items-center"
-                            data-product-id="{{ product.id }}" 
-                            style="width: 150px; height: 50px;">
-                            {% csrf_token %}
+                    <form action="{% url 'carts:cart_add' %}" method="post" class="d-inline">
+                        <input type="hidden" name="product_id" value="{{ product.id }}">                    
+                        <button type="submit" class="btn dropdown-toggle add-to-cart align-items-center fs-5"
+                        data-product-id="{{ product.id }}" style="width: 160px; height: 50px;">
                             Add to cart
                             <img class="mx-1" src="{% static 'deps/icons/cart-main.svg' %}" 
                                 alt="Catalog Icon" width="28" height="28">
-                        </a>
-                    </div>
+                        </button>
+                    {% csrf_token %}
+                    </form>
                 </div>
             </div>
         </div>

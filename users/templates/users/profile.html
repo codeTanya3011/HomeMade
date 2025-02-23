@@ -10,7 +10,7 @@
         <div class="row">
             <!-- Профиль с данными пользователя -->
             <div class="col-md-5">
-                <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
+                <div class="bg-light p-4 mb-4 mx-2 rounded custom-shadow">
                     <h3 class="text-center mb-4" style="color: #402b2b;">User profile</h3>
                     <form action="{% url "users:profile" %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
@@ -96,8 +96,10 @@
             <!-- Корзина -->
             {% user_carts request as carts %}
             <div class="col-md-7">
-                <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                    <h3 class="text-center mb-4" style="color: #402b2b;">Cart 🧺</h3>
+                <div class="bg-light p-4 mb-4 mx-2 rounded custom-shadow">
+                    <h3 class="text-center mb-4" style="color: #402b2b;">Cart
+                        <img src="{% static 'deps/icons/cart-plus.svg' %}" alt="Catalog Icon" width="32" height="32">
+                    </h3>
                     <div class="container" id="cart-items-container">
                         <!-- Разметка корзины -->
                         {% include "carts/includes/included_cart.html" %}
@@ -107,9 +109,9 @@
                 </div>
             </div>
             <!-- Оформленные заказы -->
-             {% comment %} {% cache 60 user_orders user.id %} {% endcomment %}
+            {% cache 60 user_orders user.id %}
             <div class="col-md-12">
-                <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
+                <div class="bg-light p-4 mb-4 mx-2 rounded custom-shadow">
                     <h3 class="text-center mb-4" style="color: #402b2b;">My orders</h3>
                     <!-- Разметка заказов -->
                     <div class="container">
@@ -159,7 +161,7 @@
                     <!-- Закончилась разметка заказов -->
                 </div>
             </div>
-            {% comment %} {% endcache %} {% endcomment %}
+            {% endcache %}
         </div>
     </div>
 </div>

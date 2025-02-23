@@ -3,7 +3,7 @@
     "model": "goods.categories",
     "pk": 2,
     "fields": {
-        "name": "Все товары",
+        "name": "All products",
         "slug": "all"
     }
 },
@@ -11,7 +11,7 @@
     "model": "goods.categories",
     "pk": 3,
     "fields": {
-        "name": "Кухня",
+        "name": "Kitchen",
         "slug": "kuhnya"
     }
 },
@@ -19,7 +19,7 @@
     "model": "goods.categories",
     "pk": 4,
     "fields": {
-        "name": "Спальня",
+        "name": "Bedroom",
         "slug": "spalnya"
     }
 },
@@ -27,7 +27,7 @@
     "model": "goods.categories",
     "pk": 5,
     "fields": {
-        "name": "Гостинная",
+        "name": "Living room",
         "slug": "gostinnaya"
     }
 },
@@ -35,15 +35,15 @@
     "model": "goods.categories",
     "pk": 6,
     "fields": {
-        "name": "Офис",
-        "slug": "ofis"
+        "name": "Office",
+        "slug": "office"
     }
 },
 {
     "model": "goods.categories",
     "pk": 7,
     "fields": {
-        "name": "Фурнитура",
+        "name": "Accessories",
         "slug": "furnitura"
     }
 },
@@ -51,8 +51,16 @@
     "model": "goods.categories",
     "pk": 8,
     "fields": {
-        "name": "Декор",
-        "slug": "dekor"
+        "name": "Decor",
+        "slug": "decor"
+    }
+},
+{
+    "model": "goods.categories",
+    "pk": 9,
+    "fields": {
+        "name": "Bathroom",
+        "slug": "bathroom"
     }
 }
 ]

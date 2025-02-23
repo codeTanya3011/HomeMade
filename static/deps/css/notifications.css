@@ -1,0 +1,26 @@
+#jq-notification {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d1ebe1; /* Мятный */
+    color: #043724; /* Тёмно-зелёный */
+    border: 1px solid #8ec1ab !important; /* Обводка нужного цвета */
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 15px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+    opacity: 1 !important;
+}
+
+.fade-out {
+    opacity: 0 !important;
+}
+
+#jq-notification {
+    z-index: 100 !important; /* Поднимаем над всеми элементами */
+}
