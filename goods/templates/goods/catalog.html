@@ -7,25 +7,23 @@
 {% endblock modal_cart %}
 
 {% block content %}
-<div class="row">
+<div class="container row">
     <!-- Форма фильтров -->
     <div class="dropdown mb-2 d-flex justify-content-end">
-        <button 
-            class="btn btn-lg dropdown-toggle ms-auto mx-1"  
-            type="button" 
-            data-bs-toggle="dropdown" 
-            aria-expanded="false">
-            Filters
-            <img class="catalog_item" src="{% static "deps/icons/filters.svg" %}" alt="Catalog Icon" width="28"
-                height="28">
+        <button class="btn dropdown-toggle fs-5" type="button" data-bs-toggle="dropdown" 
+                aria-expanded="false" style="width: 130px; height: 50px;">
+                Filters
+                <img class="catalog_item" src="{% static "deps/icons/filters.svg" %}" alt="Catalog Icon"
+                width="28" height="28">
         </button>
+
         <form action="{% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-menu custom-dropdown" data-bs-theme="custom">
             <div class="form-check custom-checkbox mx-3">
-                <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" {% if request.GET.on_sale == 'on' %}checked{% endif %}  
+                <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" {% if request.GET.on_sale == 'on' %}checked{% endif %}>  
                 {% if request.GET.q %}
                     <input type="hidden" name="q" value="{{request.GET.q}}">
                 {% endif %}
-                <label class="form-check-label mx-3 mt-3" for="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
                     Products on sale
                 </label>
             </div>
@@ -51,9 +49,14 @@
                     From expensive to cheap
                 </label>
             </div>
-            <button type="submit" class="dropdown-toggle btn mx-3 mt-3" style="border: 2px solid #c3b2b2 !important;">Apply</button>
+            <button type="submit" class="dropdown-toggle btn mx-3 mt-3" style="border: 2px solid #c3b2b2 !important;">
+                Apply
+                <img class="catalog_item mx-1" src="{% static "deps/icons/search.svg" %}"
+                    alt="Catalog Icon" width="22" height="22">
+            </button>
         </form>
     </div>
+</div>
 {% if request.GET.q %}
 <h3 class="mt-4">Search results for your query {{ request.GET.q }}</h3>
 {% if not goods %}
@@ -62,26 +65,30 @@
 {% endif %}
 {% endif %}
 
-{% for product in goods %}
-    <!-- Карта товара -->
-    <div class="col-lg-4 col-md-6 p-4">
-        <div class="card border-4 border-success rounded custom-shadow">
-            {% if product.image %}
-                <img src={{ product.image.url }} class="card-img-top" alt="{{ product.name }}">
-            {% else %}
-                <img src={% static "deps/images/Not found image.png" %} class="card-img-top" alt="...">
-            {% endif %}
-            <div class="card-body">
-                <a href="{% url "catalog:product" product.slug %}" style="color: #85d8a7;">
-                    <p class="card-title">
-                        {% autoescape off %}
-                            {% if product.headline %}{{product.headline}}{% else %}{{ product.name }}{% endif %}
-                        {% endautoescape %}</p>
-                </a>
+<!-- Карта товара -->
+<div class="container column position-relative ms-5">
+    <div class="row position-absolute ms-5">
+        {% for product in goods %}
+        <div class="col-lg-6 col-md-4 text-center p-4">
+            <div class="card border-2 border-success rounded custom-shadow ps-2 pt-2 pe-2 pb-2">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                {% else %}
+                    <img src="{% static 'deps/images/Not found image.png' %}" class="card-img-top" alt="...">
+                {% endif %}
+                <div class="card-body text-center">
+                    <a href="{% url 'catalog:product' product.slug %}" style="color: #31c783;">
+                        <p class="card-title">
+                            {% autoescape off %}
+                                {% if product.headline %}{{ product.headline }}{% else %}{{ product.name }}{% endif %}
+                            {% endautoescape %}
+                        </p>
+                    </a>
                 <p class="card-text" style="color: #402b2b;">
                     {% autoescape off %}
-                        {% if product.bodyline %}{{product.bodyline|truncatechars:100}}{% else %}{{ product.description|truncatechars:50 }}{% endif %}
-                    {% endautoescape %}</p>
+                        {% if product.bodyline %}{{product.bodyline|truncatechars:50}}{% else %}{{ product.description|truncatechars:50 }}{% endif %}
+                    {% endautoescape %}
+                </p>
                     
                 <p class="product_id">id: {{ product.display_id }}</p>
                 <div class="d-flex justify-content-between" style="color: #402b2b;">
@@ -89,49 +96,58 @@
                     {% if product.discount %}
                         <p><s>{{ product.price }}</s> UAH</p>
                         <p><strong>{{ product.sell_price }}</strong> UAH</p>
-                        <span class="badge bg-success">Discount {{ product.discount }} %</span>
+                        <span class="badge bg-custom text-center fs-5">Discount {{ product.discount }} %</span>
                     {% else %}
                         <p><strong>{{ product.price }} UAH</strong></p>
                     {% endif %}
 
-                    <a href="{% url "cart:cart_add" %}" class="btn add-to-cart" style="color: #402b2b;"
-                    data-product-id="{{ product.id }}">
+                    <!-- Форма для добавления в корзину -->
+
+                    <form method="post" action="{% url 'carts:cart_add' %}">
                         {% csrf_token %}
-                        <img class="mx-1" src="{% static "deps/icons/cart-main.svg" %}" alt="Catalog Icon"
-                            width="38" height="38">
-                    </a>
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <button type="submit" class="btn add-to-cart" style="color: #402b2b;" data-product-id="{{ product.id }}">
+                            <img class="mx-1" src="{% static 'deps/icons/cart-main.svg' %}" alt="Catalog Icon" width="38" height="38">
+                        </button>
+                    </form>                   
                 </div>
             </div>
         </div>
     </div>
+
 {% endfor %}
 
-</div>
-<!-- Пагинация -->
-{% if goods %}
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center my-4">
-        <div class="custom-shadow d-flex">
 
-            <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
-              <a class="page-link" href="{% if page_obj.has_previous %}?{% change_params page=page_obj.previous_page_number %}{% else %}#{% endif %}">Back</a>
-            </li>
+    <!-- Пагинация -->
+    {% if page_obj.paginator.num_pages > 1 %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center my-auto mx-auto w-50 p-3">
+            <div class="custom-shadow d-flex mb-5 m-4">
 
-            {% for page in page_obj.paginator.page_range %}
-            {% if page >= page_obj.number|add:-2 and page <= page_obj.number|add:2  %}
-                <li class="page-item {% if page_obj.number == page %} active {% endif %}">
-                    <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
+                <!-- Кнопка "Назад" -->
+                <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
+                    <a class="page-link" href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}{% else %}#{% endif %}">Back</a>
                 </li>
-            {% endif %}
-            {% endfor %}
 
-            <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
-                <a class="page-link" href="{% if page_obj.has_next %}?{% change_params page=page_obj.next_page_number %}{% else %}#{% endif %}">Next</a>
-              </li>
-        </div>
-    </ul>
-</nav>
-{% endif %}
+                <!-- Номера страниц -->
+                {% for page in page_obj.paginator.page_range %}
+                {% if page >= page_obj.number|add:-2 and page <= page_obj.number|add:2 %}
+                    <li class="page-item {% if page_obj.number == page %} active {% endif %}">
+                        <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+
+                <!-- Кнопка "Вперёд" -->
+                <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
+                    <a class="page-link" href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }}{% else %}#{% endif %}">Next</a>
+                </li>
+
+            </div>
+        </ul>
+    </nav>
+    {% endif %}
+</div>
 
 {% endblock content %}
 

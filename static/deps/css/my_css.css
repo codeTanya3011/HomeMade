@@ -38,11 +38,10 @@ html, body {
 }
 
 .navbar {
-  height: 50px; /* Высота верхней панели */
+  height: 45px; /* Высота верхней панели */
   width: 100%;   /* Ширина на всю страницу */
-  display: grid;
-  justify-content: space-between; /* Равномерно распределяет элементы */
   background-color: #2a1e1e;
+  display: flex;
   z-index: 10; 
   padding: 0 0;
   justify-content: center; /* Центрируем элементы горизонтально */
@@ -68,7 +67,7 @@ html, body {
 }
 
 .d-flex {
-  gap: 15px; 
+  gap: 20px; 
 }
 
 .form-control {
@@ -96,7 +95,6 @@ html, body {
   background-color: #c3b2b2;
   border: 2px solid #986e6e !important;
   box-shadow: none !important; /* Убирает эффект тени */
-  border-radius: 5px;
   padding: 0;
   width: 30px;
   height: 30px;
@@ -246,7 +244,6 @@ html, body {
 
 .navbar-collapse {
   background-color: #2a1e1e !important; /* Принудительный цвет */
-  border-radius: 5px;
   box-shadow: none;
   padding: 0 0;
   margin: 0 0;
