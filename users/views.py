@@ -41,13 +41,13 @@ class UserLoginView(LoginView):
                 # add new authorized user carts from anonimous session
                 Cart.objects.filter(session_key=session_key).update(user=user)
 
-                messages.success(self.request, f"{user.username}, Вы вошли в аккаунт")
+                messages.success(self.request, f"{user.username}, You are logged in")
 
                 return HttpResponseRedirect(self.get_success_url())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home - Авторизация'
+        context['title'] = 'Authorization'
         return context
 
 
@@ -67,12 +67,12 @@ class UserRegistrationView(CreateView):
         if session_key:
             Cart.objects.filter(session_key=session_key).update(user=user)
 
-        messages.success(self.request, f"{user.username}, Вы успешно зарегистрированы и вошли в аккаунт")
+        messages.success(self.request, f"{user.username}, You have successfully registered and logged into your account.")
         return HttpResponseRedirect(self.success_url)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home - Регистрация'
+        context['title'] = 'Registration'
         return context
 
 
@@ -85,16 +85,16 @@ class UserProfileView(LoginRequiredMixin, CacheMixin , UpdateView):
         return self.request.user
     
     def form_valid(self, form):
-        messages.success(self.request, "Профайл успешно обновлен")
+        messages.success(self.request, "Profile updated successfully")
         return super().form_valid(form)
     
     def form_invalid(self, form):
-        messages.error(self.request, "Произошла ошибка")
+        messages.error(self.request, "An error has occurred")
         return super().form_invalid(form)
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home - Кабинет'
+        context['title'] = 'Cabinet'
 
         # Можно вынести сам запрос в отдельный метод этого класса контроллера
         orders = Order.objects.filter(user=self.request.user).prefetch_related(
@@ -113,14 +113,17 @@ class UserCartView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home - Корзина'
+        context['title'] = 'Cart'
         return context
 
 @login_required
 def logout(request):
-    messages.success(request, f"{request.user.username}, Вы вышли с аккаунта")
+    messages.success(request, f"{request.user.username}, You have logged out of your account.")
     auth.logout(request)
     return redirect(reverse('main:index'))
+
+
+
 
 
 # def login(request):
@@ -135,7 +138,7 @@ def logout(request):
 
 #             if user:
 #                 auth.login(request, user)
-#                 messages.success(request, f"{username}, Вы вошли в аккаунт")
+#                 messages.success(request, f"{username},")
 
 #                 if session_key:
 #                     # delete old authorized user carts
@@ -153,11 +156,10 @@ def logout(request):
 #     else:
 #         form = UserLoginForm()
 #     context = {
-#         'title': "Home - Авторизация",
+#         'title': "",
 #         'form': form
 #     }
 #     return render(request, 'users/login.html', context)
-
 
 # def registration(request):
 #     if request.method == 'POST':
@@ -172,12 +174,12 @@ def logout(request):
 
 #             if session_key:
 #                     Cart.objects.filter(session_key=session_key).update(user=user)
-#             messages.success(request, f"{user.username}, Вы успешно зарегистрированы и вошли в аккаунт")
+#             messages.success(request, f"{user.username},")
 #             return HttpResponseRedirect(reverse('main:index'))
 #     else:
 #         form = UserRegistrationForm()
 #     context = {
-#         'title': "Home - Регистрация",
+#         'title': "",
 #         'form' : form
 #     }
 #     return render(request, 'users/registration.html', context)
@@ -188,7 +190,7 @@ def logout(request):
 #         form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
 #         if form.is_valid():
 #             form.save()
-#             messages.success(request, "Профайл успешно обновлен")
+#             messages.success(request, "")
 #             return HttpResponseRedirect(reverse('user:profile'))
 #     else:
 #         form = ProfileForm(instance=request.user)  
@@ -201,12 +203,11 @@ def logout(request):
 #             ).order_by("-id")
 
 #     context = {
-#         'title': "Home - Кабинет",
+#         'title': "",
 #         'form': form,
 #         'orders': orders,
 #     }
 #     return render(request, 'users/profile.html', context)
-
 
 # def users_cart(request):
 #     return render(request, 'users/users_cart.html')

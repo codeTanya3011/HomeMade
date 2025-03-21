@@ -43,6 +43,11 @@ def q_search(query):
 
     return result
 
+
+
+
+
+
     # keywords = [word for word in query.split() if len(word) > 2]
 
     # q_objects = Q()

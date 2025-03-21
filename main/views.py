@@ -57,20 +57,23 @@ class TermsAndConditionsView(TemplateView):
         return context
 
 
+
+
+
 # def index(request) -> HttpResponse:
 
 #     context = {
-#         "title": "Home - Главная",
-#         "content": "Магазин мебели Home",
+#         "title": "",
+#         "content": "",
 #     }
 
 #     return render(request, 'main/index.html', context)
 
 # def about(request) -> HttpResponse:
 #     context = {
-#         "title": "Home - О нас",
-#         "content": "О нашем магазине - Home",
-#         "text_on_page": "Наш магазин очень классный и удобный вот увидете!"
+#         "title": "",
+#         "content": "",
+#         "text_on_page": ""
 
 #     }
     

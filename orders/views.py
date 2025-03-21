@@ -48,8 +48,8 @@ class CreateOrderView(LoginRequiredMixin, FormView):
 
 
                         if product.quantity < quantity:
-                            raise ValidationError(f'Недостаточное количество товара {name} на складе\
-                                                       В наличии - {product.quantity}')
+                            raise ValidationError(f'Insufficient quantity of goods {name} in stock\
+                                                       In stock - {product.quantity}')
 
                         OrderItem.objects.create(
                             order=order,
@@ -64,7 +64,7 @@ class CreateOrderView(LoginRequiredMixin, FormView):
                     # Очистить корзину пользователя после создания заказа
                     cart_items.delete()
 
-                    messages.success(self.request, 'Заказ оформлен!')
+                    messages.success(self.request, 'The order has been placed!')
                     return redirect('user:profile')
         except ValidationError as e:
             messages.success(self.request, str(e))
@@ -72,14 +72,17 @@ class CreateOrderView(LoginRequiredMixin, FormView):
         
     
     def form_invalid(self, form):
-        messages.error(self.request, 'Заполните все обязательные поля!')
+        messages.error(self.request, 'Please fill in all required fields!')
         return redirect('orders:create_order')
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Оформление заказа'
+        context['title'] = 'Placing an order'
         context['order'] = True
         return context
+
+
+
 
 
 # @login_required
@@ -93,7 +96,7 @@ class CreateOrderView(LoginRequiredMixin, FormView):
 #                     cart_items = Cart.objects.filter(user=user)
 
 #                     if cart_items.exists():
-#                         # Создать заказ
+
 #                         order = Order.objects.create(
 #                             user=user,
 #                             phone_number=form.cleaned_data['phone_number'],
@@ -101,13 +104,12 @@ class CreateOrderView(LoginRequiredMixin, FormView):
 #                             delivery_address=form.cleaned_data['delivery_address'],
 #                             payment_on_get=form.cleaned_data['payment_on_get'],
 #                         )
-#                         # Создать заказанные товары
+
 #                         for cart_item in cart_items:
 #                             product=cart_item.product
 #                             name=cart_item.product.name
 #                             price=cart_item.product.sell_price()
 #                             quantity=cart_item.quantity
-
 
 #                             if product.quantity < quantity:
 #                                 raise ValidationError(f'Недостаточное количество товара {name} на складе\
@@ -123,10 +125,9 @@ class CreateOrderView(LoginRequiredMixin, FormView):
 #                             product.quantity -= quantity
 #                             product.save()
 
-#                         # Очистить корзину пользователя после создания заказа
 #                         cart_items.delete()
 
-#                         messages.success(request, 'Заказ оформлен!')
+#                         messages.success(request, '')
 #                         return redirect('user:profile')
 #             except ValidationError as e:
 #                 messages.success(request, str(e))
@@ -140,7 +141,7 @@ class CreateOrderView(LoginRequiredMixin, FormView):
 #         form = CreateOrderForm(initial=initial)
 
 #     context = {
-#         'title': 'Home - Оформление заказа',
+#         'title': '',
 #         'form': form,
 #         'order': True,
 #     }

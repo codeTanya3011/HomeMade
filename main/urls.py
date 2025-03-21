@@ -2,6 +2,7 @@ from django.urls import path
 from .views import PrivacyPolicyView, TermsAndConditionsView, DeliveryAndPaymentView, ContactInformationsView
 from main import views
 
+
 app_name = "main"
 
 urlpatterns = [

@@ -14,10 +14,9 @@ from django.template.loader import render_to_string
 from django.views import View
 from .models import Cart, Products
 
-
-
 from django.http import JsonResponse
 from django.template.loader import render_to_string
+
 
 class CartAddView(CartMixin, View):
     def post(self, request):
@@ -26,7 +25,7 @@ class CartAddView(CartMixin, View):
         try:
             product = Products.objects.get(id=product_id)
         except Products.DoesNotExist:
-            return JsonResponse({"success": False, "message": "Товар не найден"}, status=404)
+            return JsonResponse({"success": False, "message": "Product not found"}, status=404)
 
         if not request.session.session_key:
             request.session.create()
@@ -54,8 +53,8 @@ class CartAddView(CartMixin, View):
 
         response_data = {
             "success": True,
-            "message": "Товар добавлен в корзину!",
-            "total_quantity": total_quantity,  # Теперь отправляем общее количество товаров
+            "message": "Product added to cart!",
+            "total_quantity": total_quantity,  # Oтправляем общее количество товаров
             "cart_items_html": cart_items_html
         }
 
@@ -67,13 +66,12 @@ class CartChangeView(CartMixin, View):
         cart_id = request.POST.get("cart_id")
         cart = self.get_cart(request, cart_id=cart_id)
 
-        # Приводим количество к целому числу
         new_quantity = int(request.POST.get("quantity", 1))
-        cart.quantity = max(1, new_quantity)  # Не даем установить 0 или отрицательное число
+        cart.quantity = max(1, new_quantity)
         cart.save()
 
         response_data = {
-            "message": "Количество изменено",
+            "message": "Quantity changed",
             "quantity": cart.quantity,
             'cart_items_html': self.render_cart(request)
         }
@@ -90,7 +88,7 @@ class CartRemoveView(CartMixin, View):
         cart.delete()
 
         response_data = {
-            "message": "Товар удален из корзины",
+            "message": "Product removed from cart",
             "quantity_deleted": quantity,
             'cart_items_html': self.render_cart(request)
         }
@@ -98,7 +96,10 @@ class CartRemoveView(CartMixin, View):
         return JsonResponse(response_data)
 
 
-        
+
+
+
+
 # def cart_add(request):
 
 #     product_id = request.POST.get("product_id")
@@ -115,7 +116,6 @@ class CartRemoveView(CartMixin, View):
 #                 cart.save()
 #         else:
 #             Cart.objects.create(user=request.user, product=product, quantity=1)
-
 #     else:
 #         carts = Cart.objects.filter(
 #             session_key=request.session.session_key, product=product)
@@ -134,12 +134,11 @@ class CartRemoveView(CartMixin, View):
 #         "carts/includes/included_cart.html", {"carts": user_cart}, request=request)
 
 #     response_data = {
-#         "message": "Товар добавлен в корзину",
+#         "message": "",
 #         "cart_items_html": cart_items_html,
 #     }
 
 #     return JsonResponse(response_data)
-
 
 # def cart_change(request):
 
@@ -164,13 +163,11 @@ class CartRemoveView(CartMixin, View):
 #         "carts/includes/included_cart.html", context, request=request)
 
 #     response_data = {
-#         "message": "Количество изменено",
+#         "message": "",
 #         "cart_items_html": cart_items_html,
 #         "quantity": updated_quantity,
 #     }
-
 #     return JsonResponse(response_data)
-
 
 # def cart_remove(request):
 
@@ -192,7 +189,7 @@ class CartRemoveView(CartMixin, View):
 #          "carts/includes/included_cart.html", context, request=request)
 
 #     response_data = {
-#         "message": "Товар удален",
+#         "message": "",
 #         "cart_items_html": cart_items_html,
 #         "quantity_deleted": quantity,
 #     }

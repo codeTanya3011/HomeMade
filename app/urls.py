@@ -21,7 +21,6 @@ from django.conf.urls.static import static
 from app import settings
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls', namespace="main")),
@@ -30,6 +29,7 @@ urlpatterns = [
     path('cart/', include('carts.urls', namespace='cart')),
     path('orders/', include('orders.urls', namespace="orders")),
 ]
+
 
 if settings.DEBUG:
     urlpatterns += [

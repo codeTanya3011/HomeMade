@@ -12,7 +12,6 @@ class CatalogView(ListView):
     context_object_name = "goods"
     paginate_by = 4
     allow_empty = False
-    # чтоб удобно передать в методы
     slug_url_kwarg = "category_slug"
 
     def get_queryset(self):
@@ -40,7 +39,7 @@ class CatalogView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Home - Каталог"
+        context["title"] = "Catalog"
         context["slug_url"] = self.kwargs.get(self.slug_url_kwarg)
         return context
 
@@ -53,13 +52,13 @@ class ProductView(DetailView):
     def get_object(self, queryset=None):
         slug = self.kwargs.get(self.slug_url_kwarg)
         if not slug:  
-            raise Http404("Страница не найдена")  # 👈 Если `slug` пустой, возвращаем 404
+            raise Http404("Page not found")  # Если `slug` пустой, возвращаем 404
 
         try:
             product = Products.objects.get(slug=slug)
             return product
         except Products.DoesNotExist:
-            raise Http404("Товар не найден")  # 👈 Если товара нет в БД, возвращаем 404
+            raise Http404("Product not found")  # Если товара нет в БД, возвращаем 404
 
 
 

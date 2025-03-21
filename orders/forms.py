@@ -22,11 +22,11 @@ class CreateOrderForm(forms.Form):
         data = self.cleaned_data['phone_number']
 
         if not data.isdigit():
-            raise forms.ValidationError("Номер телефона должен содержать только цифры")
+            raise forms.ValidationError("The phone number must contain only numbers")
         
         pattern = re.compile(r'^\d{10}$')
         if not pattern.match(data):
-            raise forms.ValidationError("Неверный формат номера")
+            raise forms.ValidationError("Invalid number format")
 
         return data
 
@@ -38,7 +38,7 @@ class CreateOrderForm(forms.Form):
     #     widget=forms.TextInput(
     #         attrs={
     #             "class": "form-control",
-    #             "placeholder": "Введите ваше имя",
+    #             "placeholder": "",
     #         }
     #     )
     # )
@@ -47,7 +47,7 @@ class CreateOrderForm(forms.Form):
     #     widget=forms.TextInput(
     #         attrs={
     #             "class": "form-control",
-    #             "placeholder": "Введите вашу фамилию",
+    #             "placeholder": "",
     #         }
     #     )
     # )
@@ -56,7 +56,7 @@ class CreateOrderForm(forms.Form):
     #     widget=forms.TextInput(
     #         attrs={
     #             "class": "form-control",
-    #             "placeholder": "Номер телефона",
+    #             "placeholder": "",
     #         }
     #     )
     # )
@@ -76,7 +76,7 @@ class CreateOrderForm(forms.Form):
     #             "class": "form-control",
     #             "id": "delivery-address",
     #             "rows": 2,
-    #             "placeholder": "Введите адрес доставки",
+    #             "placeholder": "",
     #         }
     #     ),
     #     required=False,

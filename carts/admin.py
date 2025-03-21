@@ -19,18 +19,21 @@ class CartAdmin(admin.ModelAdmin):
     def user_display(self, obj):
         if obj.user:
             return str(obj.user)
-        return "Анонимный пользователь"
+        return "Anonymous user"
 
     def product_display(self, obj):
         return str(obj.product.name)
 
         # user_display and product_display alter name of columns in admin panel
-    user_display.short_description = "Пользователь"
-    product_display.short_description = "Товар"
+    user_display.short_description = "Users"
+    product_display.short_description = "Product"
+
+
+
 
 
     # # user_display and product_display alter name of columns in admin panel
-    # user_display.short_description = "Пользователь"
-    # product_display.short_description = "Товар"
+    # user_display.short_description = "user"
+    # product_display.short_description = "product"
 
 

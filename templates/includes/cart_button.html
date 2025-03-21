@@ -14,7 +14,7 @@
         </button>
     </div>
 </div>
-<!-- Разметка модального окна корзины -->
+
 <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
@@ -26,9 +26,9 @@
                     <img src="{% static 'deps/icons/cart-plus.svg' %}" alt="Catalog Icon" width="32" height="32">
                 </h3>
                 <div class="container" id="cart-items-container">
-                    <!-- Разметка корзины -->
+
                    {% include "carts/includes/included_cart.html" %}
-                    <!-- Закончилась разметка корзины -->
+                   
                 </div>  
             </div>
         </div>

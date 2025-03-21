@@ -16,16 +16,16 @@ class CartQueryset(models.QuerySet):
 
 class Cart(models.Model):
 
-    user = models.ForeignKey(to=User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Пользователь')
-    product = models.ForeignKey(to=Products, on_delete=models.CASCADE, verbose_name='Товар')
-    quantity = models.PositiveSmallIntegerField(default=0, verbose_name='Количество')
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='User')
+    product = models.ForeignKey(to=Products, on_delete=models.CASCADE, verbose_name='Product')
+    quantity = models.PositiveSmallIntegerField(default=0, verbose_name='Quantity')
     session_key = models.CharField(max_length=32, blank=True, null=True)
-    created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name='Дата  добавления')
+    created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name='Date added')
 
     class Meta:
         db_table = 'cart'
-        verbose_name = 'Корзина'
-        verbose_name_plural = 'Корзина'
+        verbose_name = 'Cart'
+        verbose_name_plural = 'Carts'
 
         ordering = ("id",)
 
@@ -37,6 +37,6 @@ class Cart(models.Model):
 
     def __str__(self):
         if self.user:
-            return f'Корзина {self.user.username} | Товар {self.product.name} | Количество {self.quantity}'
+            return f'Cart {self.user.username} | Product {self.product.name} | Quantity {self.quantity}'
     
-        return f'Анонимная корзина | Товар {self.product.name} | Количество {self.quantity}'
+        return f'Anonymous shopping cart | Product {self.product.name} | Quantity {self.quantity}'
