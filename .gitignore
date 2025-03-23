@@ -2,6 +2,7 @@
 venv/
 __pycache__/
 cache/
+__init__.py/
 
 #ide stuff
 .vscode
