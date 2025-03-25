@@ -96,7 +96,6 @@ class UserProfileView(LoginRequiredMixin, CacheMixin , UpdateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Cabinet'
 
-        # Можно вынести сам запрос в отдельный метод этого класса контроллера
         orders = Order.objects.filter(user=self.request.user).prefetch_related(
                 Prefetch(
                     "orderitem_set",

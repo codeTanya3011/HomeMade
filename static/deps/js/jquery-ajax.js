@@ -1,29 +1,52 @@
-document.querySelectorAll(".add-to-cart-btn").forEach(button => {
-    button.addEventListener("click", function(event) {
-        event.preventDefault();
-        let productId = this.dataset.productId;
-        let url = this.dataset.url;
+document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("click", function (event) {
+        let button = event.target.closest(".add-to-cart");
+        if (!button) return;
 
-        fetch(url, {
+        event.preventDefault();
+        button.disabled = true; 
+
+        let form = button.closest("form");
+        let formData = new FormData(form);
+
+        fetch(form.action, {
             method: "POST",
+            body: formData,
             headers: {
-                "X-CSRFToken": getCookie("csrftoken"),
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: `product_id=${productId}`
+                "X-Requested-With": "XMLHttpRequest"
+            }
         })
         .then(response => response.json())
         .then(data => {
+            console.log("Server response:", data);
+
             if (data.success) {
-                updateCartCount(data.total_quantity); // Получаем кол-во товаров с сервера
-                showSuccessNotification("✅ Товар добавлен в корзину!");
+                let cartCounter = document.querySelector("#goods-in-cart-count");
+                if (cartCounter) {
+                    cartCounter.textContent = data.total_quantity || 0;
+                }
+
+                let cartContainer = document.querySelector("#cart-container");
+                if (cartContainer) {
+                    cartContainer.innerHTML = data.cart_items_html;
+                }
+
+                showSuccessNotification("✅ Product added to cart!");
+            } else {
+                showErrorNotification(data.message || "❌ Error adding product!");
             }
         })
-        .catch(error => console.error("Ошибка:", error));
+        .catch(error => {
+            console.error("Error:", error);
+            showErrorNotification("❌ Server error! Try again");
+        })
+        .finally(() => {
+            button.disabled = false;
+        });
     });
 });
 
-// Обновляет счетчик корзины
+
 function updateCartCount(newQuantity) {
     let goodsInCartCount = document.getElementById("goods-in-cart-count");
     if (goodsInCartCount) {
@@ -31,7 +54,7 @@ function updateCartCount(newQuantity) {
     }
 }
 
-// Отображает уведомление
+// Повідомлення
 function showSuccessNotification(message) {
     let notification = document.getElementById("jq-notification");
 
@@ -52,91 +75,105 @@ function showSuccessNotification(message) {
     }
 }
 
+$(document).on("click", ".remove-from-cart", function (e) {
+    e.preventDefault();
 
-    // Ловим событие клика по кнопке удалить товар из корзины
-    $(document).on("click", ".remove-from-cart", function (e) {
-        // Блокируем его базовое действие
-        e.preventDefault();
+    var cart_id = $(this).data("cart-id");
+    var remove_from_cart = $(this).data("remove-url");
+    var cartItemElement = $(this).closest(".cart-item");
 
-        // Берем элемент счетчика в значке корзины и берем оттуда значение
-        var goodsInCartCount = $("#goods-in-cart-count");
-        var cartCount = parseInt(goodsInCartCount.text() || 0);
+    console.log("Removing an item from the cart, ID:", cart_id);
 
-        // Получаем id корзины из атрибута data-cart-id
-        var cart_id = $(this).data("cart-id");
-        // Из атрибута href берем ссылку на контроллер django
-        var remove_from_cart = $(this).attr("href");
+    $.ajax({
+        type: "POST",
+        url: remove_from_cart,
+        data: {
+            cart_id: cart_id,
+            csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
+        },
+        success: function (data) {
+            console.log("The product has been successfully removed:", data.message);
 
-        // делаем post запрос через ajax не перезагружая страницу
-        $.ajax({
+            // Оновлюємо товари в корзині
+            var goodsInCartCount = $("#goods-in-cart-count");
+            var cartCount = parseInt(goodsInCartCount.text() || 0);
+            cartCount -= data.quantity_deleted;
+            goodsInCartCount.text(cartCount);
 
-            type: "POST",
-            url: remove_from_cart,
-            data: {
-                cart_id: cart_id,
-                csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
-            },
-            success: function (data) {
-                // Сообщение
-                successMessage.html(data.message);
-                successMessage.fadeIn(400);
-                // Через 7сек убираем сообщение
-                setTimeout(function () {
-                    successMessage.fadeOut(400);
-                }, 7000);
+            // Мінус товари
+            cartItemElement.fadeOut(300, function () {
+                $(this).remove();
+            });
 
-                // Уменьшаем количество товаров в корзине (отрисовка)
-                cartCount -= data.quantity_deleted;
-                goodsInCartCount.text(cartCount);
+            // Оновлюємо кошик
+            $("#cart-items-container").html(data.cart_items_html);
 
-                // Меняем содержимое корзины на ответ от django (новый отрисованный фрагмент разметки корзины)
-                var cartItemsContainer = $("#cart-items-container");
-                cartItemsContainer.html(data.cart_items_html);
-
-            },
-
-            error: function (data) {
-                console.log("Ошибка при добавлении товара в корзину");
-            },
-        });
+            // Показ повідомлення
+            showSuccessNotification("🗑️ The product has been removed from the cart!");
+        },
+        error: function () {
+            console.error("Error while deleting item from cart");
+            showErrorNotification("❌ Error! Failed to delete item");
+        }
     });
+});
 
+// Показ повідомлення
+function showSuccessNotification(message) {
+    let notification = $("#jq-notification");
 
-    // Теперь + - количества товара 
-    // Обработчик события для уменьшения значения
+    if (notification.length === 0) {
+        $("body").append('<div id="jq-notification" class="alert alert-success custom-shadow"></div>');
+        notification = $("#jq-notification");
+    }
+
+    notification.text(message);
+    notification.css({
+        display: "block",
+        opacity: 1
+    }).fadeIn(400).delay(3000).fadeOut(400);
+}
+
+// Показ помилки
+function showErrorNotification(message) {
+    let notification = $("#jq-notification");
+
+    if (notification.length === 0) {
+        $("body").append('<div id="jq-notification" class="alert alert-danger custom-shadow"></div>');
+        notification = $("#jq-notification");
+    }
+
+    notification.text(message);
+    notification.css({
+        display: "block",
+        opacity: 1
+    }).fadeIn(400).delay(3000).fadeOut(400);
+}
+
+    // - мінус товар
     $(document).on("click", ".decrement", function () {
-        // Берем ссылку на контроллер django из атрибута data-cart-change-url
+
         var url = $(this).data("cart-change-url");
-        // Берем id корзины из атрибута data-cart-id
         var cartID = $(this).data("cart-id");
-        // Ищем ближайшеий input с количеством 
         var $input = $(this).closest('.input-group').find('.number');
-        // Берем значение количества товара
         var currentValue = parseInt($input.val());
-        // Если количества больше одного, то только тогда делаем -1
         if (currentValue > 1) {
             $input.val(currentValue - 1);
-            // Запускаем функцию определенную ниже
-            // с аргументами (id карты, новое количество, количество уменьшилось или прибавилось, url)
+
             updateCart(cartID, currentValue - 1, -1, url);
         }
     });
 
-    // Обработчик события для увеличения значения
+    // + товар
     $(document).on("click", ".increment", function () {
-        // Берем ссылку на контроллер django из атрибута data-cart-change-url
+
         var url = $(this).data("cart-change-url");
-        // Берем id корзины из атрибута data-cart-id
         var cartID = $(this).data("cart-id");
-        // Ищем ближайшеий input с количеством 
         var $input = $(this).closest('.input-group').find('.number');
-        // Берем значение количества товара
         var currentValue = parseInt($input.val());
 
         $input.val(currentValue + 1);
 
-        // Запускаем функцию определенную ниже
-        // с аргументами (id карты, новое количество, количество уменьшилось или прибавилось, url)
         updateCart(cartID, currentValue + 1, 1, url);
     });
 
@@ -151,56 +188,48 @@ function showSuccessNotification(message) {
             },
 
             success: function (data) {
-                // Сообщение
                 successMessage.html(data.message);
                 successMessage.fadeIn(400);
-                // Через 7сек убираем сообщение
+                // смс 7 сек 
                 setTimeout(function () {
                     successMessage.fadeOut(400);
                 }, 7000);
 
-                // Изменяем количество товаров в корзине
                 var goodsInCartCount = $("#goods-in-cart-count");
                 var cartCount = parseInt(goodsInCartCount.text() || 0);
                 cartCount += change;
                 goodsInCartCount.text(cartCount);
 
-                // Меняем содержимое корзины
                 var cartItemsContainer = $("#cart-items-container");
                 cartItemsContainer.html(data.cart_items_html);
 
             },
             error: function (data) {
-                console.log("Ошибка при добавлении товара в корзину");
+                console.log("Error adding product to cart");
             },
         });
     }
 
-    // Берем из разметки элемент по id - оповещения от django
     var notification = $('#notification');
-    // И через 7 сек. убираем
     if (notification.length > 0) {
         setTimeout(function () {
             notification.alert('close');
         }, 7000);
     }
 
-    // При клике по значку корзины открываем всплывающее(модальное) окно
     $('#modalButton').click(function () {
         $('#exampleModal').appendTo('body');
 
         $('#exampleModal').modal('show');
     });
 
-    // Собыите клик по кнопке закрыть окна корзины
     $('#exampleModal .btn-close').click(function () {
         $('#exampleModal').modal('hide');
     });
 
-    // Обработчик события радиокнопки выбора способа доставки
     $("input[name='requires_delivery']").change(function () {
         var selectedValue = $(this).val();
-        // Скрываем или отображаем input ввода адреса доставки
+
         if (selectedValue === "1") {
             $("#deliveryAddressField").show();
         } else {
@@ -208,13 +237,11 @@ function showSuccessNotification(message) {
         }
     });
 
-    // Форматирования ввода номера телефона в форме (xxx) xxx-хххx
     document.getElementById('id_phone_number').addEventListener('input', function (e) {
         var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
         e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
     });
 
-    // Проверяем на стороне клиента коррекность номера телефона в форме xxx-xxx-хх-хx
     $('#create_order_form').on('submit', function (event) {
         var phoneNumber = $('#id_phone_number').val();
         var regex = /^\(\d{3}\) \d{3}-\d{4}$/;
@@ -225,7 +252,6 @@ function showSuccessNotification(message) {
         } else {
             $('#phone_number_error').hide();
 
-            // Очистка номера телефона от скобок и тире перед отправкой формы
             var cleanedPhoneNumber = phoneNumber.replace(/[()\-\s]/g, '');
             $('#id_phone_number').val(cleanedPhoneNumber);
         }

@@ -19,9 +19,9 @@ html, body {
 
 .badge.bg-custom {
   position: absolute;
-  top: 50%; /* Центрируем по вертикали */
-  left: 50%; /* Центрируем по горизонтали */
-  transform: translate(-50%, -50%); /* Смещаем на 50% ширины и высоты */
+  top: 50%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
   z-index: 1;
   font-size: 1.2rem;
   background-color: #31c783;
@@ -38,15 +38,15 @@ html, body {
 }
 
 .navbar {
-  height: 45px; /* Высота верхней панели */
-  width: 100%;   /* Ширина на всю страницу */
+  height: 45px; /* Висота навбара */
+  width: 100%;
   background-color: #2a1e1e;
   display: flex;
   z-index: 10; 
   padding: 0 0;
-  justify-content: center; /* Центрируем элементы горизонтально */
-  align-items: center; /* Центрируем элементы вертикально */
-  text-align: center; /* Центрируем текст внутри элементов */
+  justify-content: center; /* Горизонтально */
+  align-items: center; /* Вертикально */
+  text-align: center;
 }
 
 .nav-item,
@@ -59,7 +59,7 @@ html, body {
 }
 
 .nav-item a:hover {
-  color: #15c469; /* Изменение цвета текста при наведении */
+  color: #15c469;
 }
 
 .nav-link a:hover {
@@ -73,9 +73,9 @@ html, body {
 .form-control {
   display: flex;
   height: 35px;
-  outline: none; /* Убираем стандартную синюю рамку */
-  border: 2px solid #986e6e !important; /* Обводка нужного цвета */
-  box-shadow: none !important; /* Убирает черную тень */
+  outline: none; /* Мінус синя рамка */
+  border: 2px solid #986e6e !important; /* Рамка потрібного кольору */
+  box-shadow: none !important; /* Тінь мінус */
   border-radius: 5px;
   background-color: #c3b2b2;
   color: #402b2b;
@@ -84,7 +84,7 @@ html, body {
   justify-content: center;
 }
 
-/* Изменяем цвет крестика (очистки) */
+/* Хрестик */
 .form-control::-webkit-search-cancel-button {
   filter: invert(75%) sepia(24%) saturate(313%) hue-rotate(90deg) brightness(95%) contrast(90%);
 }
@@ -94,7 +94,7 @@ html, body {
   display: flex;
   background-color: #c3b2b2;
   border: 2px solid #986e6e !important;
-  box-shadow: none !important; /* Убирает эффект тени */
+  box-shadow: none !important;
   padding: 0;
   width: 30px;
   height: 30px;
@@ -178,8 +178,8 @@ html, body {
 .form-check-input {
   border: 2px solid #986e6e !important;
   background-color: #c3b2b2;  
-  outline: none; /* Убираем стандартную синюю обводку */
-  box-shadow: none !important; /* Убираем свечение */
+  outline: none;
+  box-shadow: none !important;
 }
 
 .form-check-input:hover {
@@ -243,7 +243,7 @@ html, body {
 }
 
 .navbar-collapse {
-  background-color: #2a1e1e !important; /* Принудительный цвет */
+  background-color: #2a1e1e !important;
   box-shadow: none;
   padding: 0 0;
   margin: 0 0;
@@ -268,20 +268,19 @@ html, body {
 .page-item {
   background-color: #096740;
   color: #c3b2b2;
-  outline: none; /* Убираем стандартную синюю рамку */
-  border: 1px solid #402b2b !important; /* Обводка нужного цвета */
-  box-shadow: none !important; /* Убирает черную тень */
+  outline: none;
+  border: 1px solid #402b2b !important;
+  box-shadow: none !important;
   border-radius: 5px;
   box-shadow: none;
 }
 
 .pagination .page-item.active .page-link {
-  background-color: #986e6e; /* Цвет фона активной страницы */
-  border-color: #096740; /* Цвет границы */
-  color: #2a1e1e; /* Цвет текста активной ссылки */
+  background-color: #986e6e;
+  border-color: #096740;
+  color: #2a1e1e;
 }
 
-/* Убираем синий цвет на hover или фокус */
 .pagination .page-link:focus, .pagination .page-link:hover {
   color: #2a1e1e;
   background-color: transparent;

@@ -7,49 +7,49 @@ footer {
 }
 
 .bg-custom {
-  height: 40px; /* Высота футера */
-  width: 100%;   /* Ширина на всю страницу */
-  background-color: #2a1e1e; /* Цвет фона */
-  color: #c3b2b2; /* Цвет текста */
-  text-align: center; /* Текст по центру */
+  height: 40px; /* Висота футера */
+  width: 100%;   /* Ширина на всю сторінку */
+  background-color: #2a1e1e; /* Колір фона */
+  color: #c3b2b2; /* Колір тексту */
+  text-align: center;
   box-sizing: border-box;
   z-index: 101 !important;
 }
 
 .general-footer{
-  display: flex; /* Управления расположением */
-  justify-content: space-between;  /* Равномерно распределяет элементы */
+  display: flex; /* Управління розташуванням */
+  justify-content: space-between;  /* Рівномірно на сторінці з отступами */
 }
 
 .icon_footer {
-  width: 22px; /* Ширина иконки */
-  height: 22px; /* Высота иконки */
-  object-fit: contain; /* Сохраняет пропорции содержимого */
-  transition: transform 0.5s ease; /* Плавный переход */
+  width: 22px;
+  height: 22px;
+  object-fit: contain; /* Зберігає пропорції */
+  transition: transform 0.5s ease; /* Плавний перехід */
 }
 
 .copy-right {
   display: flex; 
-  justify-content: center; /* Центрируем по горизонтали */
-  align-items: center; /* Центрируем по вертикали */
-  color: #c3b2b2; /* Цвет текста */
+  justify-content: center; /* Центруєм по горизонталі */
+  align-items: center; /* Центруєм по вертикалі */
+  color: #c3b2b2; 
   font-size: 10px;
-  margin: 0; /* Внешние отступы */
-  padding: 0; /* Внутренние отступы */
+  margin: 0; /* Зовнішні відступи */
+  padding: 0; /* Внутрішні відступи */
   text-align: center;
   height: 100%;
 }
 
 .privacy_terms a {
-  text-decoration: none; /* Минус подчеркивание */
+  text-decoration: none; /* Мінус підкреслення */
   color: #c3b2b2;
   transition: color 0.5s ease;
-  font-size: 12px;
+  font-size: 12px; /* Розмір шрифта */
 }
 
 .privacy_terms a:hover {
-  color: #85d8a7; /* Изменение цвета текста при наведении */
-  transform: scale(1.2); /* Увеличение при наведении */
+  color: #85d8a7; /* Зміна кольору тексту при наведенні */
+  transform: scale(1.2); /* Збільшення при наведенні */
 }
 
 .icon_footer:hover {
@@ -66,15 +66,15 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: #e2c9c9; /* Фон */
-  padding: 20px 20px; /* Внутренние отступы */
-  border-radius: 15px; /* Закруглённые углы */
+  padding: 20px 20px; 
+  border-radius: 15px; /* Заокруглення углів */
 }
 
 .information-pages h1 {
   color: #1e1010;
   font-size: 2em; /* big текст */
-  border-bottom: 3px solid #986e6e; /* Подчёркивание */
-  padding-bottom: 5px; /* Отступ для текста */
+  border-bottom: 3px solid #986e6e; /* Підкреслювання */
+  padding-bottom: 5px; /* Відступ */
 }
 
 .information-pages h2 {
@@ -85,20 +85,20 @@ footer {
 
 .information-pages p,
 .information-pages ul {
-  font-size: 1.2em; /* Увеличенный размер шрифта */
+  font-size: 1.2em; 
   color: #402b2b;
-  list-style-type: disc; /* Маркеры — точки */
+  list-style-type: disc; /* Маркери — крапки */
 }
 
 .information-pages ul li {
-  margin-bottom: 10px; /* Расстояние между пунктами */
+  margin-bottom: 10px; /* Відстань між пунктами */
 }
 
 .information-pages a {
   text-decoration: none;
   color: #2a1e1e;
-  font-size: 1em; /* Средний текст */
-  padding-bottom: 5px; /* Отступ для текста */
+  font-size: 1em;
+  padding-bottom: 5px;
 }
 
 .contact-info ul li {
@@ -110,12 +110,12 @@ footer {
 .contact-info a {
   display: inline-block;
   color: #402b2b;
-  transition: transform 0.5s ease, color 0.5s ease; /* Плавный переход */
+  transition: transform 0.5s ease, color 0.5s ease;
 }
 
 .contact-info a:hover {
-  color: #096740; /* Меняем цвет текста */
-  transform: scale(1.0); /* Увеличение при наведении */
+  color: #096740;
+  transform: scale(1.0);
 }
 
 .form-check {

@@ -2,10 +2,16 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from carts.models import Cart
 from carts.utils import get_user_carts
+from django.db.models import Sum
+import logging
 
+# Configure the logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 class CartMixin:
     def get_cart(self, request, product=None, cart_id=None):
+
         query_kwargs = {}
 
         if request.user.is_authenticated:
@@ -19,22 +25,39 @@ class CartMixin:
             query_kwargs["id"] = cart_id
 
         try:
-            return Cart.objects.filter(**query_kwargs).first()
+            cart = Cart.objects.filter(**query_kwargs).first()
+            logger.info(f"Cart retrieved: {cart}")
+            return cart
         except Cart.DoesNotExist:
-            return None  # Or handle as needed
+            logger.warning("Cart not found")
+            return None  # Кошик не знайдено
+
+    def get_total_quantity(self, request):
+        """Отримуємо загальну кількість товарів"""
+        query_kwargs = {}
+
+        if request.user.is_authenticated:
+            query_kwargs["user"] = request.user
+        else:
+            query_kwargs["session_key"] = request.session.session_key
+
+        total = Cart.objects.filter(**query_kwargs).aggregate(total=Sum("quantity"))["total"]
+        total_quantity = total or 0
+        logger.info(f"Total quantity in cart: {total_quantity}") 
+        return total_quantity
 
     def render_cart(self, request):
-        user_cart = get_user_carts(request)  # Ensure this function is defined
-        context = {"carts": user_cart}
+        """Оновлюємо HTML-код кошика"""
+        user_cart = get_user_carts(request)  
+        context = {"carts": user_cart, "total_quantity": self.get_total_quantity(request)}
 
-        # Check if referer is from create_order page and add context variable
-        referer = request.META.get('HTTP_REFERER', '')
-        if reverse('orders:create_order') in referer:
+        referer = request.META.get("HTTP_REFERER", "")
+        if reverse("orders:create_order") in referer:
             context["order"] = True
 
-        return render_to_string(
-            "carts/includes/included_cart.html", context, request=request
-        )
+        logger.info("Rendering cart HTML update")
+        return render_to_string("carts/includes/included_cart.html", context, request=request)
+
 
 
 
@@ -45,9 +68,9 @@ class CartMixin:
 #         if request.user.is_authenticated:
 #             return Cart.objects.filter(user=request.user, product=product).first()
 
-#         session_key = request.session.session_key  # Проверяем текущую сессию
+#         session_key = request.session.session_key
 #         if not session_key:
-#             return None  # Если нет session_key, корзина не найдена
+#             return None 
         
 #         if cart_id:
 #             return Cart.objects.filter(session_key=session_key, id=cart_id).first()

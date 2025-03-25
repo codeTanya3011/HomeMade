@@ -9,7 +9,7 @@
 <div class="row">
     <div class="container mt-5">
         <div class="row">
-            <!-- Профиль с данными пользователя -->
+
             <div class="col-md-5">
                 <div class="bg-light p-4 mb-4 mx-2 rounded custom-shadow ms-5">
                     <h3 class="text-center mb-4" style="color: #402b2b;">User profile</h3>
@@ -113,7 +113,7 @@
             <div class="col-md-12">
                 <div class="bg-light p-4 mb-4 mx-2 rounded custom-shadow ms-5">
                     <h3 class="text-center mb-4" style="color: #402b2b;">My orders</h3>
-                    <!-- Разметка заказов -->
+                    <!-- Замовлення -->
                     <div class="container">
                         <div class="accordion" id="accordionExample">
                             {% for order in orders %}
@@ -143,7 +143,7 @@
                                             <tbody>
                                                 {% for item in order.orderitem_set.all %}
                                                 <tr>
-                                                    <td><a class="custom-link ps-3" href="{% url 'goods:product' item.product.slug %}">{{ item.product.name }}</a></td>
+                                                    <td><a class="custom-link ps-3" href="{% url 'goods:product' product_slug=item.product.slug %}">{{ item.product.name }}</a></td>
                                                     <td>{{ item.quantity }}</td>
                                                     <td>{{ item.price }}</td>
                                                     <td>{{ item.products_price }}</td>                                                   

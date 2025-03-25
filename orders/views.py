@@ -31,7 +31,7 @@ class CreateOrderView(LoginRequiredMixin, FormView):
                 cart_items = Cart.objects.filter(user=user)
 
                 if cart_items.exists():
-                    # Создать заказ
+                    # Створити замовлення
                     order = Order.objects.create(
                         user=user,
                         phone_number=form.cleaned_data['phone_number'],
@@ -39,7 +39,6 @@ class CreateOrderView(LoginRequiredMixin, FormView):
                         delivery_address=form.cleaned_data['delivery_address'],
                         payment_on_get=form.cleaned_data['payment_on_get'],
                     )
-                    # Создать заказанные товары
                     for cart_item in cart_items:
                         product=cart_item.product
                         name=cart_item.product.name
@@ -61,7 +60,7 @@ class CreateOrderView(LoginRequiredMixin, FormView):
                         product.quantity -= quantity
                         product.save()
 
-                    # Очистить корзину пользователя после создания заказа
+                    # Очистити кошик користувача після створення замовлення
                     cart_items.delete()
 
                     messages.success(self.request, 'The order has been placed!')
@@ -112,8 +111,8 @@ class CreateOrderView(LoginRequiredMixin, FormView):
 #                             quantity=cart_item.quantity
 
 #                             if product.quantity < quantity:
-#                                 raise ValidationError(f'Недостаточное количество товара {name} на складе\
-#                                                        В наличии - {product.quantity}')
+#                                 raise ValidationError(f'Не має {name} на складі\
+#                                                        В кількості - {product.quantity}')
 
 #                             OrderItem.objects.create(
 #                                 order=order,

@@ -8,14 +8,14 @@
     <div class="container">
         <h3 class="text-center mb-4">Selected Products</h3>
         <div class="container" id="cart-items-container">
-            <!-- Разметка корзины -->
+
             {% user_carts request as carts %}
 
             {% include "carts/includes/included_cart.html" %}
-            <!-- Закончилась разметка корзины -->
+
         </div>
     </div>
-    <!-- Детали заказа -->
+    <!-- Деталі замовлення -->
     <div class="container">
         <h3 class="text-center">Order details</h3>
         <div class="card mb-3">

@@ -52,13 +52,13 @@ class ProductView(DetailView):
     def get_object(self, queryset=None):
         slug = self.kwargs.get(self.slug_url_kwarg)
         if not slug:  
-            raise Http404("Page not found")  # Если `slug` пустой, возвращаем 404
+            raise Http404("Page not found")
 
         try:
             product = Products.objects.get(slug=slug)
             return product
         except Products.DoesNotExist:
-            raise Http404("Product not found")  # Если товара нет в БД, возвращаем 404
+            raise Http404("Product not found")
 
 
 
@@ -90,7 +90,7 @@ class ProductView(DetailView):
 #     current_page = paginator.page(int(page))
 
 #     context = {
-#         "title": "Home - Каталог",
+#         "title": "",
 #         "goods": current_page,
 #         "slug_url": category_slug
 #     }

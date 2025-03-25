@@ -20,47 +20,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static "deps/favicon/furniture-store-16x16.png" %}">
     <link rel="manifest" href="{% static "deps/favicon/site.webmanifest" %}">
     <title>{{ title }}</title>
-    
-    <script>
-        $(document).ready(function () {
-            $(".add-to-cart").click(function (e) {
-                e.preventDefault();  
-                let productId = $(this).data("product-id");
-    
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'carts:cart_add' %}",
-                    data: {
-                        product_id: productId,
-                        csrfmiddlewaretoken: "{{ csrf_token }}"
-                    },
-                    dataType: "json",
-                    success: function (response) {
-                        if (response.success) {
-                            $("#cart-container").html(response.cart_items_html);  // Обновляем корзину
-                            $("#goods-in-cart-count").text(response.total_quantity);  // Обновляем количество товаров
-                            showSuccessNotification(response.message);  // Показываем уведомление
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("Ошибка AJAX:", error);
-                    }
-                });
-            });
-        });
-    
-        // Функция для показа уведомлений
-        function showSuccessNotification(message) {
-            let notification = $("#jq-notification");
-    
-            notification.html(message).fadeIn(400);
-            setTimeout(function () {
-                notification.fadeOut(400);
-            }, 4000);
-        }
-    </script>
-    
-        
+
 </head>
 <body>
 
@@ -124,13 +84,14 @@
                         <input class="form-control w-100 fs-5 ms-4" type="search" name="q" aria-label="Search" placeholder="Enter your request">
                         <button class="form-control w-25 fs-5 ms-3 me-5" type="submit" style="color: #327d50;"><strong>Search</strong></button>
                     </form>
+                    
                 </div>
             </div>
         </nav>
     </header>
     <section>
         <div class="container row">
-            <!-- Каталог и корзина с фиксированным расположением на странице -->
+            <!-- Каталог і корзина -->
             <div class="container position-fixed z-3 ms-2">
 
                 <div class="dropdown justify-content-start mt-5 mb-2 ms-5">
@@ -157,7 +118,7 @@
 
             </div>
         </div>
-        <!-- Контент -->
+
         <div class="container">
             <div class="row mt-1">
                 <div class="col-lg-12">
