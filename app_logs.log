@@ -1003,3 +1003,9 @@ Removing cart item with ID 419, quantity: 1
 Successfully removed cart item with ID None.
 Total quantity in cart: 2
 Rendering cart HTML update
+CartRemoveView: Received a request to remove an item from the cart.
+Cart retrieved: Cart root | Product Double bed | Quantity 1
+Removing cart item with ID 420, quantity: 1
+Successfully removed cart item with ID None.
+Total quantity in cart: 1
+Rendering cart HTML update
