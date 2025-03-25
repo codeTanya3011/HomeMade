@@ -11,13 +11,9 @@
         document.querySelectorAll(".add-to-cart").forEach(button => {
             button.addEventListener("click", function (event) {
                 event.preventDefault();
-    
-                // Отключаем кнопку, чтобы предотвратить двойной клик
-                this.disabled = true;
-    
+                this.disabled = true;   
                 let form = this.closest("form");
-                let formData = new FormData(form);
-    
+                let formData = new FormData(form);    
                 fetch(form.action, {
                     method: "POST",
                     body: formData,
@@ -27,7 +23,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log("Ответ сервера:", data);
+                    console.log("Server response:", data);
     
                     if (data.success) {
                         let cartCounter = document.querySelector("#goods-in-cart-count");
@@ -50,26 +46,22 @@
                     showErrorNotification("❌ Server error! Try again");
                 })
                 .finally(() => {
-                    // Включаем кнопку обратно после завершения запроса
                     this.disabled = false;
                 });
-            }, { once: true }); // { once: true } привязывает обработчик только 1 раз
+            }, { once: true });
         });
     });
-    
     function showNotification(message, type = "success") {
         let notification = document.getElementById("jq-notification");
     
         if (!notification) {
-            console.error("Елемент #jq-notification не найден!");
+            console.error("Елемент #jq-notification не знайдено!");
             return;
         }
-    
         notification.classList.remove("fade-out");
         notification.style.visibility = "visible";
         notification.style.opacity = "1";
     
-        // Стили уведомлений
         if (type === "success") {
             notification.style.backgroundColor = "#d1ebe1";
             notification.style.color = "#043724";
@@ -79,7 +71,6 @@
             notification.style.color = "#721c24";
             notification.style.border = "1px solid #f5c6cb";
         }
-    
         notification.innerHTML = message;
         notification.classList.add("fade-in");
     
@@ -93,37 +84,28 @@
             }, 500);
         }, 4000);
     }
-    
     function showSuccessNotification(message) {
         showNotification(message, "success");
     }
-    
     function showErrorNotification(message) {
         showNotification(message, "error");
     }
-    
 </script>
-    
-    
 <div class="container mt-5 ms-5">
     <div class="card mb-4 custom-shadow ms-5 ps-3 pt-3 pe-3 pb-3" style="border: 2px solid #096740 !important;">
         <div class="row">
-
             <div class="col-md-4">
                 <img src="{{ product.image.url }}" 
                     class="img-fluid img-thumbnail" 
                     data-bs-toggle="modal" data-bs-target="#imageModal1" 
                     style="max-width: 100%; height: auto;">
             </div>
-
             <div class="col-md-8">
                 <div class="card-body text-center" style="color: #402b2b;">
                     <p class="card-text mt-3">Price: <strong>{{ product.sell_price }} UAH</strong></p>
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text">{{ product.description }}</p>
-
                     <p class="product_id mt-3">id: {{ product.display_id }}</p>
-
                     <form action="{% url 'carts:cart_add' %}" method="post" class="d-inline">
                         <input type="hidden" name="product_id" value="{{ product.id }}">                    
                         <button type="button" class="btn dropdown-toggle add-to-cart align-items-center fs-5"
@@ -139,5 +121,4 @@
         </div>
     </div>
 </div>
-
 {% endblock content %}

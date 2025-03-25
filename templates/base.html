@@ -20,10 +20,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static "deps/favicon/furniture-store-16x16.png" %}">
     <link rel="manifest" href="{% static "deps/favicon/site.webmanifest" %}">
     <title>{{ title }}</title>
-
 </head>
 <body>
-
     <header>
         <div id="cart-alert" class="alert alert-success position-fixed text-center translate-middle-x z-3" 
              style="display: none; background-color: #A8E6CF; color: #2E7D32; border-color: #66BB6A;">
@@ -35,7 +33,6 @@
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-lg-0">
                         <li class="nav-item dropdown">
@@ -78,13 +75,11 @@
                                 </ul>
                             </li>
                         {% endif %}
-                        
                     </ul>
                     <form class="d-flex align-items-center mt-3 mx-3" style="text-align: center; display: inline-flex; justify-content: center; align-items: center;" role="search" action="{% url "catalog:search" %}" method="get">
                         <input class="form-control w-100 fs-5 ms-4" type="search" name="q" aria-label="Search" placeholder="Enter your request">
                         <button class="form-control w-25 fs-5 ms-3 me-5" type="submit" style="color: #327d50;"><strong>Search</strong></button>
                     </form>
-                    
                 </div>
             </div>
         </nav>
@@ -93,7 +88,6 @@
         <div class="container row">
             <!-- Каталог і корзина -->
             <div class="container position-fixed z-3 ms-2">
-
                 <div class="dropdown justify-content-start mt-5 mb-2 ms-5">
                     <button class="btn dropdown-toggle fs-5" 
                             type="button" 
@@ -118,7 +112,6 @@
 
             </div>
         </div>
-
         <div class="container">
             <div class="row mt-1">
                 <div class="col-lg-12">
@@ -130,15 +123,12 @@
         </div>
     </section>
 
-
     {% block footer %}{% endblock %}
       
     <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
     <script src="{% static "deps/js/jquery-ajax.js" %}"></script>
     <script src="{% static "deps/js/bootstrap/bootstrap.bundle.min.js" %}"></script>
     <div id="jq-notification" class="alert alert-success custom-shadow"></div>
-
     
 </body>
-
 </html>
