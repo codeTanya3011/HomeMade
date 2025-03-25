@@ -1009,3 +1009,159 @@ Removing cart item with ID 420, quantity: 1
 Successfully removed cart item with ID None.
 Total quantity in cart: 1
 Rendering cart HTML update
+Received request to add product 3 to cart
+Cart retrieved: None
+Created new cart item for product 3
+Total quantity in cart: 2
+Total quantity in cart: 2
+Rendering cart HTML update
+Received request to add product 7 to cart
+Cart retrieved: None
+Created new cart item for product 7
+Total quantity in cart: 3
+Total quantity in cart: 3
+Rendering cart HTML update
+Received request to add product 12 to cart
+Cart retrieved: Cart root | Product Small table with drawers | Quantity 1
+Updated cart item: Cart root | Product Small table with drawers | Quantity 2
+Total quantity in cart: 4
+Total quantity in cart: 4
+Rendering cart HTML update
+Received request to add product 15 to cart
+Received request to add product 15 to cart
+Cart retrieved: None
+Created new cart item for product 15
+Total quantity in cart: 5
+Total quantity in cart: 5
+Rendering cart HTML update
+Cart retrieved: Cart root | Product Old classic | Quantity 1
+Updated cart item: Cart root | Product Old classic | Quantity 2
+Total quantity in cart: 6
+Total quantity in cart: 6
+Rendering cart HTML update
+CartRemoveView: Received a request to remove an item from the cart.
+Cart retrieved: Cart root | Product Double bed | Quantity 1
+Removing cart item with ID 421, quantity: 1
+Successfully removed cart item with ID None.
+Total quantity in cart: 5
+Rendering cart HTML update
+CartRemoveView: Received a request to remove an item from the cart.
+Cart retrieved: Cart root | Product Old classic | Quantity 2
+Removing cart item with ID 423, quantity: 2
+Successfully removed cart item with ID None.
+Total quantity in cart: 3
+Rendering cart HTML update
+Received request to add product 31 to cart
+Received request to add product 31 to cart
+Cart retrieved: None
+Cart retrieved: None
+Created new cart item for product 31
+Created new cart item for product 31
+Total quantity in cart: 5
+Total quantity in cart: 5
+Total quantity in cart: 5
+Rendering cart HTML update
+Total quantity in cart: 5
+Rendering cart HTML update
+Received request to add product 31 to cart
+Received request to add product 31 to cart
+Cart retrieved: Cart root | Product Retro lamp | Quantity 1
+Updated cart item: Cart root | Product Retro lamp | Quantity 2
+Cart retrieved: Cart root | Product Retro lamp | Quantity 1
+Total quantity in cart: 6
+Updated cart item: Cart root | Product Retro lamp | Quantity 2
+Total quantity in cart: 6
+Total quantity in cart: 6
+Rendering cart HTML update
+Total quantity in cart: 6
+Rendering cart HTML update
+Received request to add product 12 to cart
+Received request to add product 12 to cart
+Cart retrieved: Cart root | Product Small table with drawers | Quantity 2
+Cart retrieved: Cart root | Product Small table with drawers | Quantity 2
+Updated cart item: Cart root | Product Small table with drawers | Quantity 3
+Updated cart item: Cart root | Product Small table with drawers | Quantity 3
+Total quantity in cart: 7
+Total quantity in cart: 7
+Total quantity in cart: 7
+Total quantity in cart: 7
+Rendering cart HTML update
+Rendering cart HTML update
+Received request to add product 7 to cart
+Received request to add product 7 to cart
+Cart retrieved: Cart root | Product Bedside table | Quantity 1
+Cart retrieved: Cart root | Product Bedside table | Quantity 1
+Updated cart item: Cart root | Product Bedside table | Quantity 2
+Updated cart item: Cart root | Product Bedside table | Quantity 2
+Total quantity in cart: 8
+Total quantity in cart: 8
+Total quantity in cart: 8
+Total quantity in cart: 8
+Rendering cart HTML update
+Rendering cart HTML update
+CartRemoveView: Received a request to remove an item from the cart.
+Cart retrieved: Cart root | Product Small table with drawers | Quantity 3
+Removing cart item with ID 417, quantity: 3
+Successfully removed cart item with ID None.
+Total quantity in cart: 5
+Rendering cart HTML update
+CartRemoveView: Received a request to remove an item from the cart.
+Cart retrieved: Cart root | Product Bedside table | Quantity 2
+Removing cart item with ID 422, quantity: 2
+Successfully removed cart item with ID None.
+Total quantity in cart: 3
+Rendering cart HTML update
+CartChangeView: Received a request to change the cart.
+Cart retrieved: Cart root | Product Retro lamp | Quantity 2
+Updating cart item with ID 424 to new quantity: 3
+Updated cart item with ID 424, new quantity: 3
+Total quantity in cart: 4
+Rendering cart HTML update
+CartChangeView: Received a request to change the cart.
+Cart retrieved: Cart root | Product Retro lamp | Quantity 3
+Updating cart item with ID 424 to new quantity: 2
+Updated cart item with ID 424, new quantity: 2
+Total quantity in cart: 3
+Rendering cart HTML update
+CartChangeView: Received a request to change the cart.
+Cart retrieved: Cart root | Product Retro lamp | Quantity 2
+Updating cart item with ID 424 to new quantity: 1
+Updated cart item with ID 424, new quantity: 1
+Total quantity in cart: 2
+Rendering cart HTML update
+CartChangeView: Received a request to change the cart.
+Cart retrieved: Cart root | Product Retro lamp | Quantity 1
+Updating cart item with ID 424 to new quantity: 2
+Updated cart item with ID 424, new quantity: 2
+Total quantity in cart: 3
+Rendering cart HTML update
+CartChangeView: Received a request to change the cart.
+Cart retrieved: Cart root | Product Retro lamp | Quantity 2
+Updating cart item with ID 424 to new quantity: 3
+Updated cart item with ID 424, new quantity: 3
+Total quantity in cart: 4
+Rendering cart HTML update
+CartChangeView: Received a request to change the cart.
+Cart retrieved: Cart root | Product Retro lamp | Quantity 1
+Updating cart item with ID 425 to new quantity: 2
+Updated cart item with ID 425, new quantity: 2
+Total quantity in cart: 5
+Rendering cart HTML update
+CartRemoveView: Received a request to remove an item from the cart.
+Cart retrieved: Cart root | Product Retro lamp | Quantity 3
+Removing cart item with ID 424, quantity: 3
+Successfully removed cart item with ID None.
+Total quantity in cart: 2
+Rendering cart HTML update
+CartChangeView: Received a request to change the cart.
+Cart retrieved: Cart root | Product Retro lamp | Quantity 2
+Updating cart item with ID 425 to new quantity: 3
+Updated cart item with ID 425, new quantity: 3
+Total quantity in cart: 3
+Rendering cart HTML update
+CartChangeView: Received a request to change the cart.
+Cart retrieved: Cart root | Product Retro lamp | Quantity 3
+Updating cart item with ID 425 to new quantity: 2
+Updated cart item with ID 425, new quantity: 2
+Total quantity in cart: 2
+Rendering cart HTML update

@@ -1,3 +1,88 @@
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".add-to-cart").forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                this.disabled = true;   
+                let form = this.closest("form");
+                let formData = new FormData(form);    
+                fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest"
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Server response:", data);
+    
+                    if (data.success) {
+                        let cartCounter = document.querySelector("#goods-in-cart-count");
+                        if (cartCounter) {
+                            cartCounter.textContent = data.total_quantity || 0;
+                        }
+    
+                        let cartContainer = document.querySelector("#cart-container");
+                        if (cartContainer) {
+                            cartContainer.innerHTML = data.cart_items_html;
+                        }
+    
+                        showSuccessNotification(" Product added to cart!");
+                    } else {
+                        showErrorNotification(data.message || "❌ Error adding product!");
+                    }
+                })
+                .catch(error => {
+                    console.error("Ошибка:", error);
+                    showErrorNotification("❌ Server error! Try again");
+                })
+                .finally(() => {
+                    this.disabled = false;
+                });
+            }, { once: true });
+        });
+    });
+    function showNotification(message, type = "success") {
+        let notification = document.getElementById("jq-notification");
+    
+        if (!notification) {
+            console.error("Елемент #jq-notification не знайдено!");
+            return;
+        }
+        notification.classList.remove("fade-out");
+        notification.style.visibility = "visible";
+        notification.style.opacity = "1";
+    
+        if (type === "success") {
+            notification.style.backgroundColor = "#d1ebe1";
+            notification.style.color = "#043724";
+            notification.style.border = "1px solid #8ec1ab";
+        } else if (type === "error") {
+            notification.style.backgroundColor = "#f8d7da";
+            notification.style.color = "#721c24";
+            notification.style.border = "1px solid #f5c6cb";
+        }
+        notification.innerHTML = message;
+        notification.classList.add("fade-in");
+    
+        setTimeout(() => {
+            notification.classList.remove("fade-in");
+            notification.classList.add("fade-out");
+    
+            setTimeout(() => {
+                notification.style.visibility = "hidden";
+                notification.style.opacity = "0";
+            }, 500);
+        }, 4000);
+    }
+    function showSuccessNotification(message) {
+        showNotification(message, "success");
+    }
+    function showErrorNotification(message) {
+        showNotification(message, "error");
+    }
+
 document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function (event) {
         let button = event.target.closest(".add-to-cart");
@@ -31,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     cartContainer.innerHTML = data.cart_items_html;
                 }
 
-                showSuccessNotification("✅ Product added to cart!");
+                showSuccessNotification("Product added to cart!");
             } else {
                 showErrorNotification(data.message || "❌ Error adding product!");
             }
@@ -45,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
 
 function updateCartCount(newQuantity) {
     let goodsInCartCount = document.getElementById("goods-in-cart-count");
@@ -109,7 +193,7 @@ $(document).on("click", ".remove-from-cart", function (e) {
             $("#cart-items-container").html(data.cart_items_html);
 
             // Показ повідомлення
-            showSuccessNotification("🗑️ The product has been removed from the cart!");
+            showSuccessNotification("The product has been removed from the cart!");
         },
         error: function () {
             console.error("Error while deleting item from cart");
