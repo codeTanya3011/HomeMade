@@ -10,7 +10,7 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home'
+        context['title'] = 'HomeMade'
         context['content'] = " Furniture store HomeMade"
         return context
 

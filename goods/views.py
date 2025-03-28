@@ -10,7 +10,7 @@ class CatalogView(ListView):
     # queryset = Products.objects.all().order_by("-id")
     template_name = "goods/catalog.html"
     context_object_name = "goods"
-    paginate_by = 4
+    paginate_by = 6
     allow_empty = False
     slug_url_kwarg = "category_slug"
 

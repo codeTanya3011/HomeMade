@@ -4,18 +4,14 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.views import View
 from carts.mixins import CartMixin
+from django.shortcuts import get_object_or_404
+from django.db.models import Sum, F
 
 from carts.models import Cart
 from carts.utils import get_user_carts
 from goods.models import Products
 
-from django.http import JsonResponse
-from django.template.loader import render_to_string
-from django.views import View
 from .models import Cart, Products
-
-from django.http import JsonResponse
-from django.template.loader import render_to_string
 import logging
 
 
@@ -24,25 +20,25 @@ logger = logging.getLogger(__name__)
 class CartAddView(CartMixin, View):
     def post(self, request):
         product_id = request.POST.get("product_id")
-        logger.info(f"Received request to add product {product_id} to cart") 
+        logger.info(f"CartAddView Received request to add product {product_id} to cart")  
 
-        try:
-            product = Products.objects.get(id=product_id)
-        except Products.DoesNotExist:
-            logger.error(f"Product {product_id} not found") 
-            return JsonResponse({"success": False, "message": "Product not found"}, status=404)
+        product = get_object_or_404(Products, id=product_id)
 
+        # Перевірка на session_key
         if not request.session.session_key:
             request.session.create()
 
+        logger.info(f"Session key before adding to cart: {request.session.session_key}")
+
+        # Отримуємо корзину
         cart = self.get_cart(request, product=product)
 
         if cart:
             cart.quantity += 1
             cart.save()
-            logger.info(f"Updated cart item: {cart}") 
+            logger.info(f"Updated cart item: {cart}")  
         else:
-            Cart.objects.create(
+            cart = Cart.objects.create(
                 user=request.user if request.user.is_authenticated else None,
                 session_key=request.session.session_key if not request.user.is_authenticated else None,
                 product=product, 
@@ -54,14 +50,16 @@ class CartAddView(CartMixin, View):
 
         cart_items_html = self.render_cart(request)
 
+        logger.info(f"Cart HTML update: {cart_items_html}")
+
         response_data = {
             "success": True,
-            "message": "Product added to cart!",
-            "total_quantity": total_quantity,  
+            "message": f"{product.name} added to cart!",
+            "total_quantity": total_quantity,
             "cart_items_html": cart_items_html
         }
 
-        logger.info(f"Response data: {response_data}")
+        logger.info(f"CartAddView Cart updated successfully. Response: {response_data}")
         return JsonResponse(response_data)
 
 
@@ -69,65 +67,93 @@ logger = logging.getLogger(__name__)
 
 class CartChangeView(CartMixin, View):
     def post(self, request):
-        logger.info("CartChangeView: Received a request to change the cart.")
+        logger.info("CartChangeView: Request to change cart received")
 
         cart_id = request.POST.get("cart_id")
         cart = self.get_cart(request, cart_id=cart_id)
 
         if not cart:
-            logger.warning(f"Cart with ID {cart_id} not found.")
+            logger.warning(f"Cart with ID {cart_id} not found")
             return JsonResponse({"message": "Cart not found"}, status=404)
 
         new_quantity = int(request.POST.get("quantity", 1))
-        logger.info(f"Updating cart item with ID {cart.id} to new quantity: {new_quantity}")
+        logger.info(f"We update the quantity of goods in the cart with ID {cart.id} to the new quantity: {new_quantity}")
 
         cart.quantity = max(1, new_quantity)
         cart.save()
 
-        logger.info(f"Updated cart item with ID {cart.id}, new quantity: {cart.quantity}")
+        logger.info(f"Cart with ID {cart.id} updated, new quantity: {cart.quantity}")
+
+        total_price = Cart.objects.filter(user=request.user).total_price()
+        total_quantity = Cart.objects.filter(user=request.user).total_quantity()
+
+        # Кошик після оновлення
+        carts = Cart.objects.filter(user=request.user)
+        
+        for item in carts:
+            item.product_price = item.products_price()
+
+        cart_items_html = render_to_string("carts/includes/included_cart.html", {
+            "carts": carts,
+            "total_price": total_price, 
+            "total_quantity": total_quantity 
+        })
 
         response_data = {
-            "message": "Quantity changed",
+            "message": "Количество изменено",
             "quantity": cart.quantity,
-            'cart_items_html': self.render_cart(request)
+            "cart_price": cart.products_price(),
+            "total_price": total_price,
+            "total_quantity": total_quantity,
+            "cart_items_html": cart_items_html,
         }
-
         return JsonResponse(response_data)
 
 
 logger = logging.getLogger(__name__)
 
-class CartRemoveView(CartMixin, View):
+class CartRemoveView(View):
     def post(self, request):
-        logger.info("CartRemoveView: Received a request to remove an item from the cart.")
 
         cart_id = request.POST.get("cart_id")
-        cart = self.get_cart(request, cart_id=cart_id)
+        
+        if not cart_id:
+            return JsonResponse({"message": "Cart ID is missing"}, status=400)
 
-        if not cart:
-            logger.warning(f"Cart item with ID {cart_id} not found for removal.")
-            return JsonResponse({"message": "Product not found in cart"}, status=404)
+        cart_item = get_object_or_404(Cart, id=cart_id)
 
-        quantity = cart.quantity
-        logger.info(f"Removing cart item with ID {cart.id}, quantity: {quantity}")
+        logger.info(f"Removing cart item with ID {cart_item.id}, quantity: {cart_item.quantity}")
 
-        cart.delete()
+        # Видалення товару з корзини
+        cart_item.delete()
 
-        logger.info(f"Successfully removed cart item with ID {cart.id}.")
+        logger.info(f"Successfully removed cart item with ID {cart_item.id}")
+
+        total_price = Cart.objects.filter(user=request.user).annotate(
+            total_item_price=F('product__price') * F('quantity')
+        ).aggregate(Sum('total_item_price'))['total_item_price__sum']
+
+        total_quantity = Cart.objects.filter(user=request.user).aggregate(Sum('quantity'))['quantity__sum']
 
         response_data = {
-            "message": "Product removed from cart",
-            "quantity_deleted": quantity,
-            'cart_items_html': self.render_cart(request)
+            "message": "Item removed successfully",
+            "total_price": total_price if total_price else 0,
+            "total_quantity": total_quantity if total_quantity else 0,
+            "cart_items_html": self.render_cart(request),
         }
 
         return JsonResponse(response_data)
+
+    def render_cart(self, request):
+
+        carts = Cart.objects.filter(user=request.user)
+        return render_to_string("carts/includes/included_cart.html", {"carts": carts})
+
 
 
 
 
 # def cart_add(request):
-
 #     product_id = request.POST.get("product_id")
 #     product = Products.objects.get(id=product_id)
 #     if request.user.is_authenticated:

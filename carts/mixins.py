@@ -7,17 +7,19 @@ import logging
 
 # Configure the logger
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
 
 class CartMixin:
     def get_cart(self, request, product=None, cart_id=None):
-
         query_kwargs = {}
 
         if request.user.is_authenticated:
             query_kwargs["user"] = request.user
         else:
+            if not request.session.session_key:
+                request.session.create() 
             query_kwargs["session_key"] = request.session.session_key
+
+        logger.info(f"Getting cart for session_key: {request.session.session_key}, user: {request.user}")
 
         if product:
             query_kwargs["product"] = product
@@ -30,7 +32,7 @@ class CartMixin:
             return cart
         except Cart.DoesNotExist:
             logger.warning("Cart not found")
-            return None  # Кошик не знайдено
+            return None
 
     def get_total_quantity(self, request):
         """Отримуємо загальну кількість товарів"""
@@ -48,7 +50,10 @@ class CartMixin:
 
     def render_cart(self, request):
         """Оновлюємо HTML-код кошика"""
-        user_cart = get_user_carts(request)  
+        user_cart = get_user_carts(request)
+
+        logger.info(f"User carts: {list(user_cart.values())}")
+        
         context = {"carts": user_cart, "total_quantity": self.get_total_quantity(request)}
 
         referer = request.META.get("HTTP_REFERER", "")
